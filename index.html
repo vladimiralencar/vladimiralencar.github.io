@@ -47,6 +47,7 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
 .accordion-content.open { padding:10px 15px; }
 
 /* ---------------- SUBITEMS DAS DISCIPLINAS ---------------- */
+.accordion-content ol { padding-left:20px; margin:5px 0; }
 .accordion-content ul { padding-left:20px; margin:5px 0; }
 .accordion-content ul li { list-style-type: disc; color:#555; font-weight:400; }
 
@@ -104,7 +105,6 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
 <div class="accordion">
   <div class="accordion-header" id="disc-bd">1. Banco de Dados <span>+</span></div>
   <div class="accordion-content">
-    <p>Conteúdo Programático:</p>
     <ol>
       <li>Ementa</li>
       <li>Breve História de Banco de Dados</li>
@@ -162,15 +162,15 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
     <ol>
       <li>Fundamentos de Computadores
         <ul>
-          <li>Arquitetura básica de um computador</li>
-          <li>CPU, memória, I/O</li>
+          <li>Arquitetura básica de um computador (hardware e software)</li>
+          <li>Componentes principais: CPU, memória, I/O</li>
           <li>Conceito de programa e instrução</li>
         </ul>
       </li>
       <li>Sistemas de Numeração e Representação de Dados
         <ul>
           <li>Decimal, binário, octal, hexadecimal</li>
-          <li>Conversão entre sistemas de numeração</li>
+          <li>Conversão entre sistemas</li>
           <li>Representação de caracteres (ASCII, Unicode)</li>
         </ul>
       </li>
@@ -178,8 +178,8 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
         <ul>
           <li>Algoritmos</li>
           <li>Tipos de dados e variáveis</li>
-          <li>Operadores aritméticos, relacionais e lógicos</li>
-          <li>Entrada e saída de dados em Python</li>
+          <li>Operadores</li>
+          <li>Entrada e saída de dados</li>
         </ul>
       </li>
       <li>Estruturas de Controle
@@ -191,7 +191,7 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
       </li>
       <li>Modularização e Funções em Python
         <ul>
-          <li>Definição de funções (def)</li>
+          <li>Definição de funções</li>
           <li>Parâmetros, argumentos e retorno</li>
           <li>Escopo de variáveis</li>
           <li>Importação de módulos</li>
@@ -209,36 +209,12 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
   <div class="accordion-header" id="disc-ds">3. Ciência de Dados <span>+</span></div>
   <div class="accordion-content">
     <ol>
-      <li>Ementa
-        <ul>
-          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank">PDF</a></li>
-        </ul>
-      </li>
-      <li>Introdução (Motivação)
-        <ul>
-          <li><a href="https://huggingface.co/valencar?sort_spaces=likes#spaces" target="_blank">Link</a></li>
-        </ul>
-      </li>
-      <li>O que é Ciência de Dados (Data Science)?
-        <ul>
-          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf" target="_blank">PDF</a></li>
-        </ul>
-      </li>
-      <li>Data Science e Big Data
-        <ul>
-          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank">PDF</a></li>
-        </ul>
-      </li>
-      <li>Curso Rápido de Python
-        <ul>
-          <li><a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados" target="_blank">GitHub</a></li>
-        </ul>
-      </li>
-      <li>Processo de Aprendizagem
-        <ul>
-          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf" target="_blank">PDF</a></li>
-        </ul>
-      </li>
+      <li>Ementa <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank">PDF</a></li></ul></li>
+      <li>Introdução (Motivação) <ul><li><a href="https://huggingface.co/valencar?sort_spaces=likes#spaces" target="_blank">Link</a></li></ul></li>
+      <li>O que é Ciência de Dados? <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf" target="_blank">PDF</a></li></ul></li>
+      <li>Data Science e Big Data <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank">PDF</a></li></ul></li>
+      <li>Curso Rápido de Python <ul><li><a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados" target="_blank">GitHub</a></li></ul></li>
+      <li>Processo de Aprendizagem <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf" target="_blank">PDF</a></li></ul></li>
       <li>Machine Learning
         <ul>
           <li>Regressão Linear — <a href="https://www.valencar.com/_files/ugd/c3cbd8_73a00ff8bfec4971a060c8752d1166f0.pdf" target="_blank">PDF</a></li>
@@ -246,16 +222,8 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
           <li>KNN, Naive Bayes, Árvores, XGBoost, SVM, PCA</li>
         </ul>
       </li>
-      <li>Redes Neurais
-        <ul>
-          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf" target="_blank">PDF</a></li>
-        </ul>
-      </li>
-      <li>Deep Learning
-        <ul>
-          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf" target="_blank">PDF</a></li>
-        </ul>
-      </li>
+      <li>Redes Neurais <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf" target="_blank">PDF</a></li></ul></li>
+      <li>Deep Learning <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf" target="_blank">PDF</a></li></ul></li>
       <li>PLN, Visão Computacional, Mídias Sociais, MongoDB, Hadoop, Spark</li>
       <li>GitHub — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">Código</a></li>
     </ol>
@@ -287,29 +255,29 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
 <section id="livros" class="section">
 <h2>Livros Publicados</h2>
 <div class="livros-grid">
-  <div class="accordion">
-    <div class="accordion-header">Inteligência Artificial <span>+</span></div>
-    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/1.InteligenciaArtificial.png"></div>
+  <div class="livro-item">
+    <img src="https://vladimiralencar.github.io/livros/1.InteligenciaArtificial.png" alt="Inteligência Artificial">
+    <span>Inteligência Artificial</span>
   </div>
-  <div class="accordion">
-    <div class="accordion-header">Doenças de Pele — CNN <span>+</span></div>
-    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/2.DoencasDePele-CNN.webp"></div>
+  <div class="livro-item">
+    <img src="https://vladimiralencar.github.io/livros/2.DoencasDePele-CNN.webp" alt="Doenças de Pele — CNN">
+    <span>Doenças de Pele — CNN</span>
   </div>
-  <div class="accordion">
-    <div class="accordion-header">Febre Amarela — Twitter <span>+</span></div>
-    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/3.FebreAmarela-Twitter.jpg"></div>
+  <div class="livro-item">
+    <img src="https://vladimiralencar.github.io/livros/3.FebreAmarela-Twitter.jpg" alt="Febre Amarela — Twitter">
+    <span>Febre Amarela — Twitter</span>
   </div>
-  <div class="accordion">
-    <div class="accordion-header">Tuberculose — IA <span>+</span></div>
-    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/4.Tuberculose.webp"></div>
+  <div class="livro-item">
+    <img src="https://vladimiralencar.github.io/livros/4.Tuberculose.webp" alt="Tuberculose — IA">
+    <span>Tuberculose — IA</span>
   </div>
-  <div class="accordion">
-    <div class="accordion-header">Epidemiologia Computacional <span>+</span></div>
-    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/5.EpidemiologiaComputacional.webp"></div>
+  <div class="livro-item">
+    <img src="https://vladimiralencar.github.io/livros/5.EpidemiologiaComputacional.webp" alt="Epidemiologia Computacional">
+    <span>Epidemiologia Computacional</span>
   </div>
-  <div class="accordion">
-    <div class="accordion-header">Ciência de Dados — R <span>+</span></div>
-    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/6.CienciaDeDadosR.webp"></div>
+  <div class="livro-item">
+    <img src="https://vladimiralencar.github.io/livros/6.CienciaDeDadosR.webp" alt="Ciência de Dados — R">
+    <span>Ciência de Dados — R</span>
   </div>
 </div>
 </section>
