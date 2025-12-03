@@ -3,440 +3,417 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Professor Vladimir Alencar</title>
+<title>Vladimir Alencar – Site Oficial</title>
 
 <style>
-/* ---------------------- */
-/* RESET + BASE */
-/* ---------------------- */
+/* ======================================
+   ESTILO BASE - TEMA APPLE CLEAN
+======================================*/
 body {
     margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, Roboto, sans-serif;
-    background: #111;
-    color: #eee;
-    transition: 0.4s ease;
-}
-h1, h2, h3 {
-    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 Helvetica, Arial, sans-serif;
+    background: #f7f7f7;
+    color: #111;
 }
 
-/* Container */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding-top: 60px;
-}
-
-/* ---------------------- */
-/* MENU SUPERIOR */
-/* ---------------------- */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    backdrop-filter: blur(12px);
-    background: rgba(0,0,0,0.6);
+/* ======================================
+   CABEÇALHO E MENU
+======================================*/
+header {
+    background: #000;
+    padding: 16px 40px;
+    color: white;
     display: flex;
     justify-content: space-between;
-    padding: 15px 40px;
-    z-index: 1000;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 600;
 }
 
 nav a {
     color: #fff;
-    margin-left: 20px;
+    margin-left: 24px;
     text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
-}
-
-nav a:hover { color: #0ff; }
-
-/* Language Toggle */
-.lang-toggle {
-    cursor: pointer;
     font-size: 16px;
-    opacity: 0.8;
+    font-weight: 400;
 }
-.lang-toggle:hover { opacity: 1; }
 
-/* ---------------------- */
-/* SECTION BLOCK */
-/* ---------------------- */
+nav a:hover {
+    opacity: 0.6;
+}
+
+/* ======================================
+   SEÇÕES GERAIS
+======================================*/
 section {
-    margin-bottom: 80px;
-}
-
-/* ---------------------- */
-/* SOBRE */
-/* ---------------------- */
-.sobre-wrapper {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.sobre-wrapper img {
-    width: 320px;
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-}
-
-/* ---------------------- */
-/* ACCORDION DISCIPLINAS */
-/* ---------------------- */
-.accordion {
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid #333;
-}
-.accordion-item {
-    background: #181818;
-    border-bottom: 1px solid #222;
-}
-.accordion-header {
-    padding: 20px;
-    font-size: 20px;
-    cursor: pointer;
-    position: relative;
-}
-.accordion-header:hover { background: #222; }
-
-.arrow {
-    position: absolute;
-    right: 20px;
-    top: 26px;
-    transition: transform 0.3s ease;
-}
-.rotate { transform: rotate(180deg); }
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
+    max-width: 1100px;
+    margin: 40px auto;
     padding: 0 20px;
-    transition: max-height 0.6s cubic-bezier(.25,.8,.25,1);
 }
 
-.accordion-content.open {
-    padding-bottom: 20px;
+h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 
-/* Numeral list */
-.accordion-content ol {
-    padding-left: 20px;
-    line-height: 1.7;
+/* ======================================
+   SEÇÃO SOBRE
+======================================*/
+.sobre-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
 }
 
-/* ---------------------- */
-/* LIVROS — 3D FLIP */
-/* ---------------------- */
-.books-grid {
+.sobre-container img {
+    width: 320px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+    object-fit: cover;
+}
+
+/* ======================================
+   LIVROS – FLIP 3D CARDS
+======================================*/
+.livros-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 40px;
+    gap: 32px;
 }
 
-.book-card {
+.card {
     perspective: 1000px;
 }
 
-.book-inner {
+.card-inner {
     width: 100%;
-    height: 340px;
-    position: relative;
+    aspect-ratio: 3/4;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    cursor: pointer;
 }
 
-.book-card:hover .book-inner {
+.card:hover .card-inner {
     transform: rotateY(180deg);
 }
 
-.book-face {
+.card-front, .card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 14px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 
-.book-face img {
+.card-front img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.book-back {
-    background: #222;
-    color: #ddd;
+.card-back {
+    background: white;
     padding: 20px;
     transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
 }
 
-/* ---------------------- */
-/* FOOTER */
-/* ---------------------- */
-footer {
-    text-align: center;
-    padding: 40px;
-    opacity: 0.7;
+/* ======================================
+   ACCORDION SUAVE – DISCIPLINAS
+======================================*/
+.accordion-item {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
 }
 
-/* ---------------------- */
-/* LANGUAGE VISIBILITY */
-/* ---------------------- */
-.lang-pt { display: block; }
-.lang-en { display: none; }
+.accordion-header {
+    padding: 18px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+}
+
+.accordion-header::after {
+    content: "▼";
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s;
+}
+
+.accordion-header.active::after {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #fafafa;
+    padding: 0px 20px;
+    transition: max-height 0.45s ease;
+}
+
+/* texto dentro do accordion */
+.accordion-content p,
+.accordion-content li {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
 </style>
 </head>
-
 <body>
 
-<nav>
-    <div>
+<header>
+    <h1>Vladimir Alencar</h1>
+    <nav>
         <a href="#sobre">Sobre</a>
         <a href="#disciplinas">Disciplinas</a>
         <a href="#livros">Livros</a>
-    </div>
-    <div class="lang-toggle" onclick="toggleLang()">PT / EN</div>
-</nav>
+    </nav>
+</header>
 
-<div class="container">
-
-<!-- ---------------------- -->
-<!-- SOBRE -->
-<!-- ---------------------- -->
+<!-- ======================================
+     SEÇÃO SOBRE
+=======================================-->
 <section id="sobre">
-    <h1 class="lang-pt">Sobre</h1>
-    <h1 class="lang-en">About</h1>
-
-    <div class="sobre-wrapper">
-
-        <img src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="Foto do Professor">
+    <h2>Sobre</h2>
+    <div class="sobre-container">
+        <img src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="Foto Vladimir">
 
         <div>
-            <p class="lang-pt">
-                Sou Professor Doutor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial.<br>
-                Gosto de Café, Ecologia, História, Geopolítica, Artes, Big Data, IA e Jejum Intermitente.
-                <br><br>
-                Doutorado em Recursos Naturais (2009, UFCG).<br>
-                Mestrado em Ciência da Computação (1992, UFCG).<br>
-                Bacharelado em Ciência da Computação (1990, UFCG).<br>
-                Tecnólogo em Radiologia (2017).<br><br>
-                Professor da Universidade Estadual da Paraíba (UEPB).<br>
-                Diretor do Laboratório de Análise de Dados (LANA).<br>
-            </p>
+            <p>I am a Ph.D. Professor, Researcher, Writer and Artificial Intelligence Engineer.</p>
+            <p>I like Coffee, Ecology, History, Geopolitics, Arts, Big Data, AI and Intermittent Fasting.</p>
 
-            <p class="lang-en">
-                I am a Ph.D. Professor, Researcher, Writer and Artificial Intelligence Engineer.<br>
-                I like Coffee, Ecology, History, Geopolitics, Arts, Big Data, AI and Intermittent Fasting.
-                <br><br>
-                Ph.D. in Natural Resources (2009).<br>
-                M.Sc. in Computer Science (1992).<br>
-                B.Sc. in Computer Science (1990).<br>
-                Degree in Radiology (2017).<br><br>
-                Professor at the State University of Paraíba (UEPB).<br>
-                Director of the Data Analysis Laboratory (LANA).<br>
-            </p>
+            <p>I have a Ph.D. in Natural Resources with optimization models based on linear programming (2009, UFCG, Brazil).
+            I also hold a Master's Degree in Computer Science (1992, UFCG, Brazil) and two undergraduate degrees:
+            Computer Science (1990) and Radiology (2017).</p>
+
+            <p>I work as a Professor and Researcher at Universidade Estadual da Paraíba (UEPB), Campina Grande, Brazil,
+            and I am the Director of the Data Analysis Laboratory (LANA).</p>
         </div>
-
     </div>
 </section>
 
-<!-- ---------------------- -->
-<!-- DISCIPLINAS (ACCORDION) -->
-<!-- ---------------------- -->
-<section id="disciplinas">
-    <h1 class="lang-pt">Disciplinas Ministradas</h1>
-    <h1 class="lang-en">Courses Taught</h1>
-
-    <div class="accordion">
-
-        <!-- ---------------------- -->
-        <!-- Banco de Dados -->
-        <!-- ---------------------- -->
-        <div class="accordion-item">
-            <div class="accordion-header">
-                Banco de Dados
-                <span class="arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-                <ol>
-                    <li>Conceitos básicos de dados e informação</li>
-                    <li>Modelagem de dados — Modelo Entidade-Relacionamento</li>
-                    <li>Álgebra relacional</li>
-                    <li>Projeto lógico — Modelo Relacional</li>
-                    <li>SQL — Consultas, junções e subconsultas</li>
-                    <li>Normalização e Formas Normais</li>
-                    <li>Transações, concorrência e recuperação</li>
-                    <li>NoSQL: chave-valor, documento, grafo, colunar</li>
-                </ol>
-                <a href="https://www.valencar.com/banco-de-dados/bd.pdf" target="_blank">📄 PDF da disciplina</a>
-            </div>
-        </div>
-
-        <!-- ---------------------- -->
-        <!-- Introdução à Programação -->
-        <!-- ---------------------- -->
-        <div class="accordion-item">
-            <div class="accordion-header">
-                Introdução à Programação
-                <span class="arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-                <ol>
-                    <li>Lógica e algoritmos</li>
-                    <li>Estruturas de controle</li>
-                    <li>Vetores e matrizes</li>
-                    <li>Funções e modularização</li>
-                    <li>Arquivos</li>
-                    <li>Estruturas de dados básicas</li>
-                    <li>Introdução a Python</li>
-                    <li>Boas práticas de implementação</li>
-                </ol>
-                <a href="https://www.valencar.com/introducao-a-programacao/introprog.pdf" target="_blank">📄 PDF da disciplina</a>
-            </div>
-        </div>
-
-        <!-- ---------------------- -->
-        <!-- Tópicos Especiais em Banco de Dados -->
-        <!-- ---------------------- -->
-        <div class="accordion-item">
-            <div class="accordion-header">
-                Tópicos Especiais em Banco de Dados
-                <span class="arrow">▼</span>
-            </div>
-            <div class="accordion-content">
-                <ol>
-                    <li>Big Data e processamento distribuído</li>
-                    <li>Sistemas NoSQL avançados</li>
-                    <li>Indexação de alto desempenho</li>
-                    <li>Armazenamento orientado a colunas</li>
-                    <li>Sharding, replicação e tolerância a falhas</li>
-                    <li>Introdução a Hadoop e Spark</li>
-                    <li>Consultas distribuídas</li>
-                    <li>Bancos de grafos</li>
-                </ol>
-                <a href="https://www.valencar.com/topicos-especiais-em-banco-de-dados/tebd.pdf" target="_blank">
-                    📄 PDF da disciplina
-                </a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- ---------------------- -->
-<!-- LIVROS (FLIP 3D) -->
-<!-- ---------------------- -->
+<!-- ======================================
+     SEÇÃO LIVROS
+=======================================-->
 <section id="livros">
-    <h1 class="lang-pt">Livros Publicados</h1>
-    <h1 class="lang-en">Published Books</h1>
+<h2>Livros</h2>
 
-    <div class="books-grid">
+<div class="livros-grid">
 
-        <!-- Book 1 -->
-        <div class="book-card">
-            <div class="book-inner">
-                <div class="book-face front">
-                    <img src="https://vladimiralencar.github.io/livros/1.jpg">
-                </div>
-                <div class="book-face book-back">
-                    <h3>Título do Livro 1</h3>
-                    <p>Descrição breve do livro. Tema, abordagem e público-alvo.</p>
-                </div>
-            </div>
+<!-- Livro 1 -->
+<div class="card">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="https://vladimiralencar.github.io/livros/1.InteligenciaArtificial.png">
         </div>
-
-        <!-- Book 2 -->
-        <div class="book-card">
-            <div class="book-inner">
-                <div class="book-face front">
-                    <img src="https://vladimiralencar.github.io/livros/2.jpg">
-                </div>
-                <div class="book-face book-back">
-                    <h3>Título do Livro 2</h3>
-                    <p>Descrição breve do conteúdo do livro.</p>
-                </div>
-            </div>
+        <div class="card-back">
+            <h3>Inteligência Artificial</h3>
+            <p>Fundamentos de IA moderna com aplicações em Python, ML, PLN e visão computacional.</p>
         </div>
-
-        <!-- Book 3 -->
-        <div class="book-card">
-            <div class="book-inner">
-                <div class="book-face front">
-                    <img src="https://vladimiralencar.github.io/livros/3.jpg">
-                </div>
-                <div class="book-face book-back">
-                    <h3>Título do Livro 3</h3>
-                    <p>Resumo curto explicando o foco da obra.</p>
-                </div>
-            </div>
-        </div>
-
     </div>
-</section>
-
 </div>
 
-<footer>
-    © 2025 — Professor Vladimir Alencar
-</footer>
+<!-- Livro 2 -->
+<div class="card">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="https://vladimiralencar.github.io/livros/2.DoencasDePele-CNN.webp">
+        </div>
+        <div class="card-back">
+            <h3>Doenças de Pele com CNN</h3>
+            <p>Classificação automática de dermatologia com redes neurais convolucionais.</p>
+        </div>
+    </div>
+</div>
 
+<!-- Livro 3 -->
+<div class="card">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="https://vladimiralencar.github.io/livros/3.FebreAmarela-Twitter.jpg">
+        </div>
+        <div class="card-back">
+            <h3>Febre Amarela & Twitter</h3>
+            <p>Análise epidemiológica de mídias sociais para modelagem de surtos.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Livro 4 -->
+<div class="card">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="https://vladimiralencar.github.io/livros/4.Tuberculose.webp">
+        </div>
+        <div class="card-back">
+            <h3>Tuberculose</h3>
+            <p>Detecção automatizada em exames médicos usando redes neurais e DL.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Livro 5 -->
+<div class="card">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="https://vladimiralencar.github.io/livros/5.cggeo.webp">
+        </div>
+        <div class="card-back">
+            <h3>CGGeo</h3>
+            <p>Geoinformação, big data e aplicações computacionais em saúde pública.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Livro 6 -->
+<div class="card">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="https://vladimiralencar.github.io/livros/6.PrevisaoDeEpidemias.png">
+        </div>
+        <div class="card-back">
+            <h3>Previsão de Epidemias</h3>
+            <p>Modelos matemáticos, machine learning e vigilância epidemiológica.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Livro 7 -->
+<div class="card">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="https://vladimiralencar.github.io/livros/7.sigtrans.webp">
+        </div>
+        <div class="card-back">
+            <h3>SIGTRANS</h3>
+            <p>Modelos espaciais e análise computacional aplicada ao trânsito.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Livro 8 -->
+<div class="card">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="https://vladimiralencar.github.io/livros/8.AnalisesMultiobjetivo.jpg">
+        </div>
+        <div class="card-back">
+            <h3>Análises Multiobjetivo</h3>
+            <p>Otimização, decisão multicritério e aplicações ambientais.</p>
+        </div>
+    </div>
+</div>
+
+</div>
+</section>
+
+<!-- ======================================
+     SEÇÃO DISCIPLINAS (com accordion)
+=======================================-->
+<section id="disciplinas">
+<h2>Disciplinas</h2>
+
+<!-- BANCO DE DADOS -->
+<div class="accordion-item">
+    <div class="accordion-header">Construção de Banco de Dados em Estatística</div>
+    <div class="accordion-content">
+        <p><strong>Conteúdo Programático:</strong></p>
+        <ol>
+            <li>Ementa</li>
+            <li>Breve História de Banco de Dados</li>
+            <li>Novas Tecnologias (ML, Big Data, Data Science, NoSQL, Hadoop, Spark)</li>
+            <li>Fundamentos (Campos, Registros, Tabelas, Índices, Chaves)</li>
+            <li>Modelagem (MER, Álgebra Relacional, Modelo Relacional)</li>
+            <li>Projeto e Normalização</li>
+            <li>SQL</li>
+            <li>Conexão com Bancos de Dados</li>
+            <li>MongoDB</li>
+            <li>Serviços de um SGBD (Concorrência, Transações, Recuperação, Otimização)</li>
+        </ol>
+    </div>
+</div>
+
+<!-- INTRODUÇÃO À COMPUTAÇÃO -->
+<div class="accordion-item">
+    <div class="accordion-header">Introdução à Ciência da Computação</div>
+    <div class="accordion-content">
+        <p><strong>Unidades:</strong></p>
+        <ol>
+            <li>Fundamentos de Computadores</li>
+            <li>Sistemas de Numeração</li>
+            <li>Lógica de Programação</li>
+            <li>Estruturas de Controle</li>
+            <li>Funções em Python</li>
+            <li>Metodologia de Desenvolvimento</li>
+        </ol>
+    </div>
+</div>
+
+<!-- CIÊNCIA DE DADOS -->
+<div class="accordion-item">
+    <div class="accordion-header">Ciência de Dados</div>
+    <div class="accordion-content">
+        <p><strong>Conteúdo Programático Completo:</strong></p>
+        <ol>
+            <li>Ementa (PDF)</li>
+            <li>Introdução</li>
+            <li>Data Science e Big Data</li>
+            <li>Curso Rápido de Python</li>
+            <li>Processo de Aprendizagem</li>
+            <li>Machine Learning</li>
+            <li>Redes Neurais</li>
+            <li>Deep Learning</li>
+            <li>PLN</li>
+            <li>Visão Computacional</li>
+            <li>Mídias Sociais</li>
+            <li>NoSQL</li>
+            <li>MongoDB</li>
+            <li>Hadoop</li>
+            <li>Spark</li>
+        </ol>
+    </div>
+</div>
+
+</section>
+
+<!-- ======================================
+     JAVASCRIPT DO ACCORDION
+=======================================-->
 <script>
-/* ---------------------------- */
-/* LANGUAGE SWITCH */
-/* ---------------------------- */
-function toggleLang() {
-    document.querySelectorAll('.lang-pt').forEach(e => e.style.display =
-        e.style.display === 'none' ? 'block' : 'none'
-    );
-    document.querySelectorAll('.lang-en').forEach(e => e.style.display =
-        e.style.display === 'block' ? 'none' : 'block'
-    );
-}
-
-/* ---------------------------- */
-/* ACCORDION: open only one */
-/* ---------------------------- */
 const headers = document.querySelectorAll('.accordion-header');
 
 headers.forEach(h => {
     h.addEventListener('click', () => {
-        const item = h.parentElement;
-        const content = item.querySelector('.accordion-content');
-        const arrow = h.querySelector('.arrow');
 
-        // Fechar outros
-        document.querySelectorAll('.accordion-content').forEach(c => {
-            if (c !== content) {
-                c.style.maxHeight = null;
-                c.classList.remove('open');
+        // Fecha os outros
+        headers.forEach(other => {
+            if (other !== h) {
+                other.classList.remove('active');
+                other.nextElementSibling.style.maxHeight = null;
             }
         });
-        document.querySelectorAll('.arrow').forEach(a => {
-            if (a !== arrow) a.classList.remove('rotate');
-        });
 
-        // Alternar este
-        if (content.classList.contains('open')) {
+        // Alterna o atual
+        h.classList.toggle('active');
+        const content = h.nextElementSibling;
+
+        if (content.style.maxHeight)
             content.style.maxHeight = null;
-            content.classList.remove('open');
-            arrow.classList.remove('rotate');
-        } else {
-            content.classList.add('open');
+        else
             content.style.maxHeight = content.scrollHeight + "px";
-            arrow.classList.add('rotate');
-        }
     });
 });
 </script>
