@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vladimir Alencar — IA, Ensino & Pesquisa</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <style>
 body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; background:#fff; color:#333; }
 
-/* ---------------- NAV MINIMALISTA ---------------- */
-.nav { display:flex; justify-content:center; background:#f9f9f9; padding:10px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); position:sticky; top:0; z-index:1000; }
-.nav a { margin:0 15px; display:flex; align-items:center; font-weight:500; color:#333; transition:color 0.3s; text-decoration:none; }
+/* ---------------- MENU MINIMALISTA ---------------- */
+.nav { display:flex; justify-content:center; background:#f9f9f9; padding:10px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); position:sticky; top:0; z-index:1000; flex-wrap:wrap; }
+.nav a { margin:0 15px; font-weight:500; color:#333; text-decoration:none; transition:color 0.3s; }
 .nav a:hover { color:#007acc; }
-.nav a i { margin-right:5px; font-size:1.1em; }
 
-/* ---------------- DROPDOWN MINIMALISTA ---------------- */
-.dropdown { position:relative; }
-.dropdown-menu { display:none; position:absolute; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); margin-top:5px; border-radius:5px; min-width:200px; padding:5px 0; }
-.dropdown:hover .dropdown-menu { display:block; }
-.dropdown-menu a { display:block; padding:8px 15px; color:#333; text-decoration:none; transition:background 0.3s; }
-.dropdown-menu a:hover { background:#eef6ff; }
-
-/* ---------------- HERO / SOBRE ---------------- */
+/* ---------------- HERO ---------------- */
 .section { padding:40px 20px; max-width:1200px; margin:auto; }
 .hero-container { display:flex; flex-wrap:wrap; gap:30px; align-items:flex-start; }
 .hero-photo { flex:0 0 250px; }
@@ -30,23 +21,16 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
 .hero-text { flex:1; min-width:250px; display:flex; flex-direction:column; justify-content:flex-start; }
 .hero-text h1 { margin-top:0; margin-bottom:15px; color:#007acc; }
 .hero-text p { margin-bottom:10px; text-align:justify; }
-.hero-text p.subitem { color:#555; margin-left:20px; font-style:italic; }
 .uepb { font-weight:normal; margin-top:10px; color:#666; }
-
-@media (max-width:768px){
-  .hero-container { flex-direction: column; align-items:center; }
-  .hero-text { text-align:center; }
-  .hero-text p { text-align:center; }
-}
 
 /* ---------------- ACORDEÃO ---------------- */
 .accordion { border:1px solid #ddd; border-radius:5px; margin-bottom:10px; overflow:hidden; }
-.accordion-header { cursor:pointer; padding:10px 15px; background:#f1f1f1; display:flex; justify-content:space-between; align-items:center; transition:0.3s; font-weight:600; }
+.accordion-header { cursor:pointer; padding:10px 15px; background:#f1f1f1; display:flex; justify-content:space-between; font-weight:600; }
 .accordion-header:hover { background:#eef6ff; }
 .accordion-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease, padding 0.3s ease; padding:0 15px; background:#fafafa; }
 .accordion-content.open { padding:10px 15px; }
 
-/* ---------------- SUBITEMS DAS DISCIPLINAS ---------------- */
+/* ---------------- DISCIPLINAS ---------------- */
 .accordion-content ol { padding-left:20px; margin:5px 0; }
 .accordion-content ul { padding-left:20px; margin:5px 0; }
 .accordion-content ul li { list-style-type: disc; color:#555; font-weight:400; }
@@ -58,39 +42,36 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
 .livro-item span { display:block; margin-top:5px; font-weight:500; color:#007acc; }
 .livro-item:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
 
-/* ---------------- HOVER SUAVE NOS ACORDEÕES ---------------- */
-.accordion-header:hover { background:#e0f0ff; }
+/* ---------------- RESPONSIVO ---------------- */
+@media (max-width:768px){
+  .hero-container { flex-direction: column; align-items:center; }
+  .hero-text { text-align:center; }
+  .hero-text p { text-align:center; }
+  .nav { justify-content:space-around; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAV minimalista -->
+<!-- MENU MINIMALISTA -->
 <div class="nav">
-  <a href="#sobre"><i class="fas fa-user"></i>Sobre</a>
-  <div class="dropdown">
-    <a href="#disciplinas"><i class="fas fa-book-open"></i>Disciplinas ▾</a>
-    <div class="dropdown-menu">
-      <a href="#disc-bd">Banco de Dados</a>
-      <a href="#disc-icc">Introdução à Ciência da Computação</a>
-      <a href="#disc-ds">Ciência de Dados</a>
-    </div>
-  </div>
-  <a href="#projetos"><i class="fas fa-flask"></i>Projetos</a>
-  <a href="#livros"><i class="fas fa-book"></i>Livros</a>
-  <a href="#contato"><i class="fas fa-envelope"></i>Contato</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#disciplinas">Disciplinas Ministradas</a>
+  <a href="#projetos">Projetos</a>
+  <a href="#livros">Livros</a>
+  <a href="#contato">Contato</a>
 </div>
 
 <!-- SOBRE -->
 <section id="sobre" class="section">
   <div class="hero-container">
     <div class="hero-photo">
-      <img class="photo" src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="Vladimir Alencar" />
+      <img class="photo" src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="Vladimir Alencar">
     </div>
     <div class="hero-text">
       <h1>Vladimir Costa de Alencar</h1>
       <p>Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial. Gosto de Café, Ecologia, História, Geopolítica, Artes, Gatos, Big Data, IA.</p>
-      <p>Doutorado em Recursos Naturais com ênfase em Otimização Multicritério/Multiobjetivo — UFCG (2009). Mestrado em Ciência da Computação — UFCG (1992). Graduação em Ciência da Computação (1990) e Radiologia (2017).</p>
-      <p>Trabalha com Big Data Analytics, SQL e NoSQL, Machine Learning, Python, C/C++, Linux, Cloud Computing, CUDA, Epidemiologia, Redes Neural, Deep Learning, Inteligência Artificial, Visão Computacional e PLN (LLM, Agentes).</p>
+      <p>Doutorado em Recursos Naturais — UFCG (2009). Mestrado em Ciência da Computação — UFCG (1992). Graduação em Ciência da Computação (1990) e Radiologia (2017).</p>
       <p>Diretor do Laboratório de Análise de Dados e Inteligência Artificial (LANA). UEPB.</p>
       <div class="uepb">Campina Grande, Paraíba. Brazil</div>
     </div>
@@ -101,9 +82,8 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
 <section id="disciplinas" class="section">
 <h2>Disciplinas Ministradas</h2>
 
-<!-- Disciplina 1 -->
 <div class="accordion">
-  <div class="accordion-header" id="disc-bd">1. Banco de Dados <span>+</span></div>
+  <div class="accordion-header">1. Banco de Dados <span>+</span></div>
   <div class="accordion-content">
     <ol>
       <li>Ementa</li>
@@ -142,7 +122,7 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
       </li>
       <li>A linguagem SQL</li>
       <li>Programação com bancos de dados</li>
-      <li>O MongoDB (NoSQL)</li>
+      <li>MongoDB (NoSQL)</li>
       <li>Serviços de um gerenciador de Banco de Dados
         <ul>
           <li>Controle de Concorrência</li>
@@ -155,9 +135,8 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
   </div>
 </div>
 
-<!-- Disciplina 2 -->
 <div class="accordion">
-  <div class="accordion-header" id="disc-icc">2. Introdução à Ciência da Computação <span>+</span></div>
+  <div class="accordion-header">2. Introdução à Ciência da Computação <span>+</span></div>
   <div class="accordion-content">
     <ol>
       <li>Fundamentos de Computadores
@@ -198,44 +177,32 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
         </ul>
       </li>
       <li>Metodologia de Desenvolvimento de Algoritmos</li>
-      <li>Avaliações: P1, P2, Reposição, Final</li>
-      <li>Bibliografia (selecionada)</li>
     </ol>
   </div>
 </div>
 
-<!-- Disciplina 3 -->
 <div class="accordion">
-  <div class="accordion-header" id="disc-ds">3. Ciência de Dados <span>+</span></div>
+  <div class="accordion-header">3. Ciência de Dados <span>+</span></div>
   <div class="accordion-content">
     <ol>
       <li>Ementa <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank">PDF</a></li></ul></li>
-      <li>Introdução (Motivação) <ul><li><a href="https://huggingface.co/valencar?sort_spaces=likes#spaces" target="_blank">Link</a></li></ul></li>
-      <li>O que é Ciência de Dados? <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf" target="_blank">PDF</a></li></ul></li>
-      <li>Data Science e Big Data <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank">PDF</a></li></ul></li>
-      <li>Curso Rápido de Python <ul><li><a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados" target="_blank">GitHub</a></li></ul></li>
-      <li>Processo de Aprendizagem <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf" target="_blank">PDF</a></li></ul></li>
-      <li>Machine Learning
-        <ul>
-          <li>Regressão Linear — <a href="https://www.valencar.com/_files/ugd/c3cbd8_73a00ff8bfec4971a060c8752d1166f0.pdf" target="_blank">PDF</a></li>
-          <li>Regressão Logística — <a href="https://www.valencar.com/_files/ugd/c3cbd8_e1d6fdc50c604edbb599c42f3b91ee0d.pdf" target="_blank">PDF</a></li>
-          <li>KNN, Naive Bayes, Árvores, XGBoost, SVM, PCA</li>
-        </ul>
-      </li>
-      <li>Redes Neurais <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf" target="_blank">PDF</a></li></ul></li>
-      <li>Deep Learning <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf" target="_blank">PDF</a></li></ul></li>
+      <li>Introdução (Motivação)</li>
+      <li>O que é Ciência de Dados?</li>
+      <li>Data Science e Big Data</li>
+      <li>Curso Rápido de Python</li>
+      <li>Processo de Aprendizagem</li>
+      <li>Machine Learning</li>
+      <li>Redes Neurais</li>
+      <li>Deep Learning</li>
       <li>PLN, Visão Computacional, Mídias Sociais, MongoDB, Hadoop, Spark</li>
-      <li>GitHub — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">Código</a></li>
     </ol>
   </div>
 </div>
-
 </section>
 
 <!-- PROJETOS -->
 <section id="projetos" class="section">
 <h2>Projetos</h2>
-
 <div class="accordion">
   <div class="accordion-header">Agente Inteligente Multimodal para Previsão de Inundações <span>+</span></div>
   <div class="accordion-content">
@@ -271,18 +238,9 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
     <img src="https://vladimiralencar.github.io/livros/4.Tuberculose.webp" alt="Tuberculose — IA">
     <span>Tuberculose — IA</span>
   </div>
-  <div class="livro-item">
-    <img src="https://vladimiralencar.github.io/livros/5.EpidemiologiaComputacional.webp" alt="Epidemiologia Computacional">
-    <span>Epidemiologia Computacional</span>
-  </div>
-  <div class="livro-item">
-    <img src="https://vladimiralencar.github.io/livros/6.CienciaDeDadosR.webp" alt="Ciência de Dados — R">
-    <span>Ciência de Dados — R</span>
-  </div>
 </div>
 </section>
 
-<!-- SCRIPT ACORDEÃO -->
 <script>
 const accordions = document.querySelectorAll('.accordion-header');
 accordions.forEach(acc => {
