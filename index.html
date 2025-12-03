@@ -9,28 +9,29 @@
 <style>
 body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; background:#fff; color:#333; }
 
-/* NAV minimalista */
+/* ---------------- NAV MINIMALISTA ---------------- */
 .nav { display:flex; justify-content:center; background:#f9f9f9; padding:10px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); position:sticky; top:0; z-index:1000; }
 .nav a { margin:0 15px; display:flex; align-items:center; font-weight:500; color:#333; transition:color 0.3s; text-decoration:none; }
 .nav a:hover { color:#007acc; }
 .nav a i { margin-right:5px; font-size:1.1em; }
 
-/* DROPDOWN minimalista */
+/* ---------------- DROPDOWN MINIMALISTA ---------------- */
 .dropdown { position:relative; }
 .dropdown-menu { display:none; position:absolute; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); margin-top:5px; border-radius:5px; min-width:200px; padding:5px 0; }
 .dropdown:hover .dropdown-menu { display:block; }
-.dropdown-menu a { display:block; padding:8px 15px; color:#333; text-decoration:none; }
+.dropdown-menu a { display:block; padding:8px 15px; color:#333; text-decoration:none; transition:background 0.3s; }
 .dropdown-menu a:hover { background:#eef6ff; }
 
-/* HERO / SOBRE */
+/* ---------------- HERO / SOBRE ---------------- */
 .section { padding:40px 20px; max-width:1200px; margin:auto; }
 .hero-container { display:flex; flex-wrap:wrap; gap:30px; align-items:flex-start; }
 .hero-photo { flex:0 0 250px; }
 .hero-photo img { width:100%; border-radius:10px; display:block; }
 .hero-text { flex:1; min-width:250px; display:flex; flex-direction:column; justify-content:flex-start; }
-.hero-text h1 { margin-top:0; margin-bottom:15px; }
+.hero-text h1 { margin-top:0; margin-bottom:15px; color:#007acc; }
 .hero-text p { margin-bottom:10px; text-align:justify; }
-.uepb { font-weight:normal; margin-top:10px; }
+.hero-text p.subitem { color:#555; margin-left:20px; font-style:italic; }
+.uepb { font-weight:normal; margin-top:10px; color:#666; }
 
 @media (max-width:768px){
   .hero-container { flex-direction: column; align-items:center; }
@@ -38,19 +39,26 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
   .hero-text p { text-align:center; }
 }
 
-/* ACORDEÃO */
+/* ---------------- ACORDEÃO ---------------- */
 .accordion { border:1px solid #ddd; border-radius:5px; margin-bottom:10px; overflow:hidden; }
-.accordion-header { cursor:pointer; padding:10px 15px; background:#f1f1f1; display:flex; justify-content:space-between; align-items:center; transition:0.3s; }
+.accordion-header { cursor:pointer; padding:10px 15px; background:#f1f1f1; display:flex; justify-content:space-between; align-items:center; transition:0.3s; font-weight:600; }
 .accordion-header:hover { background:#eef6ff; }
-.accordion-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease, padding 0.3s ease; padding:0 15px; }
+.accordion-content { max-height:0; overflow:hidden; transition:max-height 0.5s ease, padding 0.3s ease; padding:0 15px; background:#fafafa; }
 .accordion-content.open { padding:10px 15px; }
 
-/* LIVROS GRID */
+/* ---------------- SUBITEMS DAS DISCIPLINAS ---------------- */
+.accordion-content ul { padding-left:20px; margin:5px 0; }
+.accordion-content ul li { list-style-type: disc; color:#555; font-weight:400; }
+
+/* ---------------- LIVROS GRID ---------------- */
 .livros-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:20px; margin-top:10px; }
-.livro-item { text-align:center; transition:transform 0.3s; }
-.livro-item img { width:100%; border-radius:5px; }
-.livro-item span { display:block; margin-top:5px; font-weight:500; }
-.livro-item:hover { transform:scale(1.05); }
+.livro-item { text-align:center; transition:transform 0.3s, box-shadow 0.3s; border-radius:5px; overflow:hidden; }
+.livro-item img { width:100%; border-radius:5px; display:block; }
+.livro-item span { display:block; margin-top:5px; font-weight:500; color:#007acc; }
+.livro-item:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+
+/* ---------------- HOVER SUAVE NOS ACORDEÕES ---------------- */
+.accordion-header:hover { background:#e0f0ff; }
 </style>
 </head>
 <body>
@@ -92,7 +100,167 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
 <section id="disciplinas" class="section">
 <h2>Disciplinas Ministradas</h2>
 
-<!-- Inserir acordeões das disciplinas aqui (mesmo código que enviei antes) -->
+<!-- Disciplina 1 -->
+<div class="accordion">
+  <div class="accordion-header" id="disc-bd">1. Banco de Dados <span>+</span></div>
+  <div class="accordion-content">
+    <p>Conteúdo Programático:</p>
+    <ol>
+      <li>Ementa</li>
+      <li>Breve História de Banco de Dados</li>
+      <li>Novas Tecnologias que utilizam Banco de Dados
+        <ul>
+          <li>Machine Learning</li>
+          <li>Big Data</li>
+          <li>Data Science</li>
+          <li>NoSQL (SGBD não Relacionais)</li>
+          <li>Hadoop</li>
+          <li>Spark</li>
+        </ul>
+      </li>
+      <li>Fundamentos e Conceitos Básicos
+        <ul>
+          <li>Campos</li>
+          <li>Registros</li>
+          <li>Tabelas</li>
+          <li>Índices e Chaves</li>
+        </ul>
+      </li>
+      <li>Modelos, Esquemas e Linguagens</li>
+      <li>Modelagem de Banco de Dados
+        <ul>
+          <li>Modelo Entidade-Relacionamento - MER (Modelo Conceitual)</li>
+          <li>Álgebra Relacional</li>
+          <li>Modelo Relacional (Modelo Lógico)</li>
+        </ul>
+      </li>
+      <li>Projeto de Banco de Dados Relacional
+        <ul>
+          <li>Transformação do MER para o modelo Relacional</li>
+          <li>Normalização</li>
+        </ul>
+      </li>
+      <li>A linguagem SQL</li>
+      <li>Programação com bancos de dados</li>
+      <li>O MongoDB (NoSQL)</li>
+      <li>Serviços de um gerenciador de Banco de Dados
+        <ul>
+          <li>Controle de Concorrência</li>
+          <li>Transações</li>
+          <li>Sistema de Recuperação</li>
+          <li>Otimização de consultas</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<!-- Disciplina 2 -->
+<div class="accordion">
+  <div class="accordion-header" id="disc-icc">2. Introdução à Ciência da Computação <span>+</span></div>
+  <div class="accordion-content">
+    <ol>
+      <li>Fundamentos de Computadores
+        <ul>
+          <li>Arquitetura básica de um computador</li>
+          <li>CPU, memória, I/O</li>
+          <li>Conceito de programa e instrução</li>
+        </ul>
+      </li>
+      <li>Sistemas de Numeração e Representação de Dados
+        <ul>
+          <li>Decimal, binário, octal, hexadecimal</li>
+          <li>Conversão entre sistemas de numeração</li>
+          <li>Representação de caracteres (ASCII, Unicode)</li>
+        </ul>
+      </li>
+      <li>Introdução à Lógica de Programação e Python
+        <ul>
+          <li>Algoritmos</li>
+          <li>Tipos de dados e variáveis</li>
+          <li>Operadores aritméticos, relacionais e lógicos</li>
+          <li>Entrada e saída de dados em Python</li>
+        </ul>
+      </li>
+      <li>Estruturas de Controle
+        <ul>
+          <li>If, elif, else</li>
+          <li>For, while</li>
+          <li>range(), enumerate(), break/continue</li>
+        </ul>
+      </li>
+      <li>Modularização e Funções em Python
+        <ul>
+          <li>Definição de funções (def)</li>
+          <li>Parâmetros, argumentos e retorno</li>
+          <li>Escopo de variáveis</li>
+          <li>Importação de módulos</li>
+        </ul>
+      </li>
+      <li>Metodologia de Desenvolvimento de Algoritmos</li>
+      <li>Avaliações: P1, P2, Reposição, Final</li>
+      <li>Bibliografia (selecionada)</li>
+    </ol>
+  </div>
+</div>
+
+<!-- Disciplina 3 -->
+<div class="accordion">
+  <div class="accordion-header" id="disc-ds">3. Ciência de Dados <span>+</span></div>
+  <div class="accordion-content">
+    <ol>
+      <li>Ementa
+        <ul>
+          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank">PDF</a></li>
+        </ul>
+      </li>
+      <li>Introdução (Motivação)
+        <ul>
+          <li><a href="https://huggingface.co/valencar?sort_spaces=likes#spaces" target="_blank">Link</a></li>
+        </ul>
+      </li>
+      <li>O que é Ciência de Dados (Data Science)?
+        <ul>
+          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf" target="_blank">PDF</a></li>
+        </ul>
+      </li>
+      <li>Data Science e Big Data
+        <ul>
+          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank">PDF</a></li>
+        </ul>
+      </li>
+      <li>Curso Rápido de Python
+        <ul>
+          <li><a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados" target="_blank">GitHub</a></li>
+        </ul>
+      </li>
+      <li>Processo de Aprendizagem
+        <ul>
+          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf" target="_blank">PDF</a></li>
+        </ul>
+      </li>
+      <li>Machine Learning
+        <ul>
+          <li>Regressão Linear — <a href="https://www.valencar.com/_files/ugd/c3cbd8_73a00ff8bfec4971a060c8752d1166f0.pdf" target="_blank">PDF</a></li>
+          <li>Regressão Logística — <a href="https://www.valencar.com/_files/ugd/c3cbd8_e1d6fdc50c604edbb599c42f3b91ee0d.pdf" target="_blank">PDF</a></li>
+          <li>KNN, Naive Bayes, Árvores, XGBoost, SVM, PCA</li>
+        </ul>
+      </li>
+      <li>Redes Neurais
+        <ul>
+          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf" target="_blank">PDF</a></li>
+        </ul>
+      </li>
+      <li>Deep Learning
+        <ul>
+          <li><a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf" target="_blank">PDF</a></li>
+        </ul>
+      </li>
+      <li>PLN, Visão Computacional, Mídias Sociais, MongoDB, Hadoop, Spark</li>
+      <li>GitHub — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">Código</a></li>
+    </ol>
+  </div>
+</div>
 
 </section>
 
@@ -137,41 +305,23 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; b
   </div>
   <div class="accordion">
     <div class="accordion-header">Epidemiologia Computacional <span>+</span></div>
-    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/5.Epidemiologia.webp"></div>
+    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/5.EpidemiologiaComputacional.webp"></div>
   </div>
   <div class="accordion">
-    <div class="accordion-header">Computação Aplicada à Saúde <span>+</span></div>
-    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/6.ComputacaoSaude.webp"></div>
-  </div>
-  <div class="accordion">
-    <div class="accordion-header">Python Essencial <span>+</span></div>
-    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/7.PythonEssencial.webp"></div>
-  </div>
-  <div class="accordion">
-    <div class="accordion-header">Redes Neurais <span>+</span></div>
-    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/8.RedesNeurais.webp"></div>
+    <div class="accordion-header">Ciência de Dados — R <span>+</span></div>
+    <div class="accordion-content"><img src="https://vladimiralencar.github.io/livros/6.CienciaDeDadosR.webp"></div>
   </div>
 </div>
 </section>
 
+<!-- SCRIPT ACORDEÃO -->
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('.accordion-header').forEach(header => {
-    const s = header.querySelector('span');
-    if(s) s.textContent = '+';
-    header.addEventListener('click', () => {
-      const content = header.nextElementSibling;
-      const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
-      if(isOpen){
-        content.style.maxHeight = '0';
-        content.classList.remove('open');
-        if(s) s.textContent = '+';
-      } else {
-        content.style.maxHeight = content.scrollHeight + 'px';
-        content.classList.add('open');
-        if(s) s.textContent = '-';
-      }
-    });
+const accordions = document.querySelectorAll('.accordion-header');
+accordions.forEach(acc => {
+  acc.addEventListener('click', () => {
+    const content = acc.nextElementSibling;
+    content.classList.toggle('open');
+    acc.querySelector('span').textContent = content.classList.contains('open') ? '−' : '+';
   });
 });
 </script>
