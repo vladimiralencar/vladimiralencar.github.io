@@ -1,366 +1,308 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vladimir Alencar — AI Researcher</title>
-
-<!-- Fonte estilo Apple -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<title>Vladimir Alencar – Professor & AI Researcher</title>
 <style>
     body {
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Oxygen, Ubuntu;
         margin: 0;
-        font-family: 'Inter', sans-serif;
-        background: #ffffff;
-        color: #222;
+        padding: 0;
+        background: #fff;
+        color: #111;
         scroll-behavior: smooth;
     }
 
-    /* NAV SUPER PREMIUM */
+    /* NAVBAR */
     nav {
         position: fixed;
-        top: 0;
-        width: 100%;
-        height: 70px;
-        background: rgba(255,255,255,0.92);
-        backdrop-filter: blur(12px);
+        top: 0; left: 0; right: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 50px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        padding: 18px 40px;
+        background: rgba(255,255,255,0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #eee;
         z-index: 999;
     }
 
     nav a {
-        margin-left: 30px;
+        margin: 0 16px;
         text-decoration: none;
+        font-weight: 500;
         color: #111;
-        font-weight: 500;
-        font-size: 16px;
-        transition: opacity 0.2s;
+        transition: 0.3s;
     }
-
     nav a:hover {
-        opacity: 0.65;
+        opacity: 0.6;
     }
 
-    /* BOTÃO DE TROCA DE IDIOMA */
-    .lang-toggle {
-        width: 110px;
-        height: 38px;
-        background: #eaeaea;
-        border-radius: 30px;
-        display: flex;
-        align-items: center;
-        padding: 4px;
-        cursor: pointer;
+    /* MENU DROPDOWN */
+    .dropdown {
         position: relative;
+        display: inline-block;
     }
-
-    .lang-pill {
+    .dropdown-content {
+        display: none;
         position: absolute;
-        width: 50%;
-        height: 30px;
+        background: #fff;
+        min-width: 180px;
+        border: 1px solid #ddd;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+        padding: 10px 0;
+        border-radius: 8px;
+    }
+    .dropdown-content a {
+        display: block;
+        padding: 8px 14px;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* LANGUAGE SWITCH */
+    #lang-btn {
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: 1px solid #111;
+        background: none;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 14px;
+    }
+    #lang-btn:hover {
         background: #111;
-        border-radius: 25px;
-        transition: transform 0.3s ease;
+        color: white;
     }
 
-    .lang-toggle span {
-        width: 50%;
-        text-align: center;
-        font-size: 13px;
-        z-index: 2;
-        user-select: none;
-        font-weight: 500;
-    }
-
-    .content-section {
-        max-width: 1000px;
-        margin: 140px auto 100px auto;
+    /* SECTIONS */
+    section {
+        max-width: 1100px;
+        margin: 140px auto 80px;
         padding: 0 20px;
-        animation: fadeIn 0.4s ease;
     }
-
-    /* Fade suave entre idiomas */
-    .fade {
-        opacity: 0;
-        transition: opacity 0.35s ease;
-    }
-
-    @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
-
-    /* SOBRE */
-    .sobre-photo {
-        width: 240px;
-        border-radius: 14px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        margin-bottom: 25px;
-    }
-
-    h1 {
+    h2 {
         font-size: 36px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         font-weight: 700;
     }
 
-    p {
-        line-height: 1.6;
+    /* SOBRE */
+    .sobre-container {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+    .sobre-container img {
+        width: 330px;
+        border-radius: 22px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    .sobre-text {
+        flex: 1;
         font-size: 18px;
-        margin-bottom: 18px;
+        line-height: 1.6;
     }
 
-    /* ACORDEÃO PREMIUM */
+    /* ACCORDION */
     details {
-        background: #fafafa;
+        background: #f7f7f7;
+        padding: 18px 20px;
         border-radius: 14px;
-        padding: 20px 25px;
-        margin-bottom: 15px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        transition: all 0.3s ease;
+        margin-bottom: 14px;
         cursor: pointer;
+        transition: 0.3s;
     }
-
-    summary {
+    details summary {
         font-size: 20px;
         font-weight: 600;
         list-style: none;
     }
-
-    summary::marker {
-        display: none;
-    }
-
     details[open] {
-        background: #f5f5f5;
-        transform: translateY(-2px);
+        background: #ededed;
     }
 
-    /* Smooth slide */
-    details > div {
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: all 0.45s ease;
+    /* BOOK CARDS */
+    .book-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
     }
-
-    details[open] > div {
-        opacity: 1;
-        max-height: 600px;
-        margin-top: 12px;
+    .book-card {
+        background: #fafafa;
+        padding: 15px;
+        border-radius: 18px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+        text-align: center;
+        transition: transform 0.3s;
     }
-
-    /* NUMERAÇÃO */
-    ol {
-        padding-left: 22px;
+    .book-card:hover {
+        transform: translateY(-6px);
     }
-
-    ol li {
-        margin-bottom: 8px;
-        font-size: 17px;
+    .book-card img {
+        width: 100%;
+        border-radius: 14px;
+        margin-bottom: 10px;
     }
-
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-    <div style="font-size:20px; font-weight:700;">Vladimir Alencar</div>
-
     <div>
+        <a href="#home">Home</a>
         <a href="#sobre">Sobre</a>
-        <a href="#disciplinas">Disciplinas</a>
         <a href="#projetos">Projetos</a>
+
+        <div class="dropdown">
+            <a href="#disciplinas">Disciplinas</a>
+            <div class="dropdown-content">
+                <a href="#disc-bd">Banco de Dados</a>
+                <a href="#disc-icc">Introdução à Computação</a>
+                <a href="#disc-ds">Ciência de Dados</a>
+            </div>
+        </div>
+
         <a href="#livros">Livros</a>
-        <a href="#contato">Contato</a>
     </div>
 
-    <!-- Botão de troca de idioma -->
-    <div class="lang-toggle" onclick="toggleLang()">
-        <div class="lang-pill" id="lang-pill"></div>
-        <span>PT</span><span>EN</span>
-    </div>
+    <button id="lang-btn" onclick="toggleLang()">EN / PT</button>
 </nav>
 
+<section id="sobre">
+    <h2>Sobre</h2>
 
-<!-- SOBRE -->
-<section id="sobre" class="content-section">
-    <img class="sobre-photo" src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG">
+    <div class="sobre-container">
+        <img src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG">
 
-    <div id="pt">
-        <h1>Sobre</h1>
+        <div class="sobre-text" id="sobre-text">
+            I am a Ph.D. Professor, Researcher and Artificial Intelligence Engineer.<br><br>
+            I like Coffee, Ecology, History, Geopolitics, Arts, Big Data, AI and Intermittent Fasting.<br><br>
+            I work with Big Data Analytics, Neural Networks, Deep Learning, Machine Learning, CUDA, SQL/NoSQL, Cloud Computing, Epidemiology and AI Engineering.<br><br>
 
-        <p>Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial.</p>
-
-        <p>Gosto de Café, Ecologia, História, Geopolítica, Artes, Big Data, IA e Jejum Intermitente.</p>
-
-        <p>Tenho Doutorado em Recursos Naturais com ênfase em modelos de otimização baseados em programação linear (UFCG, 2009).</p>
-
-        <p>Sou Mestre em Ciência da Computação (UFCG, 1992) e Bacharel em Ciência da Computação (1990) e Radiologia (2017).</p>
-
-        <p>Atualmente sou Professor e Pesquisador da Universidade Estadual da Paraíba (UEPB), Campina Grande–PB.</p>
-
-        <hr style="margin:40px 0; opacity:0.2;">
-
-        <h2>Endereço Institucional</h2>
-        <p>
-            UEPB — State University of Paraíba<br>
+            <strong>UEPB - State University of Paraíba</strong><br>
             351, Rua Baraúnas.<br>
-            Campina Grande, Paraíba — Brazil<br>
+            Campina Grande, Paraíba. Brazil<br>
             58429-500<br>
             Phone: +55 83 3315.3300
-        </p>
-    </div>
-
-    <div id="en" style="display:none;">
-        <h1>About</h1>
-
-        <p>I am a Professor, Researcher, Writer and Artificial Intelligence Engineer.</p>
-
-        <p>I like Coffee, Ecology, History, Geopolitics, Arts, Big Data, AI and Intermittent Fasting.</p>
-
-        <p>I have a Ph.D. in Natural Resources with emphasis on optimization models based on linear programming (UFCG, 2009).</p>
-
-        <p>I hold a Master's degree in Computer Science (UFCG, 1992) and degrees in Computer Science (1990) and Radiology (2017).</p>
-
-        <p>I work as a Professor and Researcher at the State University of Paraíba (UEPB), Campina Grande, Brazil.</p>
-
-        <hr style="margin:40px 0; opacity:0.2;">
-
-        <h2>Institutional Address</h2>
-        <p>
-            UEPB — State University of Paraíba<br>
-            351, Baraúnas Street<br>
-            Campina Grande, Paraíba — Brazil<br>
-            58429-500<br>
-            Phone: +55 83 3315.3300
-        </p>
+        </div>
     </div>
 </section>
 
+<section id="disciplinas">
+    <h2>Disciplinas</h2>
 
-<!-- DISCIPLINAS -->
-<section id="disciplinas" class="content-section">
-    <h1>Disciplinas</h1>
-
-    <details>
+    <!-- BANCO DE DADOS -->
+    <details id="disc-bd">
         <summary>Banco de Dados</summary>
-        <div>
-            <ol>
-                <li>Introdução — <a href="https://vladimiralencar.github.io/pdfs/bd01.pdf">PDF</a></li>
-                <li>Modelo Relacional — <a href="#">PDF</a></li>
-                <li>Álgebra Relacional — <a href="#">PDF</a></li>
-                <li>SQL Avançado — <a href="#">PDF</a></li>
-            </ol>
-        </div>
+        <ol>
+            <li>Ementa</li>
+            <li>Breve História de BD</li>
+            <li>Novas Tecnologias
+                <ol>
+                    <li>Machine Learning</li>
+                    <li>Big Data</li>
+                    <li>Data Science</li>
+                    <li>NoSQL</li>
+                    <li>Hadoop</li>
+                    <li>Spark</li>
+                </ol>
+            </li>
+            <li>Fundamentos: Campos, Registros, Tabelas, Índices</li>
+            <li>Modelagem: MER, Álgebra Relacional, Modelo Lógico</li>
+            <li>Projeto Relacional: Normalização</li>
+            <li>SQL</li>
+            <li>Programação com BD</li>
+            <li>MongoDB</li>
+            <li>Serviços de BD</li>
+        </ol>
     </details>
 
-    <details>
-        <summary>Introdução à Programação</summary>
-        <div>
-            <ol>
-                <li>Fundamentos — <a href="#">PDF</a></li>
-                <li>Estruturas de Controle — <a href="#">PDF</a></li>
-                <li>Funções — <a href="#">PDF</a></li>
-            </ol>
-        </div>
+    <!-- ICC -->
+    <details id="disc-icc">
+        <summary>Introdução à Ciência da Computação</summary>
+        <ol>
+            <li>Fundamentos de Computadores</li>
+            <li>Sistemas de Numeração</li>
+            <li>Lógica e Python</li>
+            <li>Estruturas de Controle</li>
+            <li>Funções</li>
+            <li>Metodologia</li>
+        </ol>
     </details>
 
-    <details>
-        <summary>Tópicos Especiais em Banco de Dados</summary>
-        <div>
-            <ol>
-                <li>Big Data — <a href="#">PDF</a></li>
-                <li>NoSQL — <a href="#">PDF</a></li>
-                <li>Distributed Systems — <a href="#">PDF</a></li>
-            </ol>
-        </div>
+    <!-- CIÊNCIA DE DADOS -->
+    <details id="disc-ds">
+        <summary>Ciência de Dados</summary>
+        <ol>
+            <li>Introdução</li>
+            <li>O que é Data Science</li>
+            <li>Big Data</li>
+            <li>Python para Dados</li>
+            <li>Aprendizado de Máquina</li>
+            <li>Deep Learning</li>
+            <li>PLN</li>
+            <li>Visão Computacional</li>
+            <li>Big Data Engenharia</li>
+        </ol>
     </details>
 
 </section>
 
+<section id="livros">
+    <h2>Livros</h2>
 
-<!-- PROJETOS -->
-<section id="projetos" class="content-section">
-    <h1>Projetos</h1>
-
-    <details>
-        <summary>Agente Inteligente Multimodal para Previsão de Inundações</summary>
-        <div>
-            <p>Modelo multimodal integrando RAG + ML + dados ambientais.</p>
+    <div class="book-grid">
+        <div class="book-card">
+            <img src="https://vladimiralencar.github.io/livros/1.InteligenciaArtificial.png">
+            Inteligência Artificial
         </div>
-    </details>
 
-    <details>
-        <summary>Classificação de Imagens Médicas com Transformers</summary>
-        <div>
-            <p>Uso de ViT para radiografias de tórax.</p>
+        <div class="book-card">
+            <img src="https://vladimiralencar.github.io/livros/2.DoencasDePele-CNN.webp">
+            Doenças de Pele com CNN
         </div>
-    </details>
-</section>
 
-
-<!-- LIVROS -->
-<section id="livros" class="content-section">
-    <h1>Livros</h1>
-
-    <details>
-        <summary>Ver lista de livros</summary>
-        <div>
-            <ol>
-                <li>Inteligência Artificial</li>
-                <li>Doenças de Pele — CNN</li>
-                <li>Febre Amarela — Twitter</li>
-                <li>Tuberculose</li>
-                <li>CG-GEO</li>
-                <li>Previsão de Epidemias</li>
-                <li>SIG Trans</li>
-                <li>Análises Multiobjetivo</li>
-            </ol>
+        <div class="book-card">
+            <img src="https://vladimiralencar.github.io/livros/3.FebreAmarela-Twitter.jpg">
+            Febre Amarela — Twitter Analytics
         </div>
-    </details>
-</section>
 
-<!-- CONTATO -->
-<section id="contato" class="content-section">
-    <h1>Contato</h1>
-    <p>Email: vladimir.alencar@uepb.edu.br</p>
+        <div class="book-card">
+            <img src="https://vladimiralencar.github.io/livros/4.Tuberculose.webp">
+            Tuberculose — IA Aplicada
+        </div>
+
+        <div class="book-card">
+            <img src="https://vladimiralencar.github.io/livros/5.cggeo.webp">
+            CGGeo — Geotecnologias
+        </div>
+
+        <div class="book-card">
+            <img src="https://vladimiralencar.github.io/livros/6.PrevisaoDeEpidemias.png">
+            Previsão de Epidemias
+        </div>
+
+        <div class="book-card">
+            <img src="https://vladimiralencar.github.io/livros/7.sigtrans.webp">
+            SIGTrans — Mobilidade Urbana
+        </div>
+
+        <div class="book-card">
+            <img src="https://vladimiralencar.github.io/livros/8.AnalisesMultiobjetivo.jpg">
+            Análises Multiobjetivo
+        </div>
+    </div>
 </section>
 
 <script>
-/* LÓGICA DO BOTÃO DE IDIOMA */
-let isPT = true;
-
 function toggleLang() {
-    const pt = document.getElementById("pt");
-    const en = document.getElementById("en");
-    const pill = document.getElementById("lang-pill");
-
-    if (isPT) {
-        pt.classList.add("fade");
-        setTimeout(() => {
-            pt.style.display = "none";
-            en.style.display = "block";
-            en.classList.remove("fade");
-        }, 300);
-        pill.style.transform = "translateX(52px)";
-    } else {
-        en.classList.add("fade");
-        setTimeout(() => {
-            en.style.display = "none";
-            pt.style.display = "block";
-            pt.classList.remove("fade");
-        }, 300);
-        pill.style.transform = "translateX(0px)";
-    }
-
-    isPT = !isPT;
+    document.documentElement.lang = 
+        document.documentElement.lang === "pt" ? "en" : "pt";
 }
 </script>
 
