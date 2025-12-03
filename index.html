@@ -6,34 +6,7 @@
 <title>Vladimir Alencar — IA, Ensino & Pesquisa</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #ffffff;
-  --text: #0f172a;
-  --muted: #64748b;
-  --accent: #2563eb;
-}
-body { font-family: Inter, Arial, sans-serif; margin:0; padding:0; color:var(--text); background:var(--bg);} 
-.section { padding:60px 20px; max-width:1100px; margin:auto; }
-
-/* SOBRE */
-.hero-container { display:flex; gap:40px; align-items:flex-end; }
-.photo { width:360px; height:auto; border-radius:16px; object-fit:cover; }
-.hero-text { font-size:1.25rem; line-height:1.5; padding-bottom:10px; }
-.hero-text h1 { font-size:2.4rem; margin-bottom:10px; }
-.uepb { font-size:1.2rem; margin-top:10px; }
-
-/* ACORDEÃO */
-.accordion { border:1px solid #e2e8f0; border-radius:10px; margin-bottom:18px; padding:10px 14px; background:#f8fafc; }
-.accordion-header { cursor:pointer; font-size:1.25rem; font-weight:600; display:flex; justify-content:space-between; align-items:center; padding:10px; }
-.accordion-content { display:none; padding:15px 20px; font-size:1.05rem; line-height:1.55; }
-.accordion-content ol li { margin-bottom:6px; }
-.accordion-header span { font-size:1.5rem; color:var(--accent); }
-
-/* LIVROS GRID */
-.livros-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:25px; margin-top:25px; }
-.livro-item { text-align:center; padding:15px; border:1px solid #e2e8f0; border-radius:12px; background:#f8fafc; }
-.livro-item img { width:160px; border-radius:10px; margin-bottom:10px; }
-.livro-item span { display:block; font-size:1rem; margin-top:6px; }
+.accordion:hover { background:#eef6ff; transition:0.3s; }
 </style>
 </head>
 <body>
@@ -65,7 +38,7 @@ body { font-family: Inter, Arial, sans-serif; margin:0; padding:0; color:var(--t
       <h1>Vladimir Costa de Alencar</h1>
       <p>Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial. Gosto de Café, Ecologia, História, Geopolítica, Artes, Gatos, Big Data, IA.</p>
       <p>Doutorado em Recursos Naturais com ênfase em Otimização Multicritério/Multiobjetivo — UFCG (2009). Mestrado em Ciência da Computação — UFCG (1992). Graduação em Ciência da Computação (1990) e Radiologia (2017).</p>
-      <p>Trabalha com Big Data Analytics, SQL e NoSQL, Machine Learning, Python, C/C++, Linux, Cloud Computing, CUDA, Epidemiologia, Redes Neurais, Deep Learning, Inteligência Artificial, Visão Computacional e PLN (LLM, Agentes).</p>
+      <p>Trabalha com Big Data Analytics, SQL e NoSQL, Machine Learning, Python, C/C++, Linux, Cloud Computing, CUDA, Epidemiologia, Redes Neural, Deep Learning, Inteligência Artificial, Visão Computacional e PLN (LLM, Agentes).</p>
       <p>Diretor do Laboratório de Análise de Dados e Inteligência Artificial (LANA). UEPB.</p>
       <div class="uepb" style="font-weight:normal;margin-top:10px;">Campina Grande, Paraíba. Brazil</div>
     </div>
@@ -74,65 +47,45 @@ body { font-family: Inter, Arial, sans-serif; margin:0; padding:0; color:var(--t
 
 <!-- DISCIPLINAS (ACORDEÃO) -->
 <section id="disciplinas" class="section">
-  <h2>Disciplinas Ministradas</h2>
-
-  <div class="accordion">
-    <div class="accordion-header">Banco de Dados (Construção de Banco de Dados em Estatística) <span>+</span></div>
-    <div class="accordion-content">
-      <ol>
-        <li>0. Ementa</li>
-        <li>1. Breve História de Banco de Dados</li>
-        <li>2. Novas Tecnologias<ul><li>Machine Learning</li><li>Big Data</li><li>Data Science</li><li>NoSQL</li><li>Hadoop</li><li>Spark</li></ul></li>
-        <li>3. Fundamentos e Conceitos Básicos<ul><li>Campos</li><li>Registros</li><li>Tabelas</li><li>Índices e Chaves</li></ul></li>
-        <li>4. Modelos, Esquemas e Linguagens</li>
-        <li>5. Modelagem<ul><li>5.1 MER</li><li>5.2 Álgebra Relacional</li><li>5.3 Modelo Relacional</li></ul></li>
-        <li>6. Projeto de Banco de Dados<ul><li>6.1 Transformação do MER</li><li>6.2 Normalização</li></ul></li>
-        <li>7. SQL</li>
-        <li>8. Programação com SGBD</li>
-        <li>9. MongoDB</li>
-        <li>10. Serviços de um SGBD<ul><li>Concorrência</li><li>Transações</li><li>Recuperação</li><li>Otimização</li></ul></li>
-      </ol>
-    </div>
-  </div>
-
-  <div class="accordion">
-    <div class="accordion-header">Introdução à Ciência da Computação <span>+</span></div>
-    <div class="accordion-content">
-      <ol>
-        <li>Fundamentos de Computadores<ul><li>Arquitetura</li><li>CPU/Memória/I/O</li><li>Programas</li></ul></li>
-        <li>Sistemas de Numeração<ul><li>Decimal</li><li>Binário</li><li>Octal</li><li>Hexadecimal</li></ul></li>
-        <li>Lógica de Programação e Python<ul><li>Algoritmos</li><li>Tipos</li><li>Operadores</li></ul></li>
-        <li>Estruturas de Controle<ul><li>If/Else</li><li>For</li><li>While</li></ul></li>
-        <li>Modularização e Funções<ul><li>Funções</li><li>Escopo</li><li>Módulos</li></ul></li>
-        <li>Metodologia de Desenvolvimento de Algoritmos</li>
-        <li>Avaliações: Prova 1, Prova 2, Reposição, Final</li>
-        <li>Bibliografia<ul><li>Ascencio & Campos — Fundamentos da Programação</li><li>Sweigart — Automate the Boring Stuff</li><li>Farrer — Algoritmos Estruturados</li><li>Ramalho — Fluent Python</li><li>Borges — Python p/ Desenvolvedores</li></ul></li>
-      </ol>
-    </div>
-  </div>
-
-  <div class="accordion">
-    <div class="accordion-header">Ciência de Dados <span>+</span></div><div class="accordion-content"><ol>
-<li>1. Introdução</li>
-<li>2. O que é Ciência de Dados — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf" target="_blank">PDF</a></li>
-<li>3. Big Data — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank">PDF</a></li>
-<li>4. Python p/ Dados — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados" target="_blank">GitHub</a></li>
-<li>5. Processo de Aprendizagem — <a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf" target="_blank">PDF</a></li>
-<li>6. Machine Learning<ul>
-  <li>Regressão Linear — <a href="https://www.valencar.com/_files/ugd/c3cbd8_73a00ff8bfec4971a060c8752d1166f0.pdf" target="_blank">PDF</a></li>
-  <li>Regressão Logística — <a href="https://www.valencar.com/_files/ugd/c3cbd8_e1d6fdc50c604edbb599c42f3b91ee0d.pdf" target="_blank">PDF</a></li>
-</ul></li>
-<li>7. Redes Neurais — <a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf" target="_blank">PDF</a></li>
-<li>8. Deep Learning — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf" target="_blank">PDF</a></li>
-<li>9. PLN</li>
-<li>10. Visão Computacional</li>
-<li>11. Redes Sociais</li>
-<li>12. NoSQL</li>
-<li>13. MongoDB</li>
-<li>14. Hadoop</li>
-<li>15. Spark</li>
-</ol></div>
-  </div>
+<h2>Disciplinas Ministradas</h2>
+<div class="accordion"><div class="accordion-header">Banco de Dados <span>+</span></div><div class="accordion-content"><ol>
+<li>0. Ementa</li>
+<li>1. Breve História de Banco de Dados</li>
+<li>2. Novas Tecnologias<ul><li>Machine Learning</li><li>Big Data</li><li>Data Science</li><li>NoSQL</li><li>Hadoop</li><li>Spark</li></ul></li>
+<li>3. Fundamentos e Conceitos Básicos<ul><li>Campos</li><li>Registros</li><li>Tabelas</li><li>Índices e Chaves</li></ul></li>
+<li>4. Modelos, Esquemas e Linguagens</li>
+<li>5. Modelagem<ul><li>5.1 MER</li><li>5.2 Álgebra Relacional</li><li>5.3 Modelo Relacional</li></ul></li>
+<li>6. Projeto de Banco de Dados Relacional<ul><li>6.1 Transformação do MER</li><li>6.2 Normalização</li></ul></li>
+<li>7. SQL</li>
+<li>8. Programação com SGBD</li>
+<li>9. MongoDB</li>
+<li>10. Serviços de um SGBD<ul><li>Concorrência</li><li>Transações</li><li>Sistema de Recuperação</li><li>Otimização</li></ul></li>
+</ol></div></div>
+<div class="accordion"><div class="accordion-header">Introdução à Ciência da Computação <span>+</span></div><div class="accordion-content"><ol>
+<li>Fundamentos de Computadores<ul><li>Arquitetura</li><li>CPU, memória, I/O</li><li>Programas</li></ul></li>
+<li>Sistemas de Numeração<ul><li>Decimal</li><li>Binário</li><li>Octal</li><li>Hexadecimal</li></ul></li>
+<li>Lógica de Programação e Python<ul><li>Algoritmos</li><li>Tipos e variáveis</li><li>Operadores</li></ul></li>
+<li>Estruturas de Controle<ul><li>If/Elif/Else</li><li>For</li><li>While</li></ul></li>
+<li>Modularização e Funções<ul><li>Funções</li><li>Escopo</li><li>Módulos</li></ul></li>
+<li>Metodologia de Desenvolvimento</li>
+<li>Avaliações: P1, P2, Reposição, Final</li>
+<li>Bibliografia completa</li>
+</ol></div></div>
+<div class="accordion"><div class="accordion-header">Ciência de Dados <span>+</span></div><div class="accordion-content"><ol>
+<li>Ementa — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank">PDF</a></li>
+<li>Introdução — <a href="https://huggingface.co/valencar?sort_spaces=likes#spaces" target="_blank">Link</a></li>
+<li>Conceitos Básicos — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf" target="_blank">PDF</a></li>
+<li>Big Data — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank">PDF</a></li>
+<li>Python para Dados — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados" target="_blank">GitHub</a></li>
+<li>Processo de Aprendizagem — <a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf" target="_blank">PDF</a></li>
+<li>Machine Learning<ul><li>Regressão Linear — <a href="https://www.valencar.com/_files/ugd/c3cbd8_73a00ff8bfec4971a060c8752d1166f0.pdf" target="_blank">PDF</a></li>
+<li>Regressão Logística — <a href="https://www.valencar.com/_files/ugd/c3cbd8_e1d6fdc50c604edbb599c42f3b91ee0d.pdf" target="_blank">PDF</a></li>
+<li>KNN / Naive Bayes / Árvores / XGBoost / PCA / SVM</li></ul></li>
+<li>Redes Neurais — <a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf" target="_blank">PDF</a></li>
+<li>Deep Learning — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf" target="_blank">PDF</a></li>
+<li>PLN • Visão Computacional • Mídias Sociais • MongoDB • Hadoop • Spark</li>
+<li>GitHub — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">Código</a></li>
+</ol></div></div>
 </section>
 
 <!-- PROJETOS (ACORDEÃO) -->
