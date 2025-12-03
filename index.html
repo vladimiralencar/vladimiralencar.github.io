@@ -3,233 +3,442 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sobre — Prof. Vladimir Alencar</title>
+<title>Professor Vladimir Alencar</title>
 
 <style>
+/* ---------------------- */
+/* RESET + BASE */
+/* ---------------------- */
 body {
     margin: 0;
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
-    background: #f7f7f7;
-    color: #222;
-    line-height: 1.6;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, Roboto, sans-serif;
+    background: #111;
+    color: #eee;
+    transition: 0.4s ease;
+}
+h1, h2, h3 {
+    font-weight: 600;
 }
 
-/* -------- Header ------ */
-header {
-    background: #111;
-    color: #fff;
-    padding: 20px 40px;
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 60px;
+}
+
+/* ---------------------- */
+/* MENU SUPERIOR */
+/* ---------------------- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.6);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 26px;
+    padding: 15px 40px;
+    z-index: 1000;
 }
 
 nav a {
-    color: #ccc;
+    color: #fff;
     margin-left: 20px;
     text-decoration: none;
+    font-size: 18px;
     transition: 0.3s;
 }
-nav a:hover {
-    color: #fff;
-}
 
-/* -------- LANGUAGE SWITCH -------- */
-#langBtn {
-    background: #444;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
+nav a:hover { color: #0ff; }
+
+/* Language Toggle */
+.lang-toggle {
     cursor: pointer;
-    transition: 0.3s;
+    font-size: 16px;
+    opacity: 0.8;
 }
-#langBtn:hover {
-    background: #666;
+.lang-toggle:hover { opacity: 1; }
+
+/* ---------------------- */
+/* SECTION BLOCK */
+/* ---------------------- */
+section {
+    margin-bottom: 80px;
 }
 
-/* --------- Section --------- */
-.section {
-    max-width: 1000px;
-    margin: 40px auto;
-    background: white;
-    padding: 40px;
+/* ---------------------- */
+/* SOBRE */
+/* ---------------------- */
+.sobre-wrapper {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.sobre-wrapper img {
+    width: 320px;
+    height: auto;
     border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
 
-/* FOTO */
-.photo {
-    width: 260px;
-    border-radius: 16px;
-    float: left;
-    margin-right: 30px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+/* ---------------------- */
+/* ACCORDION DISCIPLINAS */
+/* ---------------------- */
+.accordion {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+.accordion-item {
+    background: #181818;
+    border-bottom: 1px solid #222;
+}
+.accordion-header {
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+}
+.accordion-header:hover { background: #222; }
+
+.arrow {
+    position: absolute;
+    right: 20px;
+    top: 26px;
+    transition: transform 0.3s ease;
+}
+.rotate { transform: rotate(180deg); }
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: max-height 0.6s cubic-bezier(.25,.8,.25,1);
 }
 
-/* -------- CARDS DE LIVROS -------- */
+.accordion-content.open {
+    padding-bottom: 20px;
+}
+
+/* Numeral list */
+.accordion-content ol {
+    padding-left: 20px;
+    line-height: 1.7;
+}
+
+/* ---------------------- */
+/* LIVROS — 3D FLIP */
+/* ---------------------- */
 .books-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 40px;
 }
 
 .book-card {
-    background: white;
+    perspective: 1000px;
+}
+
+.book-inner {
+    width: 100%;
+    height: 340px;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.book-card:hover .book-inner {
+    transform: rotateY(180deg);
+}
+
+.book-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+
+.book-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-back {
+    background: #222;
+    color: #ddd;
     padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
 }
 
-.book-card:hover {
-    transform: rotateY(8deg) scale(1.04);
-    box-shadow: 0 10px 32px rgba(0,0,0,0.20);
+/* ---------------------- */
+/* FOOTER */
+/* ---------------------- */
+footer {
+    text-align: center;
+    padding: 40px;
+    opacity: 0.7;
 }
 
-.book-card img {
-    width: 100%;
-    border-radius: 12px;
-}
-
-.book-title {
-    font-size: 18px;
-    margin-top: 14px;
-    font-weight: bold;
-}
-
-.book-desc {
-    font-size: 15px;
-    margin-top: 8px;
-    color: #555;
-}
+/* ---------------------- */
+/* LANGUAGE VISIBILITY */
+/* ---------------------- */
+.lang-pt { display: block; }
+.lang-en { display: none; }
 </style>
-
 </head>
+
 <body>
 
-<header>
-    <h1>Prof. Vladimir Alencar</h1>
-
-    <nav>
-        <a href="#">Início</a>
-        <a href="#">Disciplinas</a>
-        <a href="#">Projetos</a>
-        <a href="#">Publicações</a>
+<nav>
+    <div>
         <a href="#sobre">Sobre</a>
-        <button id="langBtn">EN</button>
-    </nav>
-</header>
-
-<section class="section" id="sobre">
-
-    <img src="img/sua-foto.jpg" class="photo">
-
-    <div id="text-pt">
-        <h2>Sobre</h2>
-
-        <p>Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial.</p>
-
-        <p>Gosto de Café, Ecologia, História, Geopolítica, Artes, Big Data, IA e Jejum Intermitente.</p>
-
-        <p>Tenho Doutorado em Recursos Naturais com ênfase em modelos de otimização baseados em programação linear (2009, UFCG, Brasil).  
-        Mestrado em Ciência da Computação (1992, UFCG).  
-        Graduações em Ciência da Computação (1990) e Radiologia (2017).</p>
-
-        <p>Atuo como Professor e Pesquisador na Universidade Estadual da Paraíba (UEPB), Campina Grande – PB, Brasil.</p>
-
-        <p>Trabalho com Big Data Analytics, SQL/NoSQL, Machine Learning, Python, C/C++, Linux, Cloud, CUDA, Epidemiologia, Redes Neurais, Deep Learning e Inteligência Artificial.</p>
-
-        <p>Sou Diretor do Laboratório de Análise de Dados (LANA – UEPB).</p>
-
-        <h3>Contato</h3>
-        <p>
-        UEPB – Universidade Estadual da Paraíba<br>
-        Rua Baraúnas, 351 – Campina Grande, PB – Brasil<br>
-        CEP 58429-500<br>
-        Tel: +55 83 3315-3300
-        </p>
+        <a href="#disciplinas">Disciplinas</a>
+        <a href="#livros">Livros</a>
     </div>
+    <div class="lang-toggle" onclick="toggleLang()">PT / EN</div>
+</nav>
 
-    <div id="text-en" style="display:none;">
-        <h2>About</h2>
+<div class="container">
 
-        <p>I am a Professor, Researcher, Writer and Artificial Intelligence Engineer.</p>
+<!-- ---------------------- -->
+<!-- SOBRE -->
+<!-- ---------------------- -->
+<section id="sobre">
+    <h1 class="lang-pt">Sobre</h1>
+    <h1 class="lang-en">About</h1>
 
-        <p>I like Coffee, Ecology, History, Geopolitics, Arts, Big Data, AI and Intermittent Fasting.</p>
+    <div class="sobre-wrapper">
 
-        <p>I hold a Ph.D. in Natural Resources with emphasis on optimization models based on linear programming (2009, UFCG, Brazil).  
-        A Master's Degree in Computer Science (1992).  
-        And two undergraduate degrees: Computer Science (1990) and Radiology (2017).</p>
+        <img src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="Foto do Professor">
 
-        <p>I work as a Professor and Researcher at the State University of Paraíba (UEPB), Campina Grande – Brazil.</p>
+        <div>
+            <p class="lang-pt">
+                Sou Professor Doutor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial.<br>
+                Gosto de Café, Ecologia, História, Geopolítica, Artes, Big Data, IA e Jejum Intermitente.
+                <br><br>
+                Doutorado em Recursos Naturais (2009, UFCG).<br>
+                Mestrado em Ciência da Computação (1992, UFCG).<br>
+                Bacharelado em Ciência da Computação (1990, UFCG).<br>
+                Tecnólogo em Radiologia (2017).<br><br>
+                Professor da Universidade Estadual da Paraíba (UEPB).<br>
+                Diretor do Laboratório de Análise de Dados (LANA).<br>
+            </p>
 
-        <p>I work with Big Data Analytics, SQL/NoSQL, Machine Learning, Python, C/C++, Linux, Cloud Computing, CUDA, Epidemiology, Neural Networks, Deep Learning and Artificial Intelligence.</p>
+            <p class="lang-en">
+                I am a Ph.D. Professor, Researcher, Writer and Artificial Intelligence Engineer.<br>
+                I like Coffee, Ecology, History, Geopolitics, Arts, Big Data, AI and Intermittent Fasting.
+                <br><br>
+                Ph.D. in Natural Resources (2009).<br>
+                M.Sc. in Computer Science (1992).<br>
+                B.Sc. in Computer Science (1990).<br>
+                Degree in Radiology (2017).<br><br>
+                Professor at the State University of Paraíba (UEPB).<br>
+                Director of the Data Analysis Laboratory (LANA).<br>
+            </p>
+        </div>
 
-        <p>I am the Director of the Data Analysis Laboratory (LANA – UEPB).</p>
-
-        <h3>Contact</h3>
-        <p>
-        UEPB – State University of Paraíba<br>
-        Baraúnas St., 351 – Campina Grande, PB – Brazil<br>
-        ZIP 58429-500<br>
-        Phone: +55 83 3315-3300
-        </p>
     </div>
+</section>
 
-    <h2 style="margin-top:60px;">Livros</h2>
+<!-- ---------------------- -->
+<!-- DISCIPLINAS (ACCORDION) -->
+<!-- ---------------------- -->
+<section id="disciplinas">
+    <h1 class="lang-pt">Disciplinas Ministradas</h1>
+    <h1 class="lang-en">Courses Taught</h1>
+
+    <div class="accordion">
+
+        <!-- ---------------------- -->
+        <!-- Banco de Dados -->
+        <!-- ---------------------- -->
+        <div class="accordion-item">
+            <div class="accordion-header">
+                Banco de Dados
+                <span class="arrow">▼</span>
+            </div>
+            <div class="accordion-content">
+                <ol>
+                    <li>Conceitos básicos de dados e informação</li>
+                    <li>Modelagem de dados — Modelo Entidade-Relacionamento</li>
+                    <li>Álgebra relacional</li>
+                    <li>Projeto lógico — Modelo Relacional</li>
+                    <li>SQL — Consultas, junções e subconsultas</li>
+                    <li>Normalização e Formas Normais</li>
+                    <li>Transações, concorrência e recuperação</li>
+                    <li>NoSQL: chave-valor, documento, grafo, colunar</li>
+                </ol>
+                <a href="https://www.valencar.com/banco-de-dados/bd.pdf" target="_blank">📄 PDF da disciplina</a>
+            </div>
+        </div>
+
+        <!-- ---------------------- -->
+        <!-- Introdução à Programação -->
+        <!-- ---------------------- -->
+        <div class="accordion-item">
+            <div class="accordion-header">
+                Introdução à Programação
+                <span class="arrow">▼</span>
+            </div>
+            <div class="accordion-content">
+                <ol>
+                    <li>Lógica e algoritmos</li>
+                    <li>Estruturas de controle</li>
+                    <li>Vetores e matrizes</li>
+                    <li>Funções e modularização</li>
+                    <li>Arquivos</li>
+                    <li>Estruturas de dados básicas</li>
+                    <li>Introdução a Python</li>
+                    <li>Boas práticas de implementação</li>
+                </ol>
+                <a href="https://www.valencar.com/introducao-a-programacao/introprog.pdf" target="_blank">📄 PDF da disciplina</a>
+            </div>
+        </div>
+
+        <!-- ---------------------- -->
+        <!-- Tópicos Especiais em Banco de Dados -->
+        <!-- ---------------------- -->
+        <div class="accordion-item">
+            <div class="accordion-header">
+                Tópicos Especiais em Banco de Dados
+                <span class="arrow">▼</span>
+            </div>
+            <div class="accordion-content">
+                <ol>
+                    <li>Big Data e processamento distribuído</li>
+                    <li>Sistemas NoSQL avançados</li>
+                    <li>Indexação de alto desempenho</li>
+                    <li>Armazenamento orientado a colunas</li>
+                    <li>Sharding, replicação e tolerância a falhas</li>
+                    <li>Introdução a Hadoop e Spark</li>
+                    <li>Consultas distribuídas</li>
+                    <li>Bancos de grafos</li>
+                </ol>
+                <a href="https://www.valencar.com/topicos-especiais-em-banco-de-dados/tebd.pdf" target="_blank">
+                    📄 PDF da disciplina
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ---------------------- -->
+<!-- LIVROS (FLIP 3D) -->
+<!-- ---------------------- -->
+<section id="livros">
+    <h1 class="lang-pt">Livros Publicados</h1>
+    <h1 class="lang-en">Published Books</h1>
 
     <div class="books-grid">
 
-        <!-- Livro 1 -->
+        <!-- Book 1 -->
         <div class="book-card">
-            <img src="books/livro1.jpg">
-            <div class="book-title">Título do Livro 1</div>
-            <div class="book-desc">Breve descrição do livro. Você pode detalhar o tema, público-alvo ou área de pesquisa.</div>
+            <div class="book-inner">
+                <div class="book-face front">
+                    <img src="https://vladimiralencar.github.io/livros/1.jpg">
+                </div>
+                <div class="book-face book-back">
+                    <h3>Título do Livro 1</h3>
+                    <p>Descrição breve do livro. Tema, abordagem e público-alvo.</p>
+                </div>
+            </div>
         </div>
 
-        <!-- Livro 2 -->
+        <!-- Book 2 -->
         <div class="book-card">
-            <img src="books/livro2.jpg">
-            <div class="book-title">Título do Livro 2</div>
-            <div class="book-desc">Descrição explicando os tópicos abordados e contribuições principais.</div>
+            <div class="book-inner">
+                <div class="book-face front">
+                    <img src="https://vladimiralencar.github.io/livros/2.jpg">
+                </div>
+                <div class="book-face book-back">
+                    <h3>Título do Livro 2</h3>
+                    <p>Descrição breve do conteúdo do livro.</p>
+                </div>
+            </div>
         </div>
 
-        <!-- Livro 3 -->
+        <!-- Book 3 -->
         <div class="book-card">
-            <img src="books/livro3.jpg">
-            <div class="book-title">Título do Livro 3</div>
-            <div class="book-desc">Descrição curta mostrando a relevância da obra.</div>
+            <div class="book-inner">
+                <div class="book-face front">
+                    <img src="https://vladimiralencar.github.io/livros/3.jpg">
+                </div>
+                <div class="book-face book-back">
+                    <h3>Título do Livro 3</h3>
+                    <p>Resumo curto explicando o foco da obra.</p>
+                </div>
+            </div>
         </div>
 
     </div>
-
 </section>
 
-<script>
-/* Linguagem */
-const btn = document.getElementById("langBtn");
-const pt = document.getElementById("text-pt");
-const en = document.getElementById("text-en");
+</div>
 
-btn.onclick = () => {
-    if (pt.style.display !== "none") {
-        pt.style.display = "none";
-        en.style.display = "block";
-        btn.textContent = "PT";
-    } else {
-        pt.style.display = "block";
-        en.style.display = "none";
-        btn.textContent = "EN";
-    }
-};
+<footer>
+    © 2025 — Professor Vladimir Alencar
+</footer>
+
+<script>
+/* ---------------------------- */
+/* LANGUAGE SWITCH */
+/* ---------------------------- */
+function toggleLang() {
+    document.querySelectorAll('.lang-pt').forEach(e => e.style.display =
+        e.style.display === 'none' ? 'block' : 'none'
+    );
+    document.querySelectorAll('.lang-en').forEach(e => e.style.display =
+        e.style.display === 'block' ? 'none' : 'block'
+    );
+}
+
+/* ---------------------------- */
+/* ACCORDION: open only one */
+/* ---------------------------- */
+const headers = document.querySelectorAll('.accordion-header');
+
+headers.forEach(h => {
+    h.addEventListener('click', () => {
+        const item = h.parentElement;
+        const content = item.querySelector('.accordion-content');
+        const arrow = h.querySelector('.arrow');
+
+        // Fechar outros
+        document.querySelectorAll('.accordion-content').forEach(c => {
+            if (c !== content) {
+                c.style.maxHeight = null;
+                c.classList.remove('open');
+            }
+        });
+        document.querySelectorAll('.arrow').forEach(a => {
+            if (a !== arrow) a.classList.remove('rotate');
+        });
+
+        // Alternar este
+        if (content.classList.contains('open')) {
+            content.style.maxHeight = null;
+            content.classList.remove('open');
+            arrow.classList.remove('rotate');
+        } else {
+            content.classList.add('open');
+            content.style.maxHeight = content.scrollHeight + "px";
+            arrow.classList.add('rotate');
+        }
+    });
+});
 </script>
 
 </body>
