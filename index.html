@@ -8,10 +8,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <style>
 body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; }
-.nav { display:flex; align-items:center; background:#f8f8f8; padding:10px 20px; }
+a { text-decoration:none; color:#333; }
+.section { padding:30px 20px; max-width:1200px; margin:auto; }
+
+/* NAV */
+.nav { display:flex; align-items:center; background:#f8f8f8; padding:10px 20px; flex-wrap:wrap; }
 .nav-left { display:flex; align-items:center; flex-wrap:wrap; }
 .nav-left .brand { font-weight:700; margin-right:20px; }
-.nav-left a { margin-left:15px; text-decoration:none; color:#333; display:flex; align-items:center; }
+.nav-left a { margin-left:15px; display:flex; align-items:center; }
 .nav-left a:hover { color:#007acc; }
 .nav-left a::before { margin-right:5px; }
 .nav-left a[href="#sobre"]::before { content:"\f2bd"; font-family:"Font Awesome 6 Free"; font-weight:900; } 
@@ -22,26 +26,37 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; }
 .dropdown { position:relative; }
 .dropdown-menu { display:none; position:absolute; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); margin-top:5px; padding:5px 0; z-index:10; }
 .dropdown:hover .dropdown-menu { display:block; }
-.dropdown-menu a { display:block; padding:5px 15px; color:#333; text-decoration:none; }
+.dropdown-menu a { display:block; padding:5px 15px; color:#333; }
 .dropdown-menu a:hover { background:#eef6ff; }
 
+/* HERO / SOBRE */
+.hero-container { display:flex; flex-wrap:wrap; gap:30px; align-items:flex-start; }
+.hero-photo { flex:0 0 250px; }
+.hero-photo img { width:100%; border-radius:10px; display:block; }
+.hero-text { flex:1; min-width:250px; display:flex; flex-direction:column; justify-content:flex-start; }
+.hero-text h1 { margin-top:0; margin-bottom:15px; }
+.hero-text p { margin-bottom:10px; text-align:justify; }
+.uepb { font-weight:normal; margin-top:10px; }
+
+@media (max-width:768px){
+  .hero-container { flex-direction: column; align-items:center; }
+  .hero-text { text-align:center; }
+  .hero-text p { text-align:center; }
+}
+
+/* ACORDEÃO */
 .accordion { border:1px solid #ddd; border-radius:5px; margin-bottom:10px; overflow:hidden; }
 .accordion-header { cursor:pointer; padding:10px 15px; background:#f1f1f1; display:flex; justify-content:space-between; align-items:center; transition:0.3s; }
 .accordion-header:hover { background:#eef6ff; }
-.accordion-content { max-height:0; overflow:hidden; transition:max-height 0.3s ease; padding:0 15px; }
+.accordion-content { max-height:0; overflow:hidden; transition:max-height 0.3s ease, padding 0.3s ease; padding:0 15px; }
 .accordion-content.open { padding:10px 15px; }
 
-.section { padding:30px 20px; max-width:1200px; margin:auto; }
-.hero-container { display:flex; flex-wrap:wrap; gap:20px; align-items:flex-start; }
-.hero-container img.photo { width:250px; border-radius:10px; }
-.hero-text { flex:1; min-width:250px; display:flex; flex-direction:column; justify-content:flex-start; }
-
+/* LIVROS */
 .livros-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:20px; margin-top:20px; }
 .livro-item { text-align:center; transition:transform 0.3s; }
 .livro-item img { width:100%; border-radius:5px; }
 .livro-item span { display:block; margin-top:5px; font-weight:500; }
 .livro-item:hover { transform:scale(1.05); }
-
 </style>
 </head>
 <body>
@@ -68,14 +83,16 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; }
 <!-- SOBRE -->
 <section id="sobre" class="section">
   <div class="hero-container">
-    <img class="photo" src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="Vladimir Alencar" />
+    <div class="hero-photo">
+      <img class="photo" src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="Vladimir Alencar" />
+    </div>
     <div class="hero-text">
       <h1>Vladimir Costa de Alencar</h1>
       <p>Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial. Gosto de Café, Ecologia, História, Geopolítica, Artes, Gatos, Big Data, IA.</p>
       <p>Doutorado em Recursos Naturais com ênfase em Otimização Multicritério/Multiobjetivo — UFCG (2009). Mestrado em Ciência da Computação — UFCG (1992). Graduação em Ciência da Computação (1990) e Radiologia (2017).</p>
       <p>Trabalha com Big Data Analytics, SQL e NoSQL, Machine Learning, Python, C/C++, Linux, Cloud Computing, CUDA, Epidemiologia, Redes Neural, Deep Learning, Inteligência Artificial, Visão Computacional e PLN (LLM, Agentes).</p>
       <p>Diretor do Laboratório de Análise de Dados e Inteligência Artificial (LANA). UEPB.</p>
-      <div class="uepb" style="font-weight:normal;margin-top:10px;">Campina Grande, Paraíba. Brazil</div>
+      <div class="uepb">Campina Grande, Paraíba. Brazil</div>
     </div>
   </div>
 </section>
@@ -83,13 +100,13 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; }
 <!-- DISCIPLINAS (ACORDEÃO) -->
 <section id="disciplinas" class="section">
 <h2>Disciplinas Ministradas</h2>
-<!-- Seus acordeões originais aqui (mantive o mesmo conteúdo) -->
+<!-- Coloque aqui os acordeões originais -->
 </section>
 
 <!-- PROJETOS (ACORDEÃO) -->
 <section id="projetos" class="section">
 <h2>Projetos</h2>
-<!-- Seus acordeões originais aqui -->
+<!-- Coloque aqui os acordeões originais -->
 </section>
 
 <!-- LIVROS -->
@@ -108,4 +125,26 @@ body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.5; }
 </section>
 
 <script>
-document.
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    const s = header.querySelector('span');
+    if(s) s.textContent = '+';
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const isOpen = content.classList.contains('open');
+      if(isOpen){
+        content.style.maxHeight = null;
+        content.classList.remove('open');
+        if(s) s.textContent = '+';
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        content.classList.add('open');
+        if(s) s.textContent = '-';
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
