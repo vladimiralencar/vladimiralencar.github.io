@@ -4,89 +4,44 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Vladimir Alencar — IA, Ensino & Pesquisa</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  --bg:#ffffff; --muted:#6b7280; --text:#0b1220; --accent:#0b78ff;
-}
+:root{ --bg:#ffffff; --muted:#6b7280; --text:#0b1220; --accent:#0b78ff; }
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
 a{color:var(--accent);text-decoration:none}
 .container{max-width:1100px;margin:0 auto;padding:24px}
-
-/* NAV */
-.nav{
-  position:fixed;top:12px;left:0;right:0;margin:0 auto;max-width:1200px;
-  display:flex;align-items:center;justify-content:space-between;padding:12px 20px;
-  background:rgba(255,255,255,0.8);backdrop-filter:blur(10px);border-radius:12px;
-  box-shadow:0 6px 20px rgba(12,18,20,0.04);z-index:1200;
-}
+.nav{position:fixed;top:12px;left:0;right:0;margin:0 auto;max-width:1200px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:rgba(255,255,255,0.8);backdrop-filter:blur(10px);border-radius:12px;box-shadow:0 6px 20px rgba(12,18,20,0.04);z-index:1200}
 .nav-left{display:flex;gap:22px;align-items:center}
-.brand{font-weight:700;font-size:18px}
-.nav-right{display:flex;gap:14px;align-items:center}
-
-/* menu links */
 .nav a {font-weight:600;color:var(--text);padding:8px;border-radius:8px}
 .nav a:hover{background:#f5f7fb}
-
-/* dropdown discipline quick links */
+.brand{font-weight:700;font-size:18px}
 .dropdown{position:relative}
 .dropdown-menu{position:absolute;top:44px;left:0;background:#fff;border-radius:10px;padding:8px 6px;box-shadow:0 10px 30px rgba(12,18,20,0.06);display:none;min-width:220px}
 .dropdown:hover .dropdown-menu{display:block}
 .dropdown-menu a{display:block;padding:8px 12px;color:var(--text);font-size:14px;border-radius:6px}
 .dropdown-menu a:hover{background:#f5f7fb}
-
-/* language pill */
 .lang-toggle{width:120px;height:40px;border-radius:999px;background:#eef2ff;border:1px solid rgba(11,17,34,0.04);display:flex;align-items:center;padding:4px;position:relative;cursor:pointer}
 .lang-pill{width:52px;height:32px;border-radius:999px;background:#0b1220;transform:translateX(4px);transition:transform .28s cubic-bezier(.2,.9,.3,1)}
 .lang-labels{display:flex;width:100%;justify-content:space-between;padding:0 12px;font-weight:700;font-size:13px;color:#0b1220}
-.lang-labels .active{color:#fff}
-
-/* PAGE SECTIONS */
 .section{padding:110px 20px 60px;max-width:1100px;margin:0 auto}
-.hero{display:flex;gap:32px;align-items:center}
-.photo{width:320px;border-radius:16px;box-shadow:0 14px 40px rgba(12,18,20,0.06);flex:0 0 320px}
-.hero-text{flex:1}
-
-/* about text vertical align center relative to photo */
 .hero-container{display:flex;align-items:center;gap:36px;flex-wrap:wrap}
-
-/* headings */
-.h1{font-size:36px;margin:0 0 6px;font-weight:700}
-.p{color:var(--muted);font-size:17px;line-height:1.6;margin:0}
-
-/* UEPB block */
-.uepb{margin-top:18px;color:#334155;font-size:15px;line-height:1.5}
-
-/* cards for disciplines (option C) */
+.photo{width:360px;border-radius:18px;box-shadow:0 14px 40px rgba(12,18,20,0.06);flex:0 0 360px;object-fit:cover}
+.hero-text{flex:1;font-size:20px;line-height:1.7}
+.h1{font-size:42px;margin:0 0 10px;font-weight:700}
+.p{color:var(--muted);font-size:20px;line-height:1.7;margin:0 0 10px}
+.uepb{margin-top:18px;color:#334155;font-size:18px;line-height:1.6}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:18px}
 .card{background:#fff;border-radius:14px;padding:18px;border:1px solid #f0f3f7;box-shadow:0 6px 20px rgba(12,18,20,0.04)}
-.card h3{margin:0 0 8px;font-size:18px}
-.card ol{padding-left:18px;margin:0;color:#111}
+.card h3{margin:0 0 8px;font-size:20px}
+.card ol{padding-left:18px;margin:0;color:#111;font-size:17px;line-height:1.6}
 .card a.file{display:inline-block;margin-top:10px;color:var(--accent);font-weight:600}
-
-/* book gallery */
 .book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-top:18px}
 .book{border-radius:12px;overflow:hidden;background:#fff;padding:10px;border:1px solid #f2f4f7;box-shadow:0 8px 20px rgba(12,18,20,0.04);text-align:center}
 .book img{width:100%;height:260px;object-fit:cover;border-radius:8px;margin-bottom:10px}
-
-/* photos gallery */
-.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:18px}
-.photos img{width:100%;height:140px;object-fit:cover;border-radius:10px;box-shadow:0 6px 18px rgba(12,18,20,0.04)}
-
-/* contact card */
 .contact{display:flex;gap:18px;align-items:center;margin-top:18px}
-.contact .email-img{border-radius:8px;border:1px solid #eee;box-shadow:0 6px 20px rgba(12,18,20,0.04);}
-
-/* responsive tweaks */
-@media (max-width:900px){
-  .hero{flex-direction:column;align-items:flex-start}
-  .photo{width:220px;flex:0 0 220px}
-  .nav{padding:10px}
-  .section{padding:90px 16px 40px}
-}
+.contact .email-img{border-radius:8px;border:1px solid #eee;box-shadow:0 6px 20px rgba(12,18,20,0.04)}
+@media (max-width:900px){ .photo{width:260px;flex:0 0 260px} .h1{font-size:32px} .p{font-size:18px} .hero-text{font-size:18px} }
 </style>
 </head>
 <body>
@@ -95,9 +50,7 @@ a{color:var(--accent);text-decoration:none}
 <div class="nav container" role="navigation">
   <div class="nav-left">
     <div class="brand">Vladimir Alencar</div>
-
     <a href="#sobre">Sobre</a>
-
     <div class="dropdown">
       <a href="#disciplinas">Disciplinas ▾</a>
       <div class="dropdown-menu" aria-hidden="true">
@@ -106,10 +59,8 @@ a{color:var(--accent);text-decoration:none}
         <a href="#disc-ds">Ciência de Dados</a>
       </div>
     </div>
-
     <a href="#projetos">Projetos</a>
     <a href="#livros">Livros</a>
-    <a href="#fotos">Fotos</a>
     <a href="#contato">Contato</a>
   </div>
 
@@ -124,52 +75,36 @@ a{color:var(--accent);text-decoration:none}
   </div>
 </div>
 
-<!-- HERO / ABOUT -->
+<!-- ABOUT -->
 <section id="sobre" class="section">
   <div class="hero-container">
     <img class="photo" src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="Vladimir Alencar">
-
     <div class="hero-text">
       <div id="content-pt">
         <div class="h1">Vladimir Alencar</div>
         <p class="p">Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial. Gosto de Café, Ecologia, História, Geopolítica, Artes, Big Data, IA e Jejum Intermitente.</p>
         <p class="p">Doutorado em Recursos Naturais (Ênfase em Programação Linear) — UFCG (2009). Mestrado em Ciência da Computação — UFCG (1992). Graduação em Ciência da Computação (1990) e Radiologia (2017).</p>
-
-        <div class="uepb">
-          <strong>UEPB — State University of Paraíba</strong><br>
-          351, Rua Baraúnas.<br>
-          Campina Grande, Paraíba. Brazil<br>
-          58429-500<br>
-          Phone: +55 83 3315.3300
-        </div>
+        <div class="uepb"><strong>Campina Grande, Paraíba. Brazil</strong></div>
       </div>
 
       <div id="content-en" style="display:none">
         <div class="h1">Vladimir Alencar</div>
         <p class="p">I am a Professor, Researcher, Writer and Artificial Intelligence Engineer. I enjoy Coffee, Ecology, History, Geopolitics, Arts, Big Data, AI and Intermittent Fasting.</p>
         <p class="p">Ph.D. in Natural Resources (Optimization / Linear Programming) — UFCG (2009). M.Sc. in Computer Science — UFCG (1992). Degrees: Computer Science (1990) and Radiology (2017).</p>
-
-        <div class="uepb">
-          <strong>UEPB — State University of Paraíba</strong><br>
-          351, Rua Baraúnas.<br>
-          Campina Grande, Paraíba. Brazil<br>
-          58429-500<br>
-          Phone: +55 83 3315.3300
-        </div>
+        <div class="uepb"><strong>Campina Grande, Paraíba. Brazil</strong></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DISCIPLINES (option C: cards with full subtopics) -->
+<!-- DISCIPLINAS -->
 <section id="disciplinas" class="section">
   <h2>Disciplinas Ministradas</h2>
-
   <div class="cards">
 
     <!-- Banco de Dados -->
     <div id="disc-bd" class="card" aria-labelledby="disc-bd">
-      <h3>Construção de Banco de Dados em Estatística (Banco De Dados)</h3>
+      <h3>Construção de Banco de Dados (Banco De Dados)</h3>
       <div>
         <ol>
           <li>0. Ementa</li>
@@ -195,15 +130,15 @@ a{color:var(--accent);text-decoration:none}
           <li>4. Modelos, Esquemas e Linguagens</li>
           <li>5. Modelagem de Banco de Dados (Exercício sobre Modelagem Para Nota)
             <ol>
-              <li>5.1 Modelo Entidade-Relacionamento - MER (Modelo Conceitual)</li>
-              <li>5.2 Álgebra Relacional</li>
-              <li>5.3 Modelo Relacional (Modelo Lógico)</li>
+              <li>5.1. Modelo Entidade-Relacionamento - MER (Modelo Conceitual)</li>
+              <li>5.2. Álgebra Relacional</li>
+              <li>5.3. Modelo Relacional (Modelo Lógico)</li>
             </ol>
           </li>
           <li>6. Projeto de Banco de Dados Relacional
             <ol>
-              <li>6.1 Transformação do MER para o modelo Relacional</li>
-              <li>6.2 Normalização</li>
+              <li>6.1. Transformação do MER para o modelo Relacional</li>
+              <li>6.2. Normalização</li>
             </ol>
           </li>
           <li>7. A linguagem SQL</li>
@@ -218,7 +153,6 @@ a{color:var(--accent);text-decoration:none}
             </ol>
           </li>
         </ol>
-
         <p style="margin-top:12px">Arquivos no GitHub: <a class="file" href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">Repositório</a></p>
       </div>
     </div>
@@ -258,7 +192,17 @@ a{color:var(--accent);text-decoration:none}
 
         <p style="margin-top:12px"><strong>Avaliações:</strong> Prova 1 · Prova 2 · Reposição · Final</p>
 
-        <p><strong>Bibliografia:</strong> Ascencio; Sweigart; Farrer; Ramalho; Borges; Zelle; Tanenbaum.</p>
+        <p><strong>Bibliografia:</strong></p>
+        <ul>
+          <li>ASCENCIO, Ana Fernanda Gomes; CAMPOS, Edilene Aparecida Veneruchi de. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012.</li>
+          <li>SWEIGART, Al. Automate the Boring Stuff with Python. 2. ed. No Starch Press, 2019.</li>
+          <li>Algoritmos Estruturados. Farrer, Harry et al. Editora LTC. 2011.</li>
+          <li>Fluent Python. Ramalho. Editora O´Reilly. 2016.</li>
+          <li>Python para Desenvolvedores. Luiz Eduardo Borges. Editora Novatec. 2015.</li>
+          <li><em>Complementar:</em> ZELLE, John. Python Programming: An Introduction to Computer Science. Franklin, Beedle & Associates, 2017.</li>
+          <li>TANENBAUM, Andrew S. Organização Estruturada de Computadores. Pearson, 2013.</li>
+          <li>RAMALHO, Luciano. Python Fluente. O’Reilly, 2015.</li>
+        </ul>
       </div>
     </div>
 
@@ -270,19 +214,31 @@ a{color:var(--accent);text-decoration:none}
           <li><strong>Ementa</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank">PDF</a></li>
           <li>1. Introdução (Motivação) — <a href="https://huggingface.co/valencar?sort_spaces=likes#spaces" target="_blank">Recursos</a></li>
           <li>2. O que é Ciência de Dados — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf" target="_blank">PDF</a></li>
-          <li>3. Data Science e Big Data — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank">PDF</a></li>
+          <li>3. Data Science e Big Data — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank">PDF</a>
+            <p>Introdução · O que é Big Data · Modelos de Computação Distribuída</p>
+          </li>
           <li>4. Curso Rápido de Python para Análise de Dados — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados" target="_blank">GitHub</a></li>
-          <li>5. O Processo de Aprendizagem — <a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf" target="_blank">PDF</a></li>
-          <li>6. Machine Learning (regressão, KNN, Naive Bayes, árvores, ensemble, SVM, PCA)</li>
-          <li>7. Redes Neurais — <a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf" target="_blank">PDF</a></li>
-          <li>8. Deep Learning — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf" target="_blank">PDF</a></li>
-          <li>9. PLN (LLMs, análise de sentimentos, QA, sumarização)</li>
-          <li>10. Visão Computacional (CNN, ViT)</li>
-          <li>11. Análise de Mídias Sociais</li>
-          <li>12–15. NoSQL, MongoDB, Hadoop, Spark</li>
+          <li>5. O Processo de Aprendizagem — <a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf" target="_blank">PDF</a>
+            <p>Tipos de Aprendizagem · Modelo · Correlação · Espaço de Hipóteses · Função de Custo - J(x) · Erros · Otimização – Gradiente Descendente</p>
+          </li>
+          <li>6. Machine Learning
+            <p>(Aprendizado Supervisionado e Não-Supervisionado) — Regressão Linear, Regressão Logística, KNN, Naive Bayes, Árvores de Decisão / Ensemble / XGBoost, SVM, Clusterização, PCA</p>
+          </li>
+          <li>7. Redes Neurais — <a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf" target="_blank">PDF</a>
+            <p>Componentes básicos, Perceptron, MLP, Backpropagation, Otimizadores</p>
+          </li>
+          <li>8. Deep Learning — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf" target="_blank">PDF</a>
+            <p>Arquiteturas, Tipos de Redes, Programação paralela em GPU, Frameworks (TensorFlow/Keras, PyTorch)</p>
+          </li>
+          <li>9. Processamento de Linguagem Natural (PLN) — modelos LLM, análise de sentimentos, QA, sumarização, tradução</li>
+          <li>10. Visão Computacional — CNN, ViT</li>
+          <li>11. Análise de Mídias Sociais — YouTube, Spotify, Twitter, Facebook, Instagram</li>
+          <li>12. Bancos de Dados NoSQL</li>
+          <li>13. Introdução ao MongoDB</li>
+          <li>14. Hadoop e Engenharia de Dados</li>
+          <li>15. Spark</li>
         </ol>
-
-        <p style="margin-top:12px">Códigos no GitHub: <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">repositório</a></p>
+        <p style="margin-top:12px">Códigos no GitHub: <a class="file" href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">repositório</a></p>
       </div>
     </div>
 
@@ -294,14 +250,13 @@ a{color:var(--accent);text-decoration:none}
   <h2>Projetos</h2>
   <div class="cards">
     <div class="card"><h3>Agente Inteligente Multimodal para Previsão de Inundações</h3><p>Integração de RAG + ML + dados ambientais.</p></div>
-    <div class="card"><h3>Classificação de Imagens Médicas com ViT</h3><p>Pipeline para raio-X e classificação clínica.</p></div>
+    <div class="card"><h3>Classificação de Imagens Médicas com ViT</h3><p>Pipeline para raios-X e classificação clínica.</p></div>
   </div>
 </section>
 
 <!-- BOOKS -->
 <section id="livros" class="section">
   <h2>Livros Publicados</h2>
-
   <div class="book-grid">
     <div class="book"><img src="https://vladimiralencar.github.io/livros/1.InteligenciaArtificial.png" alt="Livro 1"><div>Inteligência Artificial</div></div>
     <div class="book"><img src="https://vladimiralencar.github.io/livros/2.DoencasDePele-CNN.webp" alt="Livro 2"><div>Doenças de Pele — CNN</div></div>
@@ -314,63 +269,35 @@ a{color:var(--accent);text-decoration:none}
   </div>
 </section>
 
-<!-- PHOTOS -->
-<section id="fotos" class="section">
-  <h2>Fotos</h2>
-  <div class="photos">
-    <!-- your main portrait + book covers as sample photos -->
-    <img src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="ensaio">
-    <img src="https://vladimiralencar.github.io/livros/1.InteligenciaArtificial.png" alt="capa1">
-    <img src="https://vladimiralencar.github.io/livros/2.DoencasDePele-CNN.webp" alt="capa2">
-    <img src="https://vladimiralencar.github.io/livros/3.FebreAmarela-Twitter.jpg" alt="capa3">
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contato" class="section">
   <h2>Contato</h2>
-
   <div class="contact">
-    <!-- email as SVG image (data URL) to avoid bots -->
     <img class="email-img" alt="email" src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="420" height="70"><rect rx="12" width="420" height="70" fill="%230f1724"/><text x="20" y="44" font-family="Inter, Arial, sans-serif" font-size="20" fill="%23ffffff">valencar@servidor.uepb.edu.br</text></svg>'>
     <div>
       <p style="margin:0">UEPB — Universidade Estadual da Paraíba</p>
-      <p style="margin:0;color:var(--muted)">351, Rua Baraúnas · Campina Grande · PB · Brazil · 58429-500</p>
+      <p style="margin:0;color:var(--muted)">Campina Grande · PB · Brazil · 58429-500</p>
     </div>
   </div>
 </section>
 
 <script>
-/* LANGUAGE toggle: moves pill and switches visible text */
 let langIsPT = true;
 const pill = document.getElementById('langPill');
 const labPT = document.getElementById('lab-pt');
 const labEN = document.getElementById('lab-en');
 function toggleLanguage(){
   langIsPT = !langIsPT;
-  // move pill
   pill.style.transform = langIsPT ? 'translateX(4px)' : 'translateX(64px)';
-  // labels color
   labPT.style.color = langIsPT ? '#fff' : '#94a3b8';
   labEN.style.color = langIsPT ? '#94a3b8' : '#fff';
-
-  // toggle page texts (simple approach: show/hide two blocks)
   document.getElementById('content-pt').style.display = langIsPT ? 'block' : 'none';
   document.getElementById('content-en').style.display = langIsPT ? 'none' : 'block';
-
-  // Titles and headings that must be switched:
-  // You can add more elements to translate if needed.
-  document.querySelectorAll('[data-pt]').forEach(el=>{
-    el.textContent = langIsPT ? el.getAttribute('data-pt') : el.getAttribute('data-en');
-  });
 }
-
-// Initial pill positioning
+// initial
 pill.style.transform = 'translateX(4px)';
 labPT.style.color = '#fff';
 labEN.style.color = '#94a3b8';
-
-/* Smooth reveal for images can be added later; the page uses CSS subtle shadows */
 </script>
 
 </body>
