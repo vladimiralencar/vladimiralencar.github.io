@@ -58,7 +58,6 @@ a { text-decoration:none; color:#333; }
 .livro-item img { width:100%; border-radius:5px; }
 .livro-item span { display:block; margin-top:5px; font-weight:500; }
 .livro-item:hover { transform:scale(1.05); }
-
 </style>
 </head>
 <body>
@@ -99,19 +98,105 @@ a { text-decoration:none; color:#333; }
   </div>
 </section>
 
-<!-- DISCIPLINAS (ACORDEÃO) -->
+<!-- DISCIPLINAS -->
 <section id="disciplinas" class="section">
 <h2>Disciplinas Ministradas</h2>
-<!-- Coloque seus acordeões originais aqui -->
+<div class="accordion">
+  <div class="accordion-header">Banco de Dados <span>+</span></div>
+  <div class="accordion-content">
+    <ol>
+      <li>0. Ementa</li>
+      <li>1. Breve História de Banco de Dados</li>
+      <li>2. Novas Tecnologias
+        <ul><li>Machine Learning</li><li>Big Data</li><li>Data Science</li><li>NoSQL</li><li>Hadoop</li><li>Spark</li></ul>
+      </li>
+      <li>3. Fundamentos e Conceitos Básicos
+        <ul><li>Campos</li><li>Registros</li><li>Tabelas</li><li>Índices e Chaves</li></ul>
+      </li>
+      <li>4. Modelos, Esquemas e Linguagens</li>
+      <li>5. Modelagem
+        <ul><li>5.1 MER</li><li>5.2 Álgebra Relacional</li><li>5.3 Modelo Relacional</li></ul>
+      </li>
+      <li>6. Projeto de Banco de Dados Relacional
+        <ul><li>6.1 Transformação do MER</li><li>6.2 Normalização</li></ul>
+      </li>
+      <li>7. SQL</li>
+      <li>8. Programação com SGBD</li>
+      <li>9. MongoDB</li>
+      <li>10. Serviços de um SGBD
+        <ul><li>Concorrência</li><li>Transações</li><li>Sistema de Recuperação</li><li>Otimização</li></ul>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">Introdução à Ciência da Computação <span>+</span></div>
+  <div class="accordion-content">
+    <ol>
+      <li>Fundamentos de Computadores
+        <ul><li>Arquitetura</li><li>CPU, memória, I/O</li><li>Programas</li></ul>
+      </li>
+      <li>Sistemas de Numeração
+        <ul><li>Decimal</li><li>Binário</li><li>Octal</li><li>Hexadecimal</li></ul>
+      </li>
+      <li>Lógica de Programação e Python
+        <ul><li>Algoritmos</li><li>Tipos e variáveis</li><li>Operadores</li></ul>
+      </li>
+      <li>Estruturas de Controle
+        <ul><li>If/Elif/Else</li><li>For</li><li>While</li></ul>
+      </li>
+      <li>Modularização e Funções
+        <ul><li>Funções</li><li>Escopo</li><li>Módulos</li></ul>
+      </li>
+      <li>Metodologia de Desenvolvimento</li>
+      <li>Avaliações: P1, P2, Reposição, Final</li>
+      <li>Bibliografia completa</li>
+    </ol>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">Ciência de Dados <span>+</span></div>
+  <div class="accordion-content">
+    <ol>
+      <li>Ementa — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank">PDF</a></li>
+      <li>Introdução — <a href="https://huggingface.co/valencar?sort_spaces=likes#spaces" target="_blank">Link</a></li>
+      <li>Conceitos Básicos — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf" target="_blank">PDF</a></li>
+      <li>Big Data — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank">PDF</a></li>
+      <li>Python para Dados — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados" target="_blank">GitHub</a></li>
+      <li>Processo de Aprendizagem — <a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf" target="_blank">PDF</a></li>
+      <li>Machine Learning
+        <ul>
+          <li>Regressão Linear — <a href="https://www.valencar.com/_files/ugd/c3cbd8_73a00ff8bfec4971a060c8752d1166f0.pdf" target="_blank">PDF</a></li>
+          <li>Regressão Logística — <a href="https://www.valencar.com/_files/ugd/c3cbd8_e1d6fdc50c604edbb599c42f3b91ee0d.pdf" target="_blank">PDF</a></li>
+          <li>KNN / Naive Bayes / Árvores / XGBoost / PCA / SVM</li>
+        </ul>
+      </li>
+      <li>Redes Neurais — <a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf" target="_blank">PDF</a></li>
+      <li>Deep Learning — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf" target="_blank">PDF</a></li>
+      <li>PLN • Visão Computacional • Mídias Sociais • MongoDB • Hadoop • Spark</li>
+      <li>GitHub — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">Código</a></li>
+    </ol>
+  </div>
+</div>
 </section>
 
-<!-- PROJETOS (ACORDEÃO) -->
+<!-- PROJETOS -->
 <section id="projetos" class="section">
 <h2>Projetos</h2>
-<!-- Coloque seus acordeões originais aqui -->
+<div class="accordion">
+  <div class="accordion-header">Agente Inteligente Multimodal para Previsão de Inundações <span>+</span></div>
+  <div class="accordion-content">Integração de RAG + Machine Learning + dados ambientais.</div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">Classificação de Imagens Médicas com ViT <span>+</span></div>
+  <div class="accordion-content">Pipeline usando Vision Transformer para imagens de raio-X.</div>
+</div>
 </section>
 
-<!-- LIVROS (ACORDEÃO) -->
+<!-- LIVROS -->
 <section id="livros" class="section">
 <h2>Livros Publicados</h2>
 <div class="accordion">
