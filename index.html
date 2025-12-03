@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre — Prof. Vladimir Alencar</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* -------- Header ------ */
+header {
+    background: #111;
+    color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+nav a {
+    color: #ccc;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #fff;
+}
+
+/* -------- LANGUAGE SWITCH -------- */
+#langBtn {
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#langBtn:hover {
+    background: #666;
+}
+
+/* --------- Section --------- */
+.section {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* FOTO */
+.photo {
+    width: 260px;
+    border-radius: 16px;
+    float: left;
+    margin-right: 30px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* -------- CARDS DE LIVROS -------- */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.book-card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: center;
+}
+
+.book-card:hover {
+    transform: rotateY(8deg) scale(1.04);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.20);
+}
+
+.book-card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.book-title {
+    font-size: 18px;
+    margin-top: 14px;
+    font-weight: bold;
+}
+
+.book-desc {
+    font-size: 15px;
+    margin-top: 8px;
+    color: #555;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>Prof. Vladimir Alencar</h1>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Disciplinas</a>
+        <a href="#">Projetos</a>
+        <a href="#">Publicações</a>
+        <a href="#sobre">Sobre</a>
+        <button id="langBtn">EN</button>
+    </nav>
+</header>
+
+<section class="section" id="sobre">
+
+    <img src="img/sua-foto.jpg" class="photo">
+
+    <div id="text-pt">
+        <h2>Sobre</h2>
+
+        <p>Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial.</p>
+
+        <p>Gosto de Café, Ecologia, História, Geopolítica, Artes, Big Data, IA e Jejum Intermitente.</p>
+
+        <p>Tenho Doutorado em Recursos Naturais com ênfase em modelos de otimização baseados em programação linear (2009, UFCG, Brasil).  
+        Mestrado em Ciência da Computação (1992, UFCG).  
+        Graduações em Ciência da Computação (1990) e Radiologia (2017).</p>
+
+        <p>Atuo como Professor e Pesquisador na Universidade Estadual da Paraíba (UEPB), Campina Grande – PB, Brasil.</p>
+
+        <p>Trabalho com Big Data Analytics, SQL/NoSQL, Machine Learning, Python, C/C++, Linux, Cloud, CUDA, Epidemiologia, Redes Neurais, Deep Learning e Inteligência Artificial.</p>
+
+        <p>Sou Diretor do Laboratório de Análise de Dados (LANA – UEPB).</p>
+
+        <h3>Contato</h3>
+        <p>
+        UEPB – Universidade Estadual da Paraíba<br>
+        Rua Baraúnas, 351 – Campina Grande, PB – Brasil<br>
+        CEP 58429-500<br>
+        Tel: +55 83 3315-3300
+        </p>
+    </div>
+
+    <div id="text-en" style="display:none;">
+        <h2>About</h2>
+
+        <p>I am a Professor, Researcher, Writer and Artificial Intelligence Engineer.</p>
+
+        <p>I like Coffee, Ecology, History, Geopolitics, Arts, Big Data, AI and Intermittent Fasting.</p>
+
+        <p>I hold a Ph.D. in Natural Resources with emphasis on optimization models based on linear programming (2009, UFCG, Brazil).  
+        A Master's Degree in Computer Science (1992).  
+        And two undergraduate degrees: Computer Science (1990) and Radiology (2017).</p>
+
+        <p>I work as a Professor and Researcher at the State University of Paraíba (UEPB), Campina Grande – Brazil.</p>
+
+        <p>I work with Big Data Analytics, SQL/NoSQL, Machine Learning, Python, C/C++, Linux, Cloud Computing, CUDA, Epidemiology, Neural Networks, Deep Learning and Artificial Intelligence.</p>
+
+        <p>I am the Director of the Data Analysis Laboratory (LANA – UEPB).</p>
+
+        <h3>Contact</h3>
+        <p>
+        UEPB – State University of Paraíba<br>
+        Baraúnas St., 351 – Campina Grande, PB – Brazil<br>
+        ZIP 58429-500<br>
+        Phone: +55 83 3315-3300
+        </p>
+    </div>
+
+    <h2 style="margin-top:60px;">Livros</h2>
+
+    <div class="books-grid">
+
+        <!-- Livro 1 -->
+        <div class="book-card">
+            <img src="books/livro1.jpg">
+            <div class="book-title">Título do Livro 1</div>
+            <div class="book-desc">Breve descrição do livro. Você pode detalhar o tema, público-alvo ou área de pesquisa.</div>
+        </div>
+
+        <!-- Livro 2 -->
+        <div class="book-card">
+            <img src="books/livro2.jpg">
+            <div class="book-title">Título do Livro 2</div>
+            <div class="book-desc">Descrição explicando os tópicos abordados e contribuições principais.</div>
+        </div>
+
+        <!-- Livro 3 -->
+        <div class="book-card">
+            <img src="books/livro3.jpg">
+            <div class="book-title">Título do Livro 3</div>
+            <div class="book-desc">Descrição curta mostrando a relevância da obra.</div>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+/* Linguagem */
+const btn = document.getElementById("langBtn");
+const pt = document.getElementById("text-pt");
+const en = document.getElementById("text-en");
+
+btn.onclick = () => {
+    if (pt.style.display !== "none") {
+        pt.style.display = "none";
+        en.style.display = "block";
+        btn.textContent = "PT";
+    } else {
+        pt.style.display = "block";
+        en.style.display = "none";
+        btn.textContent = "EN";
+    }
+};
+</script>
+
+</body>
+</html>
