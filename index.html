@@ -9,28 +9,26 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+
 <header>
-  <nav class="menu">
-    <div class="menu-inner">
-      <span class="brand">Vladimir Costa de Alencar</span>
-      <ul class="menu-list">
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#disciplinas">Disciplinas Ministradas</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#livros">Livros Publicados</a></li>
-      </ul>
-      <button id="menuToggle">☰</button>
-    </div>
-  </nav>
+  <div class="menu-inner">
+    <div class="brand">Vladimir Costa de Alencar</div>
+    <button id="menuToggle">&#9776;</button>
+    <ul class="menu-list">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#disciplinas">Disciplinas Ministradas</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#livros">Livros Publicados</a></li>
+    </ul>
+  </div>
 </header>
 
 <section id="sobre" class="sobre">
   <div class="sobre-container">
-    <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/sobre/ensaio0010.JPG" 
-         alt="Foto de Vladimir Costa de Alencar" class="sobre-foto" />
+    <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/sobre/ensaio0010.JPG" alt="Foto de Vladimir Costa de Alencar" class="sobre-foto" />
     <div class="sobre-texto">
-      <h1 class="sobre-nome">Vladimir Costa de Alencar</h1>
-      <p>Doutorado em Recursos Naturais com ênfase em Otimização Multicritério/Multiobjetivo — UFCG (2009).<br>
+      <div class="sobre-nome">Vladimir Costa de Alencar</div>
+      <p>Doutorado em Recursos Naturais — UFCG (2009).<br>
       Mestrado em Ciência da Computação — UFCG.<br>
       Graduação em Ciência da Computação — UEPB.</p>
 
@@ -46,42 +44,38 @@
 
 <section id="disciplinas" class="disciplinas">
   <h2>Disciplinas Ministradas</h2>
-
   <article class="disciplina">
     <h3>Ciência de Dados</h3>
     <div class="conteudo">
-      <h4>Conteúdo Programático</h4>
       <ul>
-        <li><strong>Ementa</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank">PDF</a></li>
-        <li><strong>Introdução (Motivação)</strong> — <a href="https://huggingface.co/valencar?sort_spaces=likes#spaces" target="_blank">Link</a></li>
-        <li><strong>O que é Ciência de Dados (Data Science)?</strong>
-          <ul>
-            <li>Conceitos Básicos — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf" target="_blank">PDF</a></li>
-          </ul>
+        <li><strong>Ementa</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf">PDF</a></li>
+        <li><strong>Introdução (Motivação)</strong> — <a href="https://huggingface.co/valencar?sort_spaces=likes#spaces">Link</a></li>
+        <li><strong>O que é Ciência de Dados?</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf">PDF</a>
+          <ul><li>Conceitos Básicos</li></ul>
         </li>
-        <li><strong>Data Science e Big Data</strong>
+        <li><strong>Data Science e Big Data</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf">PDF</a>
           <ul>
             <li>Introdução</li>
             <li>O que é Big Data</li>
-            <li>Modelos de Computação Distribuída — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank">PDF</a></li>
+            <li>Modelos de Computação Distribuída</li>
           </ul>
         </li>
-        <li><strong>Curso Rápido de Python para Análise de Dados</strong> — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados" target="_blank">GitHub</a></li>
-        <li><strong>O Processo de Aprendizagem</strong>
+        <li><strong>Curso Rápido de Python</strong> — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados">GitHub</a></li>
+        <li><strong>O Processo de Aprendizagem</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf">PDF</a>
           <ul>
             <li>Tipos de Aprendizagem</li>
             <li>Modelo</li>
             <li>Correlação</li>
             <li>Espaço de Hipóteses</li>
-            <li>Função de Custo - J(x)</li>
+            <li>Função de Custo — J(x)</li>
             <li>Erros</li>
-            <li>O Gradiente Descendente — <a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf" target="_blank">PDF</a></li>
+            <li>Otimização – Gradiente Descendente</li>
           </ul>
         </li>
         <li><strong>Machine Learning</strong>
           <ul>
-            <li>Regressão Linear — <a href="https://www.valencar.com/_files/ugd/c3cbd8_73a00ff8bfec4971a060c8752d1166f0.pdf" target="_blank">PDF</a></li>
-            <li>Regressão Logística — <a href="https://www.valencar.com/_files/ugd/c3cbd8_e1d6fdc50c604edbb599c42f3b91ee0d.pdf" target="_blank">PDF</a></li>
+            <li>Regressão Linear — <a href="https://www.valencar.com/_files/ugd/c3cbd8_73a00ff8bfec4971a060c8752d1166f0.pdf">PDF</a></li>
+            <li>Regressão Logística — <a href="https://www.valencar.com/_files/ugd/c3cbd8_e1d6fdc50c604edbb599c42f3b91ee0d.pdf">PDF</a></li>
             <li>KNN</li>
             <li>Naive Bayes</li>
             <li>Árvores de Decisão / Métodos Ensemble / XGBoost</li>
@@ -90,41 +84,40 @@
             <li>PCA</li>
           </ul>
         </li>
-        <li><strong>Redes Neurais</strong>
+        <li><strong>Redes Neurais</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf">PDF</a>
           <ul>
             <li>Componentes Básicos</li>
             <li>Sistema Nervoso</li>
             <li>O Neurônio</li>
             <li>Sinapses</li>
-            <li>Neurônio x Redes Neurais Artificiais</li>
             <li>Arquitetura</li>
             <li>Aprendizado</li>
             <li>Perceptron</li>
             <li>ADALINE – Regra Delta</li>
             <li>MLP</li>
             <li>BackPropagation</li>
-            <li>Otimizadores — <a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf" target="_blank">PDF</a></li>
+            <li>Otimizadores</li>
           </ul>
         </li>
-        <li><strong>Deep Learning</strong>
+        <li><strong>Deep Learning</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf">PDF</a>
           <ul>
-            <li>Introdução e conceitos básicos</li>
-            <li>Arquitetura das Redes Neurais Profundas</li>
-            <li>Principais tipos de Redes Neurais Profundas</li>
-            <li>Programação paralela em GPU</li>
-            <li>Frameworks: TensorFlow, Keras, PyTorch — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf" target="_blank">PDF</a></li>
+            <li>Conceitos Básicos</li>
+            <li>Arquiteturas</li>
+            <li>Tipos de Redes Neurais Profundas</li>
+            <li>Programação em GPU</li>
+            <li>Frameworks: TensorFlow, Keras, PyTorch</li>
           </ul>
         </li>
-        <li><strong>Processamento de Linguagem Natural (PLN)</strong>
+        <li><strong>Processamento de Linguagem Natural</strong>
           <ul>
             <li>Transformers</li>
-            <li>LLMs: GPT‑4, BERT, RoBERTa</li>
+            <li>LLMs como GPT-4, BERT, RoBERTa</li>
             <li>Análise de Sentimentos</li>
             <li>Zero-Shot</li>
             <li>Geração de Texto</li>
             <li>Previsão de Palavras</li>
             <li>Perguntas e Respostas</li>
-            <li>Sumarização de Texto</li>
+            <li>Sumarização</li>
             <li>Tradução</li>
           </ul>
         </li>
@@ -134,12 +127,12 @@
             <li>ViT – Visual Transformers</li>
           </ul>
         </li>
-        <li><strong>Análise de Mídias Sociais</strong> — Youtube, Spotify, Twitter, Facebook, Instagram</li>
+        <li><strong>Análise de Mídias Sociais</strong></li>
         <li><strong>Bancos de Dados NoSQL</strong></li>
         <li><strong>Introdução ao MongoDB</strong></li>
         <li><strong>Hadoop e Engenharia de Dados</strong></li>
         <li><strong>Spark</strong></li>
-        <li><strong>Códigos no GitHub</strong> — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">Repositório</a></li>
+        <li><strong>Códigos no GitHub</strong> — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados">GitHub</a></li>
       </ul>
     </div>
   </article>
@@ -147,7 +140,7 @@
 
 <section id="projetos" class="projetos">
   <h2>Projetos</h2>
-  <p>Aqui serão apresentados projetos de pesquisa, artigos e desenvolvimentos realizados em Inteligência Artificial, Ciência de Dados e Tecnologias Computacionais.</p>
+  <p>(Conteúdo futuro)</p>
 </section>
 
 <section id="livros" class="livros">
@@ -156,7 +149,7 @@
     <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/InteligenciaArtificial.png" alt="Inteligência Artificial">
     <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/DoencasDePele-CNN.webp" alt="Detecção de Doenças de Pele">
     <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/FebreAmarela-Twitter.jpg" alt="Febre Amarela e Twitter">
-    <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/Tuberculose.webp" alt="Tuberculose">
+    <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/Tuberculose.webp" alt="Análise da Tuberculose">
     <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/cggeo.webp" alt="CGGeo - Planejamento Municipal">
     <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/PrevisaoDeEpidemias.png" alt="Previsão de Epidemias">
     <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/sigtrans.webp" alt="SIGTRANS - Transporte Público">
@@ -167,5 +160,6 @@
 <footer class="rodape">
   <p class="rodape-text">© 2025 Vladimir Costa de Alencar — Todos os direitos reservados.</p>
 </footer>
+
 </body>
 </html>

@@ -8,10 +8,8 @@
 :root {
   --bg: #ffffff;
   --text: #0b0b0b;
-  --muted: #666666;
+  --muted: #666;
   --accent: #0b5fff;
-  --header-bg: #004080;
-  --header-text: #ffffff;
 }
 
 body {
@@ -19,7 +17,6 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.5;
-  scroll-behavior: smooth;
 }
 
 /* Links */
@@ -34,66 +31,62 @@ a:hover {
 
 /* Header / Menu */
 header {
-  background-color: var(--header-bg);
-  color: var(--header-text);
-  padding: 10px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background-color: #004080;
+  color: white;
 }
 
 .menu-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 .brand {
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .menu-list {
   list-style: none;
   display: flex;
-  gap: 18px;
+  gap: 20px;
 }
 
 .menu-list li a {
-  color: var(--header-text);
-  padding: 8px 6px;
+  color: white;
+  padding: 6px 10px;
   border-radius: 6px;
-  transition: background 0.2s;
+  transition: background 0.3s;
 }
 
 .menu-list li a:hover {
-  background-color: #f0f5ff;
-  color: var(--header-text);
+  background-color: #0b5fff33;
 }
 
 #menuToggle {
   display: none;
   background: none;
   border: none;
-  color: var(--header-text);
   font-size: 1.8rem;
+  color: white;
   cursor: pointer;
 }
 
 /* Sobre */
 .sobre {
-  padding: 40px 20px;
+  padding: 36px 20px;
 }
 
 .sobre-container {
+  max-width: 1100px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 24px;
-  max-width: 1100px;
-  margin: 0 auto;
   align-items: center;
 }
 
@@ -102,35 +95,35 @@ header {
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(11, 11, 11, 0.08);
+  box-shadow: 0 6px 18px rgba(11,11,11,0.08);
 }
 
 .sobre-nome {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 2rem;
+  font-size: 28px;
   margin-bottom: 12px;
+  font-weight: 600;
 }
 
 .endereco {
-  color: var(--muted);
   font-size: 14px;
-  margin-top: 8px;
+  color: var(--muted);
 }
 
 /* Disciplinas */
 .disciplinas {
-  padding: 40px 20px;
   background: #fff;
+  padding: 32px 20px;
 }
 
 .disciplinas h2 {
-  font-size: 1.5rem;
+  font-size: 22px;
   margin-bottom: 16px;
 }
 
 .disciplina h3 {
-  font-size: 1.3rem;
-  margin-bottom: 8px;
+  font-size: 20px;
+  margin-bottom: 12px;
 }
 
 .conteudo ul {
@@ -139,60 +132,56 @@ header {
 }
 
 .conteudo ul li {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .conteudo ul ul {
-  margin-left: 16px;
+  margin-left: 14px;
   margin-top: 4px;
 }
 
 /* Projetos */
 .projetos {
-  padding: 40px 20px;
+  padding: 28px 20px;
 }
 
 /* Livros */
 .livros {
-  padding: 40px 20px;
+  padding: 28px 20px;
   background: #fafafa;
 }
 
 .livros-grid {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   max-width: 1100px;
   margin: 0 auto;
-  padding: 12px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+  padding: 12px;
 }
 
 .livros-grid img {
   width: 100%;
   height: 170px;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s;
-}
-
-.livros-grid img:hover {
-  transform: scale(1.05);
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.06);
 }
 
 /* Rodapé */
 .rodape {
-  padding: 20px;
+  padding: 18px 20px;
   background: #fff;
   border-top: 1px solid #eee;
-  text-align: center;
 }
 
 .rodape-text {
-  display: inline-block;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 4px;
   transform: translateY(-4px);
-  font-size: 0.9rem;
-  color: var(--muted);
+  text-align: center;
+  color: #333;
 }
 
 /* Responsividade */
@@ -200,22 +189,33 @@ header {
   .sobre-container {
     grid-template-columns: 120px 1fr;
   }
+
   .sobre-foto {
     width: 120px;
     height: 120px;
   }
+
+  #menuToggle {
+    display: block;
+  }
+
   .menu-list {
     display: none;
     flex-direction: column;
-    background: var(--header-bg);
+    gap: 0;
+    background-color: #004080;
     position: absolute;
     top: 60px;
     right: 20px;
     padding: 12px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 6px;
   }
-  #menuToggle {
+
+  .menu-list li {
+    margin-bottom: 8px;
+  }
+
+  .menu-list li a {
     display: block;
   }
 }
@@ -225,11 +225,13 @@ header {
     grid-template-columns: 1fr;
     gap: 12px;
   }
+
   .sobre-foto {
     width: 100%;
     height: 220px;
   }
+
   .sobre-nome {
-    font-size: 1.6rem;
+    font-size: 22px;
   }
 }
