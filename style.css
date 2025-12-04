@@ -85,4 +85,71 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
 console.log('Script carregado.');
 
+/* Tipografia */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+h1, h2 {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* Header e Menu */
+header {
+  background-color: #004080;
+  color: white;
+  padding: 10px 20px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-list {
+  list-style: none;
+  display: none;
+  gap: 15px;
+}
+
+.menu-list li a {
+  color: white;
+  text-decoration: none;
+}
+
+#menuToggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* Seções */
+section {
+  padding: 40px 20px;
+}
+
+.perfil {
+  width: 150px;
+  border-radius: 50%;
+}
+
+/* Livros */
+.livros-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.livros-container img {
+  width: 150px;
+  border-radius: 8px;
+}
+
+
 

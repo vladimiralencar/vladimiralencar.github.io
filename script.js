@@ -21,3 +21,5 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 });
 
 console.log('Script carregado.');
+
+
