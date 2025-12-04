@@ -7,17 +7,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --accent: #007acc;
-    --muted: #666;
-    --bg: #fff;
-    --panel: #fafafa;
-    --border: #ddd;
+    --accent:#007acc;
+    --muted:#666;
+    --bg:#fff;
+    --panel:#fafafa;
+    --border:#e2e8ef;
+    --max-width:1200px;
   }
-  * { box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; margin:0; padding:0; line-height:1.6; background:var(--bg); color:#222; }
+  *{box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;margin:0;padding:0;line-height:1.6;color:#111;background:var(--bg)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
 
-/* ---------- MENU MINIMALISTA ---------- */
-  .nav {
+/* ---------- NAV MINIMALISTA ---------- */
+  .nav{
     display:flex;
     justify-content:center;
     gap:28px;
@@ -29,86 +32,87 @@
     box-shadow:0 1px 3px rgba(0,0,0,0.04);
     font-weight:600;
   }
-  .nav a { color:#222; text-decoration:none; padding:6px 2px; transition:color .18s ease; }
-  .nav a:hover { color:var(--accent); }
+  .nav a{color:#111;text-decoration:none;padding:6px 2px;transition:color .18s}
+  .nav a:hover{color:var(--accent)}
 
-/* ---------- LAYOUT / HERO (SOBRE) ---------- */
-  .section { padding:42px 20px; max-width:1200px; margin:0 auto; }
-  .hero-container {
+/* ---------- SECTION / HERO (SOBRE) ---------- */
+  .section{padding:42px 20px;max-width:var(--max-width);margin:0 auto}
+  .hero-container{
     display:flex;
-    gap:28px;
-    align-items:flex-start;
+    gap:32px;
+    align-items:end; /* alinhamento das partes inferiores */
     flex-wrap:wrap;
   }
-  .hero-photo { flex:0 0 300px; }
-  .hero-photo img { width:100%; height:auto; border-radius:10px; display:block; }
-  .hero-text { flex:1 1 360px; }
-  .hero-text h1 { margin:0 0 12px 0; color:var(--accent); font-size:28px; }
-  /* aumento de fonte solicitado */
-  .hero-text p { margin:0 0 10px 0; font-size:18px; color:#222; text-align:justify; }
-  .uepb { margin-top:12px; color:var(--muted); font-size:15px; }
+  /* imagem maior para manter proporção com fonte aumentada */
+  .hero-photo{flex:0 0 380px;max-width:380px}
+  .hero-photo img{width:100%;height:auto;border-radius:10px;display:block;object-fit:cover}
+  .hero-text{flex:1 1 420px;min-width:260px}
+  /* Aumento grande da fonte solicitado */
+  .hero-text h1{margin:0 0 10px 0;color:var(--accent);font-size:32px}
+  .hero-text p{margin:0 0 12px 0;font-size:20px;text-align:justify;color:#111}
+  .uepb{margin-top:14px;color:var(--muted);font-size:15px}
 
-/* ---------- ACORDEÃO (com estilo) ---------- */
-  .accordion { border:1px solid var(--border); border-radius:8px; overflow:hidden; margin-bottom:12px; background:#fff; }
-  .accordion-header {
-    display:flex; justify-content:space-between; align-items:center;
-    padding:12px 16px; cursor:pointer; background:#f6f9fc; font-weight:700;
-    transition:background .18s ease;
+/* ---------- ACORDEÃO ---------- */
+  .accordion{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff;margin-bottom:14px}
+  .accordion-header{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 16px;cursor:pointer;background:#f6f9fc;font-weight:700;border-bottom:1px solid rgba(0,0,0,0.02);
+    transition:background .18s;
   }
-  .accordion-header:hover { background:#eef7ff; }
-  .accordion-header .title { font-size:16px; color:#111; }
-  .accordion-header .toggle { font-weight:700; font-size:18px; line-height:1; color:#444; }
-  .accordion-content {
+  .accordion-header:hover{background:#eef7ff}
+  .accordion-header .title{font-size:17px;color:#111}
+  .accordion-header .toggle{font-weight:700;font-size:18px;color:#444}
+  .accordion-content{
     padding:0 16px;
     max-height:0;
     overflow:hidden;
-    transition: max-height .42s cubic-bezier(.2,.8,.2,1), padding .18s ease;
+    transition:max-height .42s cubic-bezier(.2,.8,.2,1), padding .18s;
     background:var(--panel);
   }
-  .accordion-content.open { padding:12px 16px 18px 16px; }
+  .accordion-content.open{padding:12px 16px 18px 16px}
 
-/* lists */
-  .accordion-content ol { margin:0 0 0 18px; padding:8px 0; }
-  .accordion-content li { margin:6px 0; color:#333; }
-  .accordion-content ul { margin:6px 0 6px 20px; }
-  .accordion-content ul li { list-style: disc; color:#555; font-weight:400; }
+/* listas (numeradas + sublistas sem numeração) */
+  .accordion-content ol{margin:0 0 0 18px;padding:10px 0}
+  .accordion-content li{margin:8px 0;color:#222}
+  .accordion-content ul{margin:6px 0 6px 20px}
+  .accordion-content ul li{list-style:disc;color:#555;font-weight:400}
 
-/* ---------- LIVROS (grid of accordions) ---------- */
-  .livros-grid {
+/* ---------- LIVROS GRID ---------- */
+  .livros-grid{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
     gap:18px;
-    align-items:start;
+    margin-top:10px;
   }
-  .livro-cover { width:100%; display:block; border-radius:6px; }
-  .livro-caption { margin-top:8px; text-align:center; color:var(--accent); font-weight:600; }
+  .livro-visual{border-radius:8px;overflow:hidden;transition:transform .25s ease, box-shadow .25s ease}
+  .livro-visual img{width:100%;display:block;object-fit:cover}
+  .livro-visual:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(12,24,40,0.12)}
+  .livro-caption{text-align:center;margin-top:8px;color:var(--accent);font-weight:700}
 
-/* hover efeito */
-  .livro-visual { transition: transform .25s ease, box-shadow .25s ease; border-radius:6px; overflow:hidden; }
-  .livro-visual:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(12,24,40,0.12); }
+/* ---------- FOOTER UNIVERSAL ---------- */
+  footer{border-top:1px solid var(--border);padding:18px 12px;text-align:center;color:var(--muted);font-size:14px}
+  footer a{color:inherit}
 
-/* ---------- footer ---------- */
-  footer { border-top:1px solid var(--border); margin-top:40px; padding:18px 10px; text-align:center; color:var(--muted); font-size:14px; }
-
-/* ---------- responsividade ---------- */
-  @media (max-width:900px){
-    .hero-photo { flex:0 0 260px; }
-    .hero-text p { font-size:17px; }
+/* ---------- RESPONSIVIDADE ---------- */
+  @media (max-width:1000px){
+    .hero-photo{flex-basis:320px;max-width:320px}
+    .hero-text p{font-size:18px}
+    .hero-text h1{font-size:28px}
   }
-  @media (max-width:600px){
-    .nav { gap:14px; font-size:15px; padding:10px; }
-    .hero-photo { flex-basis:100%; max-width:420px; }
-    .hero-text { flex-basis:100%; }
-    .hero-text p { font-size:16px; text-align:center; }
-    .accordion-header { padding:10px 12px; }
-    .accordion-content.open { padding:10px 12px 14px 12px; }
-    .livros-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:12px; }
+  @media (max-width:680px){
+    .nav{gap:14px;padding:10px}
+    .hero-container{align-items:center}
+    .hero-photo{flex-basis:100%;max-width:520px}
+    .hero-text{flex-basis:100%}
+    .hero-text p{text-align:center}
+    .hero-text h1{text-align:center}
+    .livros-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
   }
 </style>
 </head>
 <body>
 
-<!-- menu minimalista (texto apenas) -->
+<!-- NAV minimalista -->
 <nav class="nav" role="navigation" aria-label="principal">
   <a href="#sobre">Sobre</a>
   <a href="#disciplinas">Disciplinas Ministradas</a>
@@ -120,8 +124,8 @@
 <!-- SOBRE -->
 <section id="sobre" class="section" aria-labelledby="sobre-title">
   <div class="hero-container">
-    <div class="hero-photo">
-      <img src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="Vladimir Costa de Alencar - foto de perfil">
+    <div class="hero-photo" aria-hidden="true">
+      <img src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="Foto de Vladimir Costa de Alencar">
     </div>
     <div class="hero-text">
       <h1 id="sobre-title">Vladimir Costa de Alencar</h1>
@@ -139,11 +143,11 @@
 
   <!-- Banco de Dados -->
   <div class="accordion">
-    <button class="accordion-header" aria-expanded="false">
+    <button class="accordion-header" aria-expanded="false" aria-controls="c-disc-bd" >
       <span class="title">1. Banco de Dados</span>
       <span class="toggle">+</span>
     </button>
-    <div class="accordion-content" aria-hidden="true">
+    <div id="c-disc-bd" class="accordion-content" aria-hidden="true">
       <ol>
         <li>Ementa</li>
         <li>Breve História de Banco de Dados</li>
@@ -196,11 +200,11 @@
 
   <!-- Introdução à Ciência da Computação -->
   <div class="accordion">
-    <button class="accordion-header" aria-expanded="false">
+    <button class="accordion-header" aria-expanded="false" aria-controls="c-disc-icc">
       <span class="title">2. Introdução à Ciência da Computação</span>
       <span class="toggle">+</span>
     </button>
-    <div class="accordion-content" aria-hidden="true">
+    <div id="c-disc-icc" class="accordion-content" aria-hidden="true">
       <ol>
         <li>Fundamentos de Computadores
           <ul>
@@ -245,11 +249,11 @@
 
   <!-- Ciência de Dados -->
   <div class="accordion">
-    <button class="accordion-header" aria-expanded="false">
+    <button class="accordion-header" aria-expanded="false" aria-controls="c-disc-ds">
       <span class="title">3. Ciência de Dados</span>
       <span class="toggle">+</span>
     </button>
-    <div class="accordion-content" aria-hidden="true">
+    <div id="c-disc-ds" class="accordion-content" aria-hidden="true">
       <ol>
         <li>Ementa
           <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank" rel="noopener">PDF</a></li></ul>
@@ -263,9 +267,9 @@
         </li>
         <li>Curso rápido de Python (GitHub)</li>
         <li>Processo de Aprendizagem (PDF)</li>
-        <li>Machine Learning (Regressão, KNN, Naive Bayes, Árvores, Ensemble, SVM, PCA)</li>
+        <li>Machine Learning (regressão, KNN, Naive Bayes, árvores, ensemble, SVM, PCA)</li>
         <li>Redes Neurais (componentes, perceptron, MLP, backprop, otimizadores)</li>
-        <li>Deep Learning (frameworks: TensorFlow/Keras, PyTorch)</li>
+        <li>Deep Learning (TensorFlow/Keras, PyTorch)</li>
         <li>PLN, Visão Computacional, Mídias Sociais, NoSQL, Hadoop, Spark</li>
         <li>Códigos no GitHub — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank" rel="noopener">repositório</a></li>
       </ol>
@@ -275,107 +279,118 @@
 </section>
 
 <!-- PROJETOS -->
-<section id="projetos" class="section">
-  <h2>Projetos</h2>
+<section id="projetos" class="section" aria-labelledby="projetos-title">
+  <h2 id="projetos-title">Projetos</h2>
 
   <div class="accordion">
-    <button class="accordion-header" aria-expanded="false">
+    <button class="accordion-header" aria-expanded="false" aria-controls="c-proj-1">
       <span class="title">Agente Inteligente Multimodal para Previsão de Inundações</span>
       <span class="toggle">+</span>
     </button>
-    <div class="accordion-content" aria-hidden="true">
+    <div id="c-proj-1" class="accordion-content" aria-hidden="true">
       <p>Integração de RAG + Machine Learning + dados ambientais para previsão e alerta de inundações urbanas.</p>
     </div>
   </div>
 
   <div class="accordion">
-    <button class="accordion-header" aria-expanded="false">
+    <button class="accordion-header" aria-expanded="false" aria-controls="c-proj-2">
       <span class="title">Classificação de Imagens Médicas com ViT</span>
       <span class="toggle">+</span>
     </button>
-    <div class="accordion-content" aria-hidden="true">
-      <p>Pipeline baseado em Vision Transformer para classificação de imagens de raio-X (Normal vs Tuberculose), com pré-processamento e validação clínica simulada.</p>
+    <div id="c-proj-2" class="accordion-content" aria-hidden="true">
+      <p>Pipeline baseado em Vision Transformer para classificação de imagens de raio-X (Normal vs Tuberculose), com pré-processamento e validação simulada.</p>
     </div>
   </div>
 </section>
 
-<!-- LIVROS (cada livro é um acordeão dentro do grid) -->
-<section id="livros" class="section">
-  <h2>Livros Publicados</h2>
+<!-- LIVROS -->
+<section id="livros" class="section" aria-labelledby="livros-title">
+  <h2 id="livros-title">Livros Publicados</h2>
 
   <div class="livros-grid">
-
+    <!-- cada livro é um acordeão -->
     <div class="accordion">
-      <button class="accordion-header" aria-expanded="false">
+      <button class="accordion-header" aria-expanded="false" aria-controls="c-liv-1">
         <span class="title">Inteligência Artificial</span>
         <span class="toggle">+</span>
       </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="livro-visual"><img class="livro-cover" src="https://vladimiralencar.github.io/livros/1.InteligenciaArtificial.png" alt="Inteligência Artificial"></div>
+      <div id="c-liv-1" class="accordion-content" aria-hidden="true">
+        <div class="livro-visual"><img src="https://vladimiralencar.github.io/livros/1.InteligenciaArtificial.png" alt="Inteligência Artificial — capa"></div>
         <div class="livro-caption">Inteligência Artificial</div>
       </div>
     </div>
 
     <div class="accordion">
-      <button class="accordion-header" aria-expanded="false">
+      <button class="accordion-header" aria-expanded="false" aria-controls="c-liv-2">
         <span class="title">Doenças de Pele — CNN</span>
         <span class="toggle">+</span>
       </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="livro-visual"><img class="livro-cover" src="https://vladimiralencar.github.io/livros/2.DoencasDePele-CNN.webp" alt="Doenças de Pele — CNN"></div>
+      <div id="c-liv-2" class="accordion-content" aria-hidden="true">
+        <div class="livro-visual"><img src="https://vladimiralencar.github.io/livros/2.DoencasDePele-CNN.webp" alt="Doenças de Pele — capa"></div>
         <div class="livro-caption">Doenças de Pele — CNN</div>
       </div>
     </div>
 
     <div class="accordion">
-      <button class="accordion-header" aria-expanded="false">
+      <button class="accordion-header" aria-expanded="false" aria-controls="c-liv-3">
         <span class="title">Febre Amarela — Twitter</span>
         <span class="toggle">+</span>
       </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="livro-visual"><img class="livro-cover" src="https://vladimiralencar.github.io/livros/3.FebreAmarela-Twitter.jpg" alt="Febre Amarela — Twitter"></div>
+      <div id="c-liv-3" class="accordion-content" aria-hidden="true">
+        <div class="livro-visual"><img src="https://vladimiralencar.github.io/livros/3.FebreAmarela-Twitter.jpg" alt="Febre Amarela — capa"></div>
         <div class="livro-caption">Febre Amarela — Twitter</div>
       </div>
     </div>
 
     <div class="accordion">
-      <button class="accordion-header" aria-expanded="false">
+      <button class="accordion-header" aria-expanded="false" aria-controls="c-liv-4">
         <span class="title">Tuberculose — IA</span>
         <span class="toggle">+</span>
       </button>
-      <div class="accordion-content" aria-hidden="true">
-        <div class="livro-visual"><img class="livro-cover" src="https://vladimiralencar.github.io/livros/4.Tuberculose.webp" alt="Tuberculose — IA"></div>
+      <div id="c-liv-4" class="accordion-content" aria-hidden="true">
+        <div class="livro-visual"><img src="https://vladimiralencar.github.io/livros/4.Tuberculose.webp" alt="Tuberculose — capa"></div>
         <div class="livro-caption">Tuberculose — IA</div>
       </div>
     </div>
 
-    <!-- acrescente mais acordeões de livro aqui conforme necessário -->
+    <!-- se quiser, adicione mais livros replicando o bloco acima -->
   </div>
 </section>
 
-<!-- RODAPÉ UNIVERSAL -->
+<!-- RODAPÉ (universalmente usado) -->
 <footer>
-  © <span id="yr"></span> Vladimir Costa de Alencar · Todos os direitos reservados · contato: <a href="mailto:seu.email@exemplo.com" style="color:inherit;text-decoration:underline;">seu.email@exemplo.com</a>
+  © <span id="yr"></span> Vladimir Costa de Alencar · Todos os direitos reservados ·
+  contato: <a href="mailto:seu.email@exemplo.com">seu.email@exemplo.com</a> ·
+  <a href="/politica-de-privacidade">Política de Privacidade</a> · <a href="/sitemap.xml">Sitemap</a>
 </footer>
 
-<!-- ---------- SCRIPTS ---------- -->
+<!-- ---------- SCRIPTS (ACORDEÃO ROBUSTO) ---------- -->
 <script>
-  // ajusta o ano do rodapé automaticamente
+  // Ano dinâmico no rodapé
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Função de acordeão robusta (usa maxHeight dinamicamente)
+  // Acordeões: robusto, trabalha com maxHeight dinamicamente
   (function(){
-    const headers = document.querySelectorAll('.accordion .accordion-header');
+    const headers = document.querySelectorAll('.accordion > .accordion-header');
+
     headers.forEach(header => {
-      header.addEventListener('click', function(e){
-        const content = header.nextElementSibling;
-        const toggle = header.querySelector('.toggle');
+      const content = header.nextElementSibling;
+      const toggle = header.querySelector('.toggle');
+
+      // ensure initial state
+      content.style.maxHeight = '0px';
+      content.setAttribute('aria-hidden','true');
+      header.setAttribute('aria-expanded','false');
+      if(toggle) toggle.textContent = '+';
+
+      header.addEventListener('click', function(){
         const isOpen = content.classList.contains('open');
 
         if(isOpen){
-          // fechar
-          content.style.maxHeight = content.scrollHeight + 'px'; // set current to allow transition
-          // small timeout to ensure browser registers the value before collapsing
+          // close
+          // set current explicit height to trigger transition
+          content.style.maxHeight = content.scrollHeight + 'px';
+          // next frame, collapse
           requestAnimationFrame(()=> {
             content.style.maxHeight = '0px';
             content.classList.remove('open');
@@ -384,37 +399,45 @@
             if(toggle) toggle.textContent = '+';
           });
         } else {
-          // abrir
+          // open
           content.classList.add('open');
+          // set to scrollHeight to animate open
           content.style.maxHeight = content.scrollHeight + 'px';
           header.setAttribute('aria-expanded','true');
           content.setAttribute('aria-hidden','false');
           if(toggle) toggle.textContent = '−';
-          // after transition, remove inline maxHeight to allow content to grow if images load later
-          content.addEventListener('transitionend', function te(){
+
+          // after transition completes, remove fixed maxHeight so content can grow naturally (images loading)
+          const onTransEnd = function(e){
+            // ensure event for max-height only
+            if(e.propertyName !== 'max-height') return;
             if(content.classList.contains('open')){
               content.style.maxHeight = 'none';
             }
-            content.removeEventListener('transitionend', te);
-          });
+            content.removeEventListener('transitionend', onTransEnd);
+          };
+          content.addEventListener('transitionend', onTransEnd);
         }
       });
     });
 
-    // Se desejar que apenas um acordeão fique aberto por vez, descomente abaixo:
+    // Optional: close others when opening one (only one open at a time).
+    // If you want that behavior, uncomment below:
     /*
     headers.forEach(header=>{
       header.addEventListener('click', function(){
         headers.forEach(h=>{
+          if(h === header) return;
           const c = h.nextElementSibling;
-          if(h !== header && c.classList.contains('open')){
+          if(c.classList.contains('open')){
             c.style.maxHeight = c.scrollHeight + 'px';
             requestAnimationFrame(()=> {
               c.style.maxHeight = '0px';
               c.classList.remove('open');
-              h.querySelector('.toggle').textContent = '+';
               h.setAttribute('aria-expanded','false');
               c.setAttribute('aria-hidden','true');
+              const t = h.querySelector('.toggle');
+              if(t) t.textContent = '+';
             });
           }
         });
