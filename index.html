@@ -5,38 +5,68 @@
 <title>Vladimir Alencar</title>
 
 <style>
-/* ------------------ GLOBAL ------------------ */
+/* ------------------------------------------------------- */
+/*                     ESTILO GLOBAL                       */
+/* ------------------------------------------------------- */
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #222;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background: #fafafa;
+  color: #222;
 }
 
-/* ------------------ MENU MINIMALISTA ------------------ */
+/* ------------------------------------------------------- */
+/*                     MENU MINIMALISTA                    */
+/* ------------------------------------------------------- */
 nav {
   background: white;
-  padding: 15px 30px;
+  padding: 15px 25px;
   border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 nav ul li a {
   text-decoration: none;
   color: #111;
   font-weight: 300;
-  font-size: 17px;
+  font-size: 18px;
 }
 
-/* ------------------ SEÇÃO SOBRE ------------------ */
+/* ---------------- MENU HAMBÚRGUER ---------------- */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+@media (max-width: 780px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  nav ul.open {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* ------------------------------------------------------- */
+/*                         SOBRE                            */
+/* ------------------------------------------------------- */
 #sobre-container {
   display: flex;
   align-items: flex-end;
@@ -45,35 +75,57 @@ nav ul li a {
 }
 
 #sobre-container img {
-  width: 260px;
-  height: auto;
+  width: 280px;
   border-radius: 12px;
+  height: auto;
 }
 
-#sobre-container .texto-sobre {
-  font-size: 22px;
-  line-height: 1.6;
+.texto-sobre {
+  font-size: 26px;
+  line-height: 1.7;
 }
 
-/* ------------------ ACORDEÕES ------------------ */
+#nome-topo {
+  font-size: 38px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+/* ------------------------------------------------------- */
+/*                     ACORDEÕES                           */
+/* ------------------------------------------------------- */
 .accordion {
   width: 90%;
-  margin: 20px auto;
+  margin: 25px auto;
   border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .accordion-header {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 300;
   cursor: pointer;
-  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.accordion-header::after {
+  content: "▸";
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active::after {
+  transform: rotate(90deg);
 }
 
 .accordion-content {
   display: none;
   margin-left: 20px;
-  font-size: 18px;
+  font-size: 19px;
+  margin-top: 10px;
 }
 
 .accordion-content.open {
@@ -89,7 +141,9 @@ nav ul li a {
   list-style: disc;
 }
 
-/* ------------------ LIVROS GRID ------------------ */
+/* ------------------------------------------------------- */
+/*                         LIVROS                           */
+/* ------------------------------------------------------- */
 .livros-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -101,7 +155,7 @@ nav ul li a {
 .livro-item img {
   width: 100%;
   border-radius: 8px;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .livro-item img:hover {
@@ -114,12 +168,14 @@ nav ul li a {
   font-size: 16px;
 }
 
-/* ------------------ RODAPÉ ------------------ */
+/* ------------------------------------------------------- */
+/*                         RODAPÉ                           */
+/* ------------------------------------------------------- */
 footer {
   text-align: center;
+  padding: 25px;
+  background: #efefef;
   margin-top: 60px;
-  padding: 20px;
-  background: #f0f0f0;
   font-size: 16px;
   color: #444;
 }
@@ -128,9 +184,12 @@ footer {
 
 <body>
 
-<!-- ------------------ MENU ------------------ -->
+<!-- ------------------------------------------------------- -->
+<!--                    MENU MINIMALISTA                      -->
+<!-- ------------------------------------------------------- -->
 <nav>
-  <ul>
+  <span class="menu-toggle" id="menu-btn">☰</span>
+  <ul id="menu">
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#disciplinas">Disciplinas Ministradas</a></li>
     <li><a href="#projetos">Projetos</a></li>
@@ -138,56 +197,92 @@ footer {
   </ul>
 </nav>
 
-<!-- ------------------ SOBRE ------------------ -->
+<!-- ------------------------------------------------------- -->
+<!--                          SOBRE                           -->
+<!-- ------------------------------------------------------- -->
 <section id="sobre">
+<div id="nome-topo">Vladimir Costa de Alencar</div>
+
 <div id="sobre-container">
   <img src="SUA_IMAGEM_AQUI.jpg">
-  
+
   <div class="texto-sobre">
-    <strong style="font-size:30px;">Vladimir Costa de Alencar</strong><br><br>
     Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial.
-    Gosto de Café, Ecologia, História, Geopolítica, Artes, Gatos, Big Data, IA.<br><br>
-    Doutorado em Recursos Naturais — UFCG (2009).  
-    Mestrado em Ciência da Computação — UFCG.  
+    Gosto de Café, Ecologia, História, Geopolítica, Artes, Gatos, Big Data e IA.<br><br>
+
+    Doutorado em Recursos Naturais — UFCG (2009).<br>
+    Mestrado em Ciência da Computação — UFCG.<br>
   </div>
 </div>
 </section>
 
-<!-- ------------------ DISCIPLINAS ------------------ -->
+<!-- ------------------------------------------------------- -->
+<!--                     DISCIPLINAS                           -->
+<!-- ------------------------------------------------------- -->
 <section id="disciplinas">
 <div class="accordion">
-  <div class="accordion-header">📘 Disciplinas Ministradas</div>
+  <div class="accordion-header">Disciplinas Ministradas</div>
   <div class="accordion-content">
 
     <ul>
       <li>Ciência de Dados
         <ul>
-          <li>Introdução</li>
-          <li>Análise Exploratória</li>
-          <li>Machine Learning</li>
-          <li>Redes Neurais</li>
-          <li>Deep Learning</li>
+          <li>Introdução
+            <ul>
+              <li>O que é Ciência de Dados</li>
+              <li>Tipos de Dados</li>
+              <li>Ciclo de Projeto em Dados</li>
+            </ul>
+          </li>
+
+          <li>Análise Exploratória
+            <ul>
+              <li>Estatísticas básicas</li>
+              <li>Visualização</li>
+              <li>Detecção de outliers</li>
+            </ul>
+          </li>
+
+          <li>Machine Learning
+            <ul>
+              <li>Modelos Supervisados</li>
+              <li>Modelos Não Supervisados</li>
+              <li>Validação Cruzada</li>
+            </ul>
+          </li>
+
+          <li>Redes Neurais
+            <ul>
+              <li>Backpropagation</li>
+              <li>Regularização</li>
+            </ul>
+          </li>
+
+          <li>Deep Learning
+            <ul>
+              <li>Convolucionais</li>
+              <li>RNN / Transformers</li>
+            </ul>
+          </li>
+
           <li>Projeto Final</li>
         </ul>
       </li>
 
-      <li>Inteligência Artificial
-        <ul><li>—</li></ul>
-      </li>
-
-      <li>Big Data
-        <ul><li>—</li></ul>
-      </li>
+      <li>Inteligência Artificial</li>
+      <li>Big Data</li>
     </ul>
 
   </div>
 </div>
 </section>
 
-<!-- ------------------ PROJETOS ------------------ -->
+<!-- ------------------------------------------------------- -->
+<!--                        PROJETOS                          -->
+<!-- ------------------------------------------------------- -->
 <section id="projetos">
 <div class="accordion">
-  <div class="accordion-header">📂 Projetos</div>
+  <div class="accordion-header">Projetos</div>
   <div class="accordion-content">
     <ul>
       <li>Transformers para Detecção de Ódio</li>
@@ -199,10 +294,12 @@ footer {
 </div>
 </section>
 
-<!-- ------------------ LIVROS ------------------ -->
+<!-- ------------------------------------------------------- -->
+<!--                         LIVROS                            -->
+<!-- ------------------------------------------------------- -->
 <section id="livros">
 <div class="accordion">
-  <div class="accordion-header">📚 Livros</div>
+  <div class="accordion-header">Livros</div>
   <div class="accordion-content">
 
     <div class="livros-grid">
@@ -220,27 +317,40 @@ footer {
         <img src="capa3.jpg">
         <p>Título 3</p>
       </div>
-
     </div>
 
   </div>
 </div>
 </section>
 
-<!-- ------------------ RODAPÉ ------------------ -->
+<!-- ------------------------------------------------------- -->
+<!--                        RODAPÉ                            -->
+<!-- ------------------------------------------------------- -->
 <footer>
   <script>
-    document.write('<span>Contato: ' + 'valencaar' + '@' + 'servidor.uepb.edu.br</span>');
+    // Proteção forte contra bots
+    const p1 = "valencar";
+    const p2 = "servidor";
+    const p3 = "uepb.edu.br";
+    document.write("Contato: " + p1 + "@" + p2 + "." + p3);
   </script>
 </footer>
 
-<!-- ------------------ SCRIPT ACORDEÃO ------------------ -->
+<!-- ------------------------------------------------------- -->
+<!--                     JAVASCRIPT                           -->
+<!-- ------------------------------------------------------- -->
 <script>
-document.querySelectorAll('.accordion-header').forEach(header => {
-  header.addEventListener('click', function () {
-    const content = this.nextElementSibling;
-    content.classList.toggle('open');
+// ACORDEÕES
+document.querySelectorAll(".accordion-header").forEach(header => {
+  header.addEventListener("click", function() {
+    this.classList.toggle("active");
+    this.nextElementSibling.classList.toggle("open");
   });
+});
+
+// MENU HAMBÚRGUER
+document.getElementById("menu-btn").addEventListener("click", function() {
+  document.getElementById("menu").classList.toggle("open");
 });
 </script>
 
