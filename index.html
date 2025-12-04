@@ -1,451 +1,247 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vladimir Alencar — IA, Ensino & Pesquisa</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Vladimir Alencar</title>
+
 <style>
-  :root{
-    --accent:#007acc;
-    --muted:#666;
-    --bg:#fff;
-    --panel:#fafafa;
-    --border:#e2e8ef;
-    --max-width:1200px;
-  }
-  *{box-sizing:border-box}
-  body{font-family:'Inter',sans-serif;margin:0;padding:0;line-height:1.6;color:#111;background:var(--bg)}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
+/* ------------------ GLOBAL ------------------ */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  background: #fafafa;
+}
 
-/* ---------- NAV MINIMALISTA ---------- */
-  .nav{
-    display:flex;
-    justify-content:center;
-    gap:28px;
-    background:#f9f9f9;
-    padding:12px 10px;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 1px 3px rgba(0,0,0,0.04);
-    font-weight:600;
-  }
-  .nav a{color:#111;text-decoration:none;padding:6px 2px;transition:color .18s}
-  .nav a:hover{color:var(--accent)}
+/* ------------------ MENU MINIMALISTA ------------------ */
+nav {
+  background: white;
+  padding: 15px 30px;
+  border-bottom: 1px solid #eee;
+}
 
-/* ---------- SECTION / HERO (SOBRE) ---------- */
-  .section{padding:42px 20px;max-width:var(--max-width);margin:0 auto}
-  .hero-container{
-    display:flex;
-    gap:32px;
-    align-items:end; /* alinhamento das partes inferiores */
-    flex-wrap:wrap;
-  }
-  /* imagem maior para manter proporção com fonte aumentada */
-  .hero-photo{flex:0 0 380px;max-width:380px}
-  .hero-photo img{width:100%;height:auto;border-radius:10px;display:block;object-fit:cover}
-  .hero-text{flex:1 1 420px;min-width:260px}
-  /* Aumento grande da fonte solicitado */
-  .hero-text h1{margin:0 0 10px 0;color:var(--accent);font-size:32px}
-  .hero-text p{margin:0 0 12px 0;font-size:20px;text-align:justify;color:#111}
-  .uepb{margin-top:14px;color:var(--muted);font-size:15px}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
 
-/* ---------- ACORDEÃO ---------- */
-  .accordion{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff;margin-bottom:14px}
-  .accordion-header{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:14px 16px;cursor:pointer;background:#f6f9fc;font-weight:700;border-bottom:1px solid rgba(0,0,0,0.02);
-    transition:background .18s;
-  }
-  .accordion-header:hover{background:#eef7ff}
-  .accordion-header .title{font-size:17px;color:#111}
-  .accordion-header .toggle{font-weight:700;font-size:18px;color:#444}
-  .accordion-content{
-    padding:0 16px;
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .42s cubic-bezier(.2,.8,.2,1), padding .18s;
-    background:var(--panel);
-  }
-  .accordion-content.open{padding:12px 16px 18px 16px}
+nav ul li a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 300;
+  font-size: 17px;
+}
 
-/* listas (numeradas + sublistas sem numeração) */
-  .accordion-content ol{margin:0 0 0 18px;padding:10px 0}
-  .accordion-content li{margin:8px 0;color:#222}
-  .accordion-content ul{margin:6px 0 6px 20px}
-  .accordion-content ul li{list-style:disc;color:#555;font-weight:400}
+/* ------------------ SEÇÃO SOBRE ------------------ */
+#sobre-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+  padding: 60px;
+}
 
-/* ---------- LIVROS GRID ---------- */
-  .livros-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:18px;
-    margin-top:10px;
-  }
-  .livro-visual{border-radius:8px;overflow:hidden;transition:transform .25s ease, box-shadow .25s ease}
-  .livro-visual img{width:100%;display:block;object-fit:cover}
-  .livro-visual:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(12,24,40,0.12)}
-  .livro-caption{text-align:center;margin-top:8px;color:var(--accent);font-weight:700}
+#sobre-container img {
+  width: 260px;
+  height: auto;
+  border-radius: 12px;
+}
 
-/* ---------- FOOTER UNIVERSAL ---------- */
-  footer{border-top:1px solid var(--border);padding:18px 12px;text-align:center;color:var(--muted);font-size:14px}
-  footer a{color:inherit}
+#sobre-container .texto-sobre {
+  font-size: 22px;
+  line-height: 1.6;
+}
 
-/* ---------- RESPONSIVIDADE ---------- */
-  @media (max-width:1000px){
-    .hero-photo{flex-basis:320px;max-width:320px}
-    .hero-text p{font-size:18px}
-    .hero-text h1{font-size:28px}
-  }
-  @media (max-width:680px){
-    .nav{gap:14px;padding:10px}
-    .hero-container{align-items:center}
-    .hero-photo{flex-basis:100%;max-width:520px}
-    .hero-text{flex-basis:100%}
-    .hero-text p{text-align:center}
-    .hero-text h1{text-align:center}
-    .livros-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
-  }
+/* ------------------ ACORDEÕES ------------------ */
+.accordion {
+  width: 90%;
+  margin: 20px auto;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.accordion-header {
+  font-size: 22px;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.accordion-content {
+  display: none;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.accordion-content.open {
+  display: block;
+}
+
+.accordion-content ul {
+  list-style: decimal;
+  padding-left: 25px;
+}
+
+.accordion-content ul ul {
+  list-style: disc;
+}
+
+/* ------------------ LIVROS GRID ------------------ */
+.livros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 25px;
+  width: 90%;
+  margin: auto;
+}
+
+.livro-item img {
+  width: 100%;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.livro-item img:hover {
+  transform: scale(1.04);
+}
+
+.livro-item p {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+/* ------------------ RODAPÉ ------------------ */
+footer {
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+  background: #f0f0f0;
+  font-size: 16px;
+  color: #444;
+}
 </style>
 </head>
+
 <body>
 
-<!-- NAV minimalista -->
-<nav class="nav" role="navigation" aria-label="principal">
-  <a href="#sobre">Sobre</a>
-  <a href="#disciplinas">Disciplinas Ministradas</a>
-  <a href="#projetos">Projetos</a>
-  <a href="#livros">Livros</a>
-  <a href="#contato">Contato</a>
+<!-- ------------------ MENU ------------------ -->
+<nav>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#disciplinas">Disciplinas Ministradas</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#livros">Livros</a></li>
+  </ul>
 </nav>
 
-<!-- SOBRE -->
-<section id="sobre" class="section" aria-labelledby="sobre-title">
-  <div class="hero-container">
-    <div class="hero-photo" aria-hidden="true">
-      <img src="https://vladimiralencar.github.io/sobre/ensaio0010.JPG" alt="Foto de Vladimir Costa de Alencar">
-    </div>
-    <div class="hero-text">
-      <h1 id="sobre-title">Vladimir Costa de Alencar</h1>
-      <p>Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial. Gosto de café, ecologia, história, geopolítica, artes, gatos, big data e IA.</p>
-      <p>Doutorado em Recursos Naturais com ênfase em Otimização Multicritério/Multiobjetivo — UFCG (2009). Mestrado em Ciência da Computação — UFCG (1992). Graduação em Ciência da Computação (1990) e Radiologia (2017).</p>
-      <p>Trabalho com Big Data Analytics, SQL e NoSQL, Machine Learning, Python, C/C++, Linux, Cloud Computing, CUDA, Epidemiologia, Redes Neurais, Deep Learning, Visão Computacional e PLN (LLMs e agentes).</p>
-      <div class="uepb">Campina Grande, Paraíba · Brasil</div>
-    </div>
+<!-- ------------------ SOBRE ------------------ -->
+<section id="sobre">
+<div id="sobre-container">
+  <img src="SUA_IMAGEM_AQUI.jpg">
+  
+  <div class="texto-sobre">
+    <strong style="font-size:30px;">Vladimir Costa de Alencar</strong><br><br>
+    Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial.
+    Gosto de Café, Ecologia, História, Geopolítica, Artes, Gatos, Big Data, IA.<br><br>
+    Doutorado em Recursos Naturais — UFCG (2009).  
+    Mestrado em Ciência da Computação — UFCG.  
   </div>
+</div>
 </section>
 
-<!-- DISCIPLINAS (acordeões) -->
-<section id="disciplinas" class="section" aria-labelledby="disciplinas-title">
-  <h2 id="disciplinas-title">Disciplinas Ministradas</h2>
+<!-- ------------------ DISCIPLINAS ------------------ -->
+<section id="disciplinas">
+<div class="accordion">
+  <div class="accordion-header">📘 Disciplinas Ministradas</div>
+  <div class="accordion-content">
 
-  <!-- Banco de Dados -->
-  <div class="accordion">
-    <button class="accordion-header" aria-expanded="false" aria-controls="c-disc-bd" >
-      <span class="title">1. Banco de Dados</span>
-      <span class="toggle">+</span>
-    </button>
-    <div id="c-disc-bd" class="accordion-content" aria-hidden="true">
-      <ol>
-        <li>Ementa</li>
-        <li>Breve História de Banco de Dados</li>
-        <li>Novas Tecnologias que utilizam Banco de Dados
-          <ul>
-            <li>Machine Learning</li>
-            <li>Big Data</li>
-            <li>Data Science</li>
-            <li>NoSQL (SGBD não Relacionais)</li>
-            <li>Hadoop</li>
-            <li>Spark</li>
-          </ul>
-        </li>
-        <li>Fundamentos e Conceitos Básicos
-          <ul>
-            <li>Campos</li>
-            <li>Registros</li>
-            <li>Tabelas</li>
-            <li>Índices e Chaves</li>
-          </ul>
-        </li>
-        <li>Modelos, Esquemas e Linguagens</li>
-        <li>Modelagem de Banco de Dados
-          <ul>
-            <li>Modelo Entidade-Relacionamento — MER (Modelo Conceitual)</li>
-            <li>Álgebra Relacional</li>
-            <li>Modelo Relacional (Modelo Lógico)</li>
-          </ul>
-        </li>
-        <li>Projeto de Banco de Dados Relacional
-          <ul>
-            <li>Transformação do MER para o modelo Relacional</li>
-            <li>Normalização</li>
-          </ul>
-        </li>
-        <li>A linguagem SQL</li>
-        <li>Programação com bancos de dados: abertura de conexão com SGBD</li>
-        <li>MongoDB (NoSQL)</li>
-        <li>Serviços de um gerenciador de Banco de Dados
-          <ul>
-            <li>Controle de Concorrência</li>
-            <li>Transações</li>
-            <li>Sistema de Recuperação</li>
-            <li>Otimização de consultas</li>
-          </ul>
-        </li>
-      </ol>
-    </div>
+    <ul>
+      <li>Ciência de Dados
+        <ul>
+          <li>Introdução</li>
+          <li>Análise Exploratória</li>
+          <li>Machine Learning</li>
+          <li>Redes Neurais</li>
+          <li>Deep Learning</li>
+          <li>Projeto Final</li>
+        </ul>
+      </li>
+
+      <li>Inteligência Artificial
+        <ul><li>—</li></ul>
+      </li>
+
+      <li>Big Data
+        <ul><li>—</li></ul>
+      </li>
+    </ul>
+
   </div>
-
-  <!-- Introdução à Ciência da Computação -->
-  <div class="accordion">
-    <button class="accordion-header" aria-expanded="false" aria-controls="c-disc-icc">
-      <span class="title">2. Introdução à Ciência da Computação</span>
-      <span class="toggle">+</span>
-    </button>
-    <div id="c-disc-icc" class="accordion-content" aria-hidden="true">
-      <ol>
-        <li>Fundamentos de Computadores
-          <ul>
-            <li>Arquitetura básica (hardware & software)</li>
-            <li>CPU, memória, I/O</li>
-            <li>Conceito de programa e instrução</li>
-          </ul>
-        </li>
-        <li>Sistemas de Numeração e Representação de Dados
-          <ul>
-            <li>Decimal, binário, octal, hexadecimal</li>
-            <li>Conversões entre sistemas</li>
-            <li>ASCII e Unicode</li>
-          </ul>
-        </li>
-        <li>Introdução à Lógica de Programação e Python
-          <ul>
-            <li>Algoritmos</li>
-            <li>Tipos e variáveis</li>
-            <li>Operadores</li>
-            <li>Entrada/saída em Python</li>
-          </ul>
-        </li>
-        <li>Estruturas de Controle
-          <ul>
-            <li>If / elif / else</li>
-            <li>For / While</li>
-            <li>range(), enumerate(), break / continue</li>
-          </ul>
-        </li>
-        <li>Modularização e Funções em Python
-          <ul>
-            <li>def, parâmetros, retorno, escopo</li>
-            <li>Importação de módulos</li>
-          </ul>
-        </li>
-        <li>Metodologia de desenvolvimento de algoritmos</li>
-        <li>Avaliações (P1, P2, Reposição, Final)</li>
-      </ol>
-    </div>
-  </div>
-
-  <!-- Ciência de Dados -->
-  <div class="accordion">
-    <button class="accordion-header" aria-expanded="false" aria-controls="c-disc-ds">
-      <span class="title">3. Ciência de Dados</span>
-      <span class="toggle">+</span>
-    </button>
-    <div id="c-disc-ds" class="accordion-content" aria-hidden="true">
-      <ol>
-        <li>Ementa
-          <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank" rel="noopener">PDF</a></li></ul>
-        </li>
-        <li>Introdução (motivação)</li>
-        <li>O que é Ciência de Dados?
-          <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf" target="_blank" rel="noopener">PDF</a></li></ul>
-        </li>
-        <li>Data Science & Big Data
-          <ul><li><a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank" rel="noopener">PDF</a></li></ul>
-        </li>
-        <li>Curso rápido de Python (GitHub)</li>
-        <li>Processo de Aprendizagem (PDF)</li>
-        <li>Machine Learning (regressão, KNN, Naive Bayes, árvores, ensemble, SVM, PCA)</li>
-        <li>Redes Neurais (componentes, perceptron, MLP, backprop, otimizadores)</li>
-        <li>Deep Learning (TensorFlow/Keras, PyTorch)</li>
-        <li>PLN, Visão Computacional, Mídias Sociais, NoSQL, Hadoop, Spark</li>
-        <li>Códigos no GitHub — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank" rel="noopener">repositório</a></li>
-      </ol>
-    </div>
-  </div>
-
+</div>
 </section>
 
-<!-- PROJETOS -->
-<section id="projetos" class="section" aria-labelledby="projetos-title">
-  <h2 id="projetos-title">Projetos</h2>
-
-  <div class="accordion">
-    <button class="accordion-header" aria-expanded="false" aria-controls="c-proj-1">
-      <span class="title">Agente Inteligente Multimodal para Previsão de Inundações</span>
-      <span class="toggle">+</span>
-    </button>
-    <div id="c-proj-1" class="accordion-content" aria-hidden="true">
-      <p>Integração de RAG + Machine Learning + dados ambientais para previsão e alerta de inundações urbanas.</p>
-    </div>
+<!-- ------------------ PROJETOS ------------------ -->
+<section id="projetos">
+<div class="accordion">
+  <div class="accordion-header">📂 Projetos</div>
+  <div class="accordion-content">
+    <ul>
+      <li>Transformers para Detecção de Ódio</li>
+      <li>LLMs na Saúde</li>
+      <li>RAG Inteligente</li>
+      <li>Previsão de Inundações Urbanas</li>
+    </ul>
   </div>
-
-  <div class="accordion">
-    <button class="accordion-header" aria-expanded="false" aria-controls="c-proj-2">
-      <span class="title">Classificação de Imagens Médicas com ViT</span>
-      <span class="toggle">+</span>
-    </button>
-    <div id="c-proj-2" class="accordion-content" aria-hidden="true">
-      <p>Pipeline baseado em Vision Transformer para classificação de imagens de raio-X (Normal vs Tuberculose), com pré-processamento e validação simulada.</p>
-    </div>
-  </div>
+</div>
 </section>
 
-<!-- LIVROS -->
-<section id="livros" class="section" aria-labelledby="livros-title">
-  <h2 id="livros-title">Livros Publicados</h2>
+<!-- ------------------ LIVROS ------------------ -->
+<section id="livros">
+<div class="accordion">
+  <div class="accordion-header">📚 Livros</div>
+  <div class="accordion-content">
 
-  <div class="livros-grid">
-    <!-- cada livro é um acordeão -->
-    <div class="accordion">
-      <button class="accordion-header" aria-expanded="false" aria-controls="c-liv-1">
-        <span class="title">Inteligência Artificial</span>
-        <span class="toggle">+</span>
-      </button>
-      <div id="c-liv-1" class="accordion-content" aria-hidden="true">
-        <div class="livro-visual"><img src="https://vladimiralencar.github.io/livros/1.InteligenciaArtificial.png" alt="Inteligência Artificial — capa"></div>
-        <div class="livro-caption">Inteligência Artificial</div>
+    <div class="livros-grid">
+      <div class="livro-item">
+        <img src="capa1.jpg">
+        <p>Título 1</p>
       </div>
+
+      <div class="livro-item">
+        <img src="capa2.jpg">
+        <p>Título 2</p>
+      </div>
+
+      <div class="livro-item">
+        <img src="capa3.jpg">
+        <p>Título 3</p>
+      </div>
+
     </div>
 
-    <div class="accordion">
-      <button class="accordion-header" aria-expanded="false" aria-controls="c-liv-2">
-        <span class="title">Doenças de Pele — CNN</span>
-        <span class="toggle">+</span>
-      </button>
-      <div id="c-liv-2" class="accordion-content" aria-hidden="true">
-        <div class="livro-visual"><img src="https://vladimiralencar.github.io/livros/2.DoencasDePele-CNN.webp" alt="Doenças de Pele — capa"></div>
-        <div class="livro-caption">Doenças de Pele — CNN</div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" aria-expanded="false" aria-controls="c-liv-3">
-        <span class="title">Febre Amarela — Twitter</span>
-        <span class="toggle">+</span>
-      </button>
-      <div id="c-liv-3" class="accordion-content" aria-hidden="true">
-        <div class="livro-visual"><img src="https://vladimiralencar.github.io/livros/3.FebreAmarela-Twitter.jpg" alt="Febre Amarela — capa"></div>
-        <div class="livro-caption">Febre Amarela — Twitter</div>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <button class="accordion-header" aria-expanded="false" aria-controls="c-liv-4">
-        <span class="title">Tuberculose — IA</span>
-        <span class="toggle">+</span>
-      </button>
-      <div id="c-liv-4" class="accordion-content" aria-hidden="true">
-        <div class="livro-visual"><img src="https://vladimiralencar.github.io/livros/4.Tuberculose.webp" alt="Tuberculose — capa"></div>
-        <div class="livro-caption">Tuberculose — IA</div>
-      </div>
-    </div>
-
-    <!-- se quiser, adicione mais livros replicando o bloco acima -->
   </div>
+</div>
 </section>
 
-<!-- RODAPÉ (universalmente usado) -->
+<!-- ------------------ RODAPÉ ------------------ -->
 <footer>
-  © <span id="yr"></span> Vladimir Costa de Alencar · Todos os direitos reservados ·
-  contato: <a href="mailto:seu.email@exemplo.com">seu.email@exemplo.com</a> ·
-  <a href="/politica-de-privacidade">Política de Privacidade</a> · <a href="/sitemap.xml">Sitemap</a>
+  <script>
+    document.write('<span>Contato: ' + 'valencaar' + '@' + 'servidor.uepb.edu.br</span>');
+  </script>
 </footer>
 
-<!-- ---------- SCRIPTS (ACORDEÃO ROBUSTO) ---------- -->
+<!-- ------------------ SCRIPT ACORDEÃO ------------------ -->
 <script>
-  // Ano dinâmico no rodapé
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // Acordeões: robusto, trabalha com maxHeight dinamicamente
-  (function(){
-    const headers = document.querySelectorAll('.accordion > .accordion-header');
-
-    headers.forEach(header => {
-      const content = header.nextElementSibling;
-      const toggle = header.querySelector('.toggle');
-
-      // ensure initial state
-      content.style.maxHeight = '0px';
-      content.setAttribute('aria-hidden','true');
-      header.setAttribute('aria-expanded','false');
-      if(toggle) toggle.textContent = '+';
-
-      header.addEventListener('click', function(){
-        const isOpen = content.classList.contains('open');
-
-        if(isOpen){
-          // close
-          // set current explicit height to trigger transition
-          content.style.maxHeight = content.scrollHeight + 'px';
-          // next frame, collapse
-          requestAnimationFrame(()=> {
-            content.style.maxHeight = '0px';
-            content.classList.remove('open');
-            header.setAttribute('aria-expanded','false');
-            content.setAttribute('aria-hidden','true');
-            if(toggle) toggle.textContent = '+';
-          });
-        } else {
-          // open
-          content.classList.add('open');
-          // set to scrollHeight to animate open
-          content.style.maxHeight = content.scrollHeight + 'px';
-          header.setAttribute('aria-expanded','true');
-          content.setAttribute('aria-hidden','false');
-          if(toggle) toggle.textContent = '−';
-
-          // after transition completes, remove fixed maxHeight so content can grow naturally (images loading)
-          const onTransEnd = function(e){
-            // ensure event for max-height only
-            if(e.propertyName !== 'max-height') return;
-            if(content.classList.contains('open')){
-              content.style.maxHeight = 'none';
-            }
-            content.removeEventListener('transitionend', onTransEnd);
-          };
-          content.addEventListener('transitionend', onTransEnd);
-        }
-      });
-    });
-
-    // Optional: close others when opening one (only one open at a time).
-    // If you want that behavior, uncomment below:
-    /*
-    headers.forEach(header=>{
-      header.addEventListener('click', function(){
-        headers.forEach(h=>{
-          if(h === header) return;
-          const c = h.nextElementSibling;
-          if(c.classList.contains('open')){
-            c.style.maxHeight = c.scrollHeight + 'px';
-            requestAnimationFrame(()=> {
-              c.style.maxHeight = '0px';
-              c.classList.remove('open');
-              h.setAttribute('aria-expanded','false');
-              c.setAttribute('aria-hidden','true');
-              const t = h.querySelector('.toggle');
-              if(t) t.textContent = '+';
-            });
-          }
-        });
-      });
-    });
-    */
-
-  })();
+document.querySelectorAll('.accordion-header').forEach(header => {
+  header.addEventListener('click', function () {
+    const content = this.nextElementSibling;
+    content.classList.toggle('open');
+  });
+});
 </script>
 
 </body>
