@@ -1,155 +1,235 @@
-
 /* Reset e tipografia */
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#ffffff;--text:#0b0b0b;--muted:#666;--accent:#0b5fff}
-body{font-family:'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-img{max-width:100%;display:block}
-a{color:var(--accent);text-decoration:none}
-.container{max-width:1100px;margin:0 auto;padding:24px}
-
-/* Header / Menu */
-.menu{background:#fafafa;border-bottom:1px solid #eee}
-.menu-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:12px 20px}
-.brand{font-weight:600;color:var(--text);font-family:'IBM Plex Sans',sans-serif}
-.menu-list{list-style:none;display:flex;gap:18px}
-.menu-list a{padding:8px 6px;border-radius:6px}
-.menu-list a:hover{background:#f0f5ff}
-.menu-toggle{display:none;background:transparent;border:0;font-size:20px}
-
-/* Sobre */
-.sobre{padding:36px 20px}
-.sobre-container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:center}
-.sobre-foto{width:200px;height:200px;object-fit:cover;border-radius:8px;box-shadow:0 6px 18px rgba(11,11,11,0.08)}
-.sobre-nome{font-family:'IBM Plex Sans',sans-serif;font-size:28px;margin-bottom:8px}
-.lead{font-size:16px;color:var(--muted);margin-bottom:12px}
-.academia{color:var(--text);margin-bottom:8px}
-.endereco{color:var(--muted);font-size:14px}
-
-/* Disciplinas */
-.disciplinas{background:#fff;padding:32px 20px}
-.disciplinas .disciplina{max-width:1100px;margin:0 auto}
-.disciplinas h2{font-size:22px;margin-bottom:12px}
-.disciplina h3{font-size:20px;margin-bottom:8px}
-.conteudo ul{margin-left:16px;margin-top:8px}
-.conteudo ul li{margin-bottom:8px}
-.conteudo ul ul{margin-left:14px;margin-top:6px}
-
-/* Projetos */
-.projetos{padding:28px 20px}
-
-/* Livros */
-.livros{padding:28px 20px;background:#fafafa}
-.livros-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;padding:12px}
-.livros-grid img{width:100%;height:170px;object-fit:cover;border-radius:6px;box-shadow:0 6px 12px rgba(0,0,0,0.06)}
-
-/* Rodapé (subir texto) */
-.rodape{padding:18px 20px;background:#fff;border-top:1px solid #eee}
-.rodape .rodape-text{max-width:1100px;margin:0 auto;padding-top:8px;transform:translateY(-6px)}
-
-/* Responsividade */
-@media (max-width:900px){
-  .sobre-container{grid-template-columns:120px 1fr}
-  .sobre-foto{width:120px;height:120px}
-  .menu-list{display:none}
-  .menu-toggle{display:block}
-}
-
-@media (max-width:520px){
-  .sobre-container{grid-template-columns:1fr;gap:12px}
-  .sobre-foto{width:100%;height:220px}
-  .sobre-nome{font-size:22px}
-}
-
-
-/* Menu mobile toggle */
-const btn = document.getElementById('menuToggle');
-const menuList = document.querySelector('.menu-list');
-btn && btn.addEventListener('click', ()=>{
-  const isOpen = menuList.style.display === 'flex';
-  menuList.style.display = isOpen ? 'none' : 'flex';
-});
-
-/*  Smooth scroll for internal links */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', function(e){
-    const href = this.getAttribute('href');
-    if(href.length>1){
-      e.preventDefault();
-      const el = document.querySelector(href);
-      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-      // hide menu on small screens after click
-      if(window.innerWidth<=900 && menuList) menuList.style.display='none';
-    }
-  });
-});
-
-console.log('Script carregado.');
-
-/* Tipografia */
-body {
-  font-family: 'Inter', sans-serif;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
 }
 
-h1, h2 {
-  font-family: 'IBM Plex Sans', sans-serif;
+:root {
+  --bg: #ffffff;
+  --text: #0b0b0b;
+  --muted: #666666;
+  --accent: #0b5fff;
+  --header-bg: #004080;
+  --header-text: #ffffff;
 }
 
-/* Header e Menu */
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header / Menu */
 header {
-  background-color: #004080;
-  color: white;
+  background-color: var(--header-bg);
+  color: var(--header-text);
   padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-nav {
+.menu-inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.brand {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 
 .menu-list {
   list-style: none;
-  display: none;
-  gap: 15px;
+  display: flex;
+  gap: 18px;
 }
 
 .menu-list li a {
-  color: white;
-  text-decoration: none;
+  color: var(--header-text);
+  padding: 8px 6px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.menu-list li a:hover {
+  background-color: #f0f5ff;
+  color: var(--header-text);
 }
 
 #menuToggle {
+  display: none;
   background: none;
   border: none;
-  color: white;
-  font-size: 1.5rem;
+  color: var(--header-text);
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
-/* Seções */
-section {
+/* Sobre */
+.sobre {
   padding: 40px 20px;
 }
 
-.perfil {
-  width: 150px;
-  border-radius: 50%;
+.sobre-container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.sobre-foto {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(11, 11, 11, 0.08);
+}
+
+.sobre-nome {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.endereco {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Disciplinas */
+.disciplinas {
+  padding: 40px 20px;
+  background: #fff;
+}
+
+.disciplinas h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.disciplina h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.conteudo ul {
+  margin-left: 16px;
+  margin-top: 8px;
+}
+
+.conteudo ul li {
+  margin-bottom: 6px;
+}
+
+.conteudo ul ul {
+  margin-left: 16px;
+  margin-top: 4px;
+}
+
+/* Projetos */
+.projetos {
+  padding: 40px 20px;
 }
 
 /* Livros */
-.livros-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+.livros {
+  padding: 40px 20px;
+  background: #fafafa;
 }
 
-.livros-container img {
-  width: 150px;
+.livros-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 0;
+}
+
+.livros-grid img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
   border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s;
 }
 
+.livros-grid img:hover {
+  transform: scale(1.05);
+}
 
+/* Rodapé */
+.rodape {
+  padding: 20px;
+  background: #fff;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
 
+.rodape-text {
+  display: inline-block;
+  transform: translateY(-4px);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .sobre-container {
+    grid-template-columns: 120px 1fr;
+  }
+  .sobre-foto {
+    width: 120px;
+    height: 120px;
+  }
+  .menu-list {
+    display: none;
+    flex-direction: column;
+    background: var(--header-bg);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  #menuToggle {
+    display: block;
+  }
+}
+
+@media (max-width: 520px) {
+  .sobre-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .sobre-foto {
+    width: 100%;
+    height: 220px;
+  }
+  .sobre-nome {
+    font-size: 1.6rem;
+  }
+}
