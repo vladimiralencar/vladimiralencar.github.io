@@ -1,18 +1,15 @@
-/* Reset e tipografia */
+/* ===== Reset e Tipografia ===== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 body {
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
   color: #0b0b0b;
   line-height: 1.6;
 }
-
-/* Links */
 a {
   color: #0b5fff;
   text-decoration: none;
@@ -20,174 +17,167 @@ a {
 a:hover {
   text-decoration: underline;
 }
+h1, h2, h3, h4 {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+ul li {
+  margin-bottom: 8px;
+}
+ul ul li {
+  margin-bottom: 4px;
+}
 
-/* Header e Menu */
+/* ===== Header e Menu ===== */
 header {
   background-color: #004080;
   color: white;
-  padding: 12px 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
-
 .menu-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
-
-.menu-list {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.menu-list li a {
-  color: white;
-  padding: 6px 8px;
-  border-radius: 6px;
-  transition: background 0.2s;
-}
-
-.menu-list li a:hover {
-  background-color: #f0f5ff;
-  color: #004080;
-}
-
 #menuToggle {
   display: none;
+  font-size: 1.8rem;
   background: none;
   border: none;
   color: white;
-  font-size: 1.8rem;
   cursor: pointer;
 }
+nav ul.menu-list {
+  display: flex;
+  gap: 20px;
+}
+nav ul.menu-list li a {
+  color: white;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+nav ul.menu-list li a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
 
-/* Seções */
-section {
-  max-width: 1200px;
+/* ===== Conteúdo Central ===== */
+.conteudo-central {
+  max-width: 1100px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* SOBRE */
+/* ===== Sobre ===== */
 .sobre-container {
   display: flex;
-  gap: 30px;
+  gap: 24px;
   align-items: flex-start;
 }
-
 .sobre-foto {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-.sobre-texto {
-  flex: 1;
-}
-
-.sobre-nome {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #004080;
-}
-
-.endereco {
-  margin-top: 16px;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* DISCIPLINAS */
-.disciplinas h2, .projetos h2, .livros h2 {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.conteudo ul {
-  margin-left: 16px;
-  margin-top: 10px;
-}
-.conteudo ul li {
-  margin-bottom: 8px;
-}
-.conteudo ul ul {
-  margin-left: 14px;
-  margin-top: 6px;
-}
-
-/* PROJETOS */
-.projetos {
-  padding: 40px 20px;
-}
-
-/* LIVROS */
-.livros-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-}
-
-.livros-grid img {
-  width: 100%;
+  width: 200px;
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.sobre-nome {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+.sobre-texto p {
+  margin-bottom: 12px;
+}
+.endereco {
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+/* ===== Disciplinas ===== */
+.disciplinas h2, .projetos h2, .livros h2 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+.disciplinas .disciplina {
+  margin-bottom: 24px;
+}
+.conteudo ul {
+  margin-top: 8px;
+  padding-left: 20px;
+}
+.conteudo ul ul {
+  padding-left: 20px;
+}
+
+/* ===== Projetos ===== */
+.projetos {
+  margin-bottom: 40px;
+}
+
+/* ===== Livros ===== */
+.livros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+.livros-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.06);
 }
 
-/* RODAPÉ */
+/* ===== Rodapé ===== */
 .rodape {
-  padding: 20px 20px;
-  background-color: #f5f5f5;
-  text-align: center;
+  padding: 18px 20px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #eee;
+  text-align: left;
   font-size: 0.9rem;
-  margin-top: 40px;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 900px) {
+/* ===== Responsividade ===== */
+@media (max-width:900px){
   .sobre-container {
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
   .sobre-foto {
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
   }
-  #menuToggle {
-    display: block;
-  }
-  .menu-list {
+  nav ul.menu-list {
     display: none;
     flex-direction: column;
     gap: 12px;
     background-color: #004080;
-    padding: 10px 0;
+    padding: 12px 0;
     position: absolute;
-    top: 56px;
+    top: 100%;
     right: 20px;
     border-radius: 6px;
   }
-  .menu-list li a {
+  #menuToggle {
     display: block;
   }
 }
 
-@media (max-width: 520px) {
-  .sobre-nome {
-    font-size: 2rem;
-    text-align: center;
+@media (max-width:520px){
+  .sobre-foto {
+    width: 100%;
+    height: auto;
   }
-  .sobre-texto {
-    text-align: center;
+  .sobre-nome {
+    font-size: 1.8rem;
   }
 }
