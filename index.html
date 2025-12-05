@@ -1,197 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vladimir Costa de Alencar — LANA</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Vladimir Costa de Alencar — LANA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    background: #fafafa;
+    color: #222;
+    line-height: 1.6;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  nav a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #222;
+  }
 
-  <!-- Tipografia refinada -->
-  <!-- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet"> -->
+  /* SOBRE */
+  #sobre {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    align-items: flex-start;
+  }
+  #sobre img {
+    max-width: 260px;
+    border-radius: 1rem;
+    display: block;
+  }
+  .texto-sobre {
+    flex: 1;
+    font-size: clamp(0.75rem, 1vw, 1rem);
+    line-height: 1.45;
+  }
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  /* LIVROS */
+  #livros {
+    padding: 2rem;
+  }
+  .livros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+  }
+  .livro-item img {
+    width: 100%;
+    border-radius: .6rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  .livro-item p {
+    font-size: .9rem;
+    margin-top: .5rem;
+    text-align: center;
+  }
 
+  /* ACCORDION estilo Apple */
+  #disciplinas {
+    padding: 2rem;
+  }
+  .accordion-item {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+  }
+  .accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1.15rem;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .accordion-header:after {
+    content: "▸";
+    font-size: 1rem;
+    transition: .3s;
+  }
+  .accordion-item.open .accordion-header:after {
+    transform: rotate(90deg);
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+    font-size: .9rem;
+    padding-right: .5rem;
+  }
+  .accordion-content-inner {
+    padding: .5rem 0 1rem 0;
+  }
 
-  <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      /*font-family: 'Inter', sans-serif;*/
-      font-family: "Montserrat", sans-serif;
-      background-color: #fefefe;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    /* Área útil centralizada */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    /* Menu principal */
-    nav {
-      margin-bottom: 2rem;
-    }
-
-    .menu-list {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .menu-list li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-
-    .menu-list li a:hover {
-      color: #007acc;
-    }
-
-    /* Seção Sobre */
-    #sobre {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-/*    #sobre img {
-      height: auto;
-      width: auto;
-      /*max-width: 40%;*/
-/*      max-width: 30%;
-      border-radius: 1rem;
-      transition: all 0.3s ease;
-      display: block;
-    }
-*/
-
-    #sobre img {
-      width: clamp(120px, 30%, 350px); /*  20%, 240px */ 
-      height: auto;
-    }
-
-/*    #sobre img {
-      flex-shrink: 0;
-      width: clamp(180px, 30%, 220px);
-      height: auto;
-      border-radius: 1rem;
-      display: block;
-      }*/
-
-
-    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-    .w3-row-padding img {margin-bottom: 12px}
-    .bgimg {
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-image: url('profile_girl.jpg');
-      min-height: 100%;
-    }
-
-
- /*   .texto-sobre {
-      flex: 1 1 auto;
-      font-size: clamp(1rem, 2vw, 2rem);
-      line-height: 1.5;
-    } */
-
-    .texto-sobre {
-      font-size: clamp(0.65rem, 0.8vw, 0.85rem);
-      line-height: 1.45;
-    }
-
-
-
-    /* Seções gerais */
-/*    section h2 {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      font-size: clamp(1.5rem, 2.5vw, 2.5rem);*/
-    /*}*/
-
-    section h1 h2 {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-    }
-
-    /* Disciplinas */
-    .disciplinas-list {
-      list-style-type: decimal;
-      padding-left: 1.5rem;
-    }
-
-    .disciplinas-list li {
-      margin-bottom: 0.5rem;
-    }
-
-    .disciplinas-list li ul {
-      list-style-type: lower-alpha;
-      padding-left: 1.5rem;
-      margin-top: 0.3rem;
-    }
-
-    .disciplinas-list a {
-      color: #007acc;
-      text-decoration: none;
-    }
-
-    .disciplinas-list a:hover {
-      text-decoration: underline;
-    }
-
-    /* Responsivo */
-    @media (max-width: 768px) {
-      #sobre {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #sobre img {
-        max-width: 80%;
-      }
-
-      .texto-sobre {
-        text-align: center;
-      }
-
-      .menu-list {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-      }
-    }
-  </style>
+  footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    font-size: .85rem;
+    background: #f1f1f1;
+  }
+</style>
 </head>
 <body>
 
-  <!-- Menu -->
-  <nav class="container">
-    <ul class="menu-list">
+<header>
+  <strong>Vladimir Alencar</strong>
+  <nav>
+    <ul>
       <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#disciplinas">Disciplinas</a></li>
       <li><a href="#livros">Livros</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="#bd">Banco de Dados</a></li>
+      <li><a href="#icc">ICC</a></li>
+      <li><a href="#cd">Ciência de Dados</a></li>
+      li><a href="#cd">Livros</a></li>
+      li><a href="#cd">Contato</a></li>
     </ul>
   </nav>
+</header>
 
-
-  <!-- Seção Sobre -->
-<section id="sobre" class="container">
-  <img id="foto-sobre" src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/sobre/ensaio0010.JPG" alt="Foto de Vladimir">
+<section id="sobre">
+  <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/foto.jpg" alt="Foto">
   <div class="texto-sobre">
     <h1>Vladimir Costa de Alencar</h1>
     <p>Sou Professor, Pesquisador, Escritor, Engenheiro de Inteligência Artificial e Cientista de Dados. </P>
@@ -206,113 +157,33 @@
   </div>
 </section>
 
+<section id="disciplinas">
+  <h2>Disciplinas</h2>
 
-<style>
-  #sobre {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 2rem;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
+  <!-- BD -->
+  <div class="accordion-item" id="bd">
+    <button class="accordion-header">Banco de Dados</button>
+    <div class="accordion-content"><div class="accordion-content-inner">
+      Conteúdo Programático:<br><br>
+      0. Ementa<br>
+      1. Breve História<br>
+      2. Tecnologias (ML, Big Data, NoSQL, Spark...)<br>
+      3. Fundamentos<br>
+      4. Modelos e Linguagens<br>
+      5. Modelagem MER → Relacional<br>
+      6. Projeto Relacional<br>
+      7. SQL<br>
+      8. Programação com BD<br>
+      9. MongoDB<br>
+      10. Controle de Concorrência, Transações etc.
+    </div></div>
+  </div>
 
-/*  #sobre img {
-    width: auto;
-    height: auto;
-    max-width: 40%;
-    border-radius: 1rem;
-    display: block;
-    transition: all 0.3s ease;
-  }*/
-
-  #sobre img {
-    width: clamp(120px, 30%, 300px); /* # 20%, 240px */
-    height: auto;
-}
-
-/*  .texto-sobre {
-    flex: 1 1 auto;
-    font-size: clamp(1rem, 2vw, 2rem);
-    line-height: 1.5;
-  }*/
-
-  .texto-sobre {
-    flex: 1 1 auto;
-    font-size: clamp(0.9rem, 1.5vw, 1.3rem);
-    line-height: 1.5;
-  }
-
-  /*@media (max-width: 768px) {*/
-  @media (max-width: 240px) {
-    #sobre {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    #sobre img {
-      /*max-width: 70%;*/
-      max-width: 40%;
-      margin-bottom: 1rem;
-    }
-  }
-</style>
-
-<!-- <script>
-  function ajustarImagem() {
-    const container = document.querySelector('#sobre');
-    const texto = document.querySelector('.texto-sobre');
-    const imagem = document.getElementById('foto-sobre');
-
-    if (!imagem.complete) return; // aguarda a imagem carregar
-
-    const alturaTexto = texto.offsetHeight;
-    const alturaMaxima = container.offsetHeight;
-
-    // Define a altura proporcional ao texto, sem ultrapassar container
-    imagem.style.height = Math.min(alturaTexto, alturaMaxima) + 'px';
-  }
-
-  const imagemSobre = document.getElementById('foto-sobre');
-  imagemSobre.addEventListener('load', ajustarImagem);
-  window.addEventListener('resize', ajustarImagem);
-
-  if (imagemSobre.complete) ajustarImagem();
-</script> -->
-
-
-
-
-<!--   <script>
-    function ajustarImagem() {
-      const container = document.querySelector('#sobre');
-      const texto = document.querySelector('.texto-sobre');
-      const imagem = document.getElementById('foto-sobre');
-
-      if (!imagem.complete) return; // aguarda a imagem carregar
-
-      const alturaTexto = texto.offsetHeight;
-      const alturaMaxima = container.offsetHeight;
-
-      // Define a altura proporcional ao texto, sem ultrapassar container
-      imagem.style.height = Math.min(alturaTexto, alturaMaxima) + 'px';
-    }
-
-    const imagemSobre = document.getElementById('foto-sobre');
-    imagemSobre.addEventListener('load', ajustarImagem);
-    window.addEventListener('resize', ajustarImagem);
-
-    if (imagemSobre.complete) ajustarImagem();
-  </script> -->
-
-
-  <!-- Seção Disciplinas -->
-  <section id="disciplinas" class="container">
-    <h2>Disciplinas</h2>
-    <ul class="disciplinas-list">
-      <!-- Disciplina 1 -->
+  <!-- ICC -->
+  <div class="accordion-item" id="icc">
+    <button class="accordion-header">Introdução à Ciência da Computação</button>
+    <div class="accordion-content"><div class="accordion-content-inner">
+      C <!-- Disciplina 1 -->
       <li>Banco De Dados (Construção de Banco de Dados em Estatística)
         <ul>
           <li>0. Ementa</li>
@@ -362,8 +233,13 @@
           </li>
         </ul>
       </li>
+    </div></div>
+  </div>
 
-      <!-- Disciplina 2 -->
+  <!-- ICC -->
+  <div class="accordion-item" id="cd">
+    <button class="accordion-header">Ciência de Dados</button>
+    <div class="accordion-content"><div class="accordion-content-inner">
       <li>Introdução à Ciência da Computação
         <ul>
           <li>1. Fundamentos de Computadores
@@ -442,9 +318,14 @@
           </li>
         </ul>
       </li>
+    </div></div>
+  </div>
 
-      <!-- Disciplina 3 -->
-      <li>Ciência de Dados - Conteúdo Programático
+  <!-- CD -->
+  <div class="accordion-item" id="cd">
+    <button class="accordion-header">Ciência de Dados</button>
+    <div class="accordion-content"><div class="accordion-content-inner">
+      li>Ciência de Dados - Conteúdo Programático
         <ul>
           <li>Ementa: <a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank">Link PDF</a></li>
           <li>1. Introdução (Motivação): <a href="https://huggingface.co/valencar?sort_spaces=likes#spaces" target="_blank">Link HuggingFace</a></li>
@@ -527,12 +408,22 @@
         </ul>
       </li>
     </ul>
-  </section>
+    </div></div>
+  </div>
+</section>
 
-  <!-- Seção Livros -->
-  <section id="livros" class="container">
-    <h2>Livros</h2>
-    <p>Aqui você pode colocar as capas dos livros e descrições.</p>
+  <section id="livros">
+    <h2>Livros publicados</h2>
+    <div class="livros-grid">
+      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/InteligenciaArtificial.png"><p>Inteligência Artificial</p></div>
+      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/DoencasDePele-CNN.webp"><p>Detecção de Doenças de Pele</p></div>
+      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/FebreAmarela-Twitter.jpg"><p>Febre Amarela & Twitter</p></div>
+      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/Tuberculose.webp"><p>Análise de Tuberculose</p></div>
+      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/cggeo.webp"><p>CGGeo</p></div>
+      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/PrevisaoDeEpidemias.png"><p>Previsão de Epidemias</p></div>
+      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/sigtrans.webp"><p>SIGTRANS</p></div>
+      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/AnalisesMultiobjetivo.jpg"><p>Análises Multiobjetivo</p></div>
+    </div>
   </section>
 
   <!-- Seção Contato -->
@@ -544,32 +435,52 @@
     <p>Email: valencar@servidor.uepb.edu.br</p>
   </section>
 
-  <!-- Script para ajustar altura da imagem Sobre -->
-<!--   <script>
-    function ajustarImagem() {
-      const container = document.querySelector('#sobre');
-      const texto = document.querySelector('.texto-sobre');
-      const imagem = document.getElementById('foto-sobre');
+<footer>
+  © 2025 Vladimir Costa de Alencar — Todos os direitos reservados.
+</footer>
 
-      if (!imagem.complete) return; // espera a imagem carregar
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash;
 
-      const alturaMaxima = container.offsetHeight;
-      const alturaTexto = texto.offsetHeight;
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      const content = target.querySelector(".accordion-content");
 
-      imagem.style.height = Math.min(alturaTexto, alturaMaxima) + 'px';
+      document.querySelectorAll(".accordion-content").forEach(c => {
+        c.style.maxHeight = null;
+        c.parentElement.classList.remove("open");
+      });
+
+      content.style.maxHeight = content.scrollHeight + "px";
+      target.classList.add("open");
+
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
     }
+  }
 
-    const imagemSobre = document.getElementById('foto-sobre');
-    imagemSobre.addEventListener('load', ajustarImagem);
-    window.addEventListener('resize', ajustarImagem);
-    if (imagemSobre.complete) ajustarImagem();
-  </script> -->
+  document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", function () {
+      const item = this.parentElement;
+      const content = item.querySelector(".accordion-content");
+      const isOpen = item.classList.contains("open");
 
-  <!-- Rodapé -->
-  <footer class="container" style="margin-top: 4rem; padding: 2rem 0; text-align: center; border-top: 1px solid #ddd; color: #555; font-size: 0.9rem;">
-    <p>&copy; 2025 Vladimir Costa de Alencar. Todos os direitos reservados.</p>
-  </footer>
+      document.querySelectorAll(".accordion-item").forEach(i => {
+        i.classList.remove("open");
+        i.querySelector(".accordion-content").style.maxHeight = null;
+      });
 
+      if (!isOpen) {
+        item.classList.add("open");
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+});
+</script>
 
 </body>
 </html>
