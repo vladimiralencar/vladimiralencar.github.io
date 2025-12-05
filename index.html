@@ -1,394 +1,529 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Vladimir Costa de Alencar — LANA</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  body {
-    margin: 0;
-    font-family: Inter, sans-serif;
-    background: #fafafa;
-    color: #222;
-    line-height: 1.6;
-  }
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-  }
-  nav a {
-    text-decoration: none;
-    font-weight: 500;
-    color: #222;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vladimir Costa de Alencar — LANA</title>
 
-  /* SOBRE */
-  #sobre {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 3rem 2rem;
-    align-items: flex-start;
-  }
-  #sobre img {
-    max-width: 260px;
-    border-radius: 1rem;
-    display: block;
-  }
-  .texto-sobre {
-    flex: 1;
-    font-size: clamp(0.75rem, 1vw, 1rem);
-    line-height: 1.45;
-  }
+  <!-- Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  /* LIVROS */
-  #livros {
-    padding: 2rem;
-  }
-  .livros-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1.5rem;
-  }
-  .livro-item img {
-    width: 100%;
-    border-radius: .6rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-  .livro-item p {
-    font-size: .9rem;
-    margin-top: .5rem;
-    text-align: center;
-  }
+  <style>
+    :root{
+      --bg: #ffffff;
+      --muted: #6b7280;
+      --text: #111827;
+      --card: #f8fafc;
+      --border: #e6e9ee;
+      --accent: #0b66ff;
+      --max-width: 1100px;
+    }
 
-  /* ACCORDION estilo Apple */
-  #disciplinas {
-    padding: 2rem;
-  }
-  .accordion-item {
-    border-bottom: 1px solid #ddd;
-    padding: 1rem 0;
-  }
-  .accordion-header {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 0;
-    font-size: 1.15rem;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-  }
-  .accordion-header:after {
-    content: "▸";
-    font-size: 1rem;
-    transition: .3s;
-  }
-  .accordion-item.open .accordion-header:after {
-    transform: rotate(90deg);
-  }
-  .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .35s ease;
-    font-size: .9rem;
-    padding-right: .5rem;
-  }
-  .accordion-content-inner {
-    padding: .5rem 0 1rem 0;
-  }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background: #fbfdff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      font-size:16px;
+    }
 
-  footer {
-    text-align: center;
-    padding: 2rem;
-    margin-top: 3rem;
-    font-size: .85rem;
-    background: #f1f1f1;
-  }
-</style>
+    .container{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:28px 20px;
+    }
+
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      z-index:80;
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.86);
+      border-bottom:1px solid var(--border);
+    }
+
+    .menu{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:12px 20px;
+    }
+
+    .brand{
+      font-weight:600;
+      letter-spacing:0.2px;
+      color:var(--text);
+    }
+
+    nav ul{
+      display:flex;
+      gap:18px;
+      list-style:none;
+      margin:0;
+      padding:0;
+      align-items:center;
+    }
+
+    nav a{
+      color:var(--text);
+      text-decoration:none;
+      font-weight:500;
+      padding:6px 8px;
+      border-radius:8px;
+    }
+    nav a:hover{background:#f3f6fb}
+
+    /* Sobre */
+    #sobre{
+      display:flex;
+      gap:34px;
+      align-items:flex-start;
+      padding:36px 20px;
+      border-bottom:1px solid var(--border);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    }
+
+    .sobre-img{
+      flex:0 0 260px;
+      max-width:260px;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow: 0 8px 24px rgba(17,24,39,0.04);
+    }
+    .sobre-img img{width:100%;height:auto;display:block}
+
+    .texto-sobre{
+      flex:1 1 420px;
+      min-width:260px;
+    }
+
+    .texto-sobre h1{
+      margin:0 0 8px 0;
+      font-size:clamp(1.2rem,2.2vw,1.6rem);
+      font-weight:600;
+    }
+
+    .texto-sobre p{
+      margin:8px 0;
+      color:#25303a;
+      font-size:0.95rem;
+    }
+
+    .muted{color:var(--muted);font-size:0.95rem}
+
+    /* Disciplinas (accordion container) */
+    #disciplinas{
+      padding:32px 20px;
+      max-width:var(--max-width);
+      margin:0 auto;
+    }
+
+    .section-title{
+      font-size:clamp(1.2rem,2.2vw,1.6rem);
+      font-weight:600;
+      margin-bottom:18px;
+      text-align:left;
+    }
+
+    .accordion{
+      display:block;
+      border-radius:10px;
+      overflow:visible;
+    }
+
+    .accordion-item{
+      background:var(--bg);
+      border:1px solid var(--border);
+      border-radius:8px;
+      margin-bottom:12px;
+      box-shadow: 0 6px 18px rgba(11,16,23,0.03);
+      overflow:hidden;
+      transition:transform .18s ease;
+    }
+
+    .accordion-item:hover{ transform: translateY(-2px) }
+
+    .accordion-header{
+      width:100%;
+      padding:16px 18px;
+      font-weight:600;
+      font-size:1.02rem;
+      text-align:left;
+      background: linear-gradient(180deg,#ffffff,#fbfcff);
+      border:none;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .accordion-header .meta{ font-size:0.92rem; color:var(--muted); font-weight:500 }
+
+    .accordion-header .chev{
+      width:20px;height:20px;display:inline-block;transition:transform .22s cubic-bezier(.2,.9,.2,1);
+      color:var(--muted);
+    }
+
+    .accordion-item.open .chev{ transform: rotate(180deg); color:var(--accent) }
+
+    .accordion-content{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s ease, padding .25s;
+      padding:0 18px;
+      background:transparent;
+    }
+
+    .accordion-item.open .accordion-content{
+      padding:14px 18px 20px 18px;
+    }
+
+    .content-inner{ font-size:0.95rem; color:#263238; line-height:1.55 }
+
+    .content-inner h3{ margin:6px 0 8px 0; font-size:1rem }
+    .content-inner ul{ margin:8px 0 12px 18px; }
+    .content-inner li{ margin:6px 0 }
+
+    /* Livros */
+    #livros{
+      padding:32px 20px;
+      max-width:var(--max-width);
+      margin:0 auto 36px;
+      border-top:1px solid var(--border);
+    }
+    #livros h2{ text-align:center; margin-bottom:22px; font-size:1.3rem; font-weight:600 }
+
+    .grade-livros{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:18px;
+    }
+    .livro{
+      background:var(--bg);
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:12px;
+      text-align:center;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .livro img{ width:100%; height:170px; object-fit:cover; border-radius:8px; display:block }
+    .livro p{ margin-top:10px; font-weight:600; font-size:0.92rem; color:#233244 }
+    .livro:hover{ transform: translateY(-6px); box-shadow: 0 10px 30px rgba(11,16,23,0.05) }
+
+    /* Contato / Footer */
+    #contato{ padding:28px 20px; max-width:var(--max-width); margin:0 auto 38px; border-top:1px solid var(--border) }
+    #contato p{ margin:8px 0; color:#334155 }
+
+    footer{ text-align:center; padding:24px 20px; color:var(--muted); font-size:0.9rem; background:linear-gradient(180deg,#fbfdff,#ffffff) }
+
+    /* Responsive */
+    @media(max-width:900px){
+      #sobre{ flex-direction:column; align-items:center; text-align:center; padding:22px 16px }
+      .sobre-img{ width:60%; max-width:320px }
+      .texto-sobre{ width:100% }
+      .accordion-header{ font-size:1rem; padding:14px 14px }
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *{ transition:none!important }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <strong>Vladimir Alencar</strong>
-  <nav>
-    <ul>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#livros">Livros</a></li>
-      <li><a href="#bd">Banco de Dados</a></li>
-      <li><a href="#icc">ICC</a></li>
-      <li><a href="#cd">Ciência de Dados</a></li>
-      li><a href="#cd">Livros</a></li>
-      li><a href="#cd">Contato</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section id="sobre">
-  <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/foto.jpg" alt="Foto">
-  <div class="texto-sobre">
-    <h1>Vladimir Costa de Alencar</h1>
-    <p>Sou Professor, Pesquisador, Escritor, Engenheiro de Inteligência Artificial e Cientista de Dados. </P>
-    <p>Gosto de Café, Ecologia, Gatos, História, Geopolítica, Artes, Música.</p>
-    <p>Doutorado em Recursos Naturais com ênfase em Otimização Multicritério/Multiobjetivo (UFCG, 2009).<br>
-    <p>Mestrado em Ciência da Computação (UFCG, 1993).<br>
-    <p>Graduado em Ciência da Computação (UFCG, 1990) e em Radiologia (UNINASSAU, 2017)</p>
-    <p>Trabalha com Big Data Analytics, SQL e NoSQL, Machine Learning, python, C/C++, Linux, Cloud Computing, Epidemiologia, Redes Neurais, Deep Learning e Intelgência Artficial.</p>
-    <p>Professor/Pesquisaor Associado da Universidade Estadual da Paraiba (UEPB)</p>
-    <p>Diretor do Laboratório de Análise da Dados e Inteligência Artificial (LANA)</p>
-    <p>Campina Grande. Paraíba. Brasil</p>
-  </div>
-</section>
-
-<section id="disciplinas">
-  <h2>Disciplinas</h2>
-
-  <!-- BD -->
-  <div class="accordion-item" id="bd">
-    <button class="accordion-header">Banco de Dados</button>
-    <div class="accordion-content"><div class="accordion-content-inner">
-      Conteúdo Programático:<br><br>
-      0. Ementa<br>
-      1. Breve História<br>
-      2. Tecnologias (ML, Big Data, NoSQL, Spark...)<br>
-      3. Fundamentos<br>
-      4. Modelos e Linguagens<br>
-      5. Modelagem MER → Relacional<br>
-      6. Projeto Relacional<br>
-      7. SQL<br>
-      8. Programação com BD<br>
-      9. MongoDB<br>
-      10. Controle de Concorrência, Transações etc.
-    </div></div>
-  </div>
-
-  <!-- ICC -->
-  <div class="accordion-item" id="icc">
-    <button class="accordion-header">Introdução à Ciência da Computação</button>
-    <div class="accordion-content"><div class="accordion-content-inner">
-      C <!-- Disciplina 1 -->
-      <li>Banco De Dados (Construção de Banco de Dados em Estatística)
+  <!-- Header / menu -->
+  <header>
+    <div class="menu">
+      <div class="brand">Vladimir Costa de Alencar</div>
+      <nav aria-label="Principal">
         <ul>
-          <li>0. Ementa</li>
-          <li>1. Breve História de Banco de Dados</li>
-          <li>2. Novas Tecnologias que utilizam Banco de Dados:
-            <ul>
-              <li>Machine Learning</li>
-              <li>Big Data</li>
-              <li>Data Science</li>
-              <li>NoSQL (SGBD não Relacionais)</li>
-              <li>Hadoop</li>
-              <li>Spark</li>
-            </ul>
-          </li>
-          <li>3. Fundamentos e Conceitos Básicos:
-            <ul>
-              <li>Campos</li>
-              <li>Registros</li>
-              <li>Tabelas</li>
-              <li>Índices e Chaves</li>
-            </ul>
-          </li>
-          <li>4. Modelos, Esquemas e Linguagens</li>
-          <li>5. Modelagem de Banco de Dados:
-            <ul>
-              <li>5.1 Modelo Entidade-Relacionamento - MER (Modelo Conceitual)</li>
-              <li>5.2 Álgebra Relacional</li>
-              <li>5.3 Modelo Relacional (Modelo Lógico)</li>
-            </ul>
-          </li>
-          <li>6. Projeto de Banco de Dados Relacional:
-            <ul>
-              <li>6.1 Transformação do MER para o modelo Relacional</li>
-              <li>6.2 Normalização</li>
-            </ul>
-          </li>
-          <li>7. A linguagem SQL</li>
-          <li>8. Programação com bancos de dados: Abrindo uma conexão com um SGBD</li>
-          <li>9. O MongoDB (NoSQL)</li>
-          <li>10. Serviços de um gerenciador de Banco de Dados:
-            <ul>
-              <li>10.1 Controle de Concorrência</li>
-              <li>10.2 Transações</li>
-              <li>10.3 Sistema de Recuperação</li>
-              <li>10.4 Otimização de consultas</li>
-            </ul>
-          </li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#disciplinas">Disciplinas</a></li>
+          <li><a href="#livros">Livros</a></li>
+          <li><a href="#bd">Banco de Dados</a></li>
+          <li><a href="#icc">Introdução à Ciência da Computação</a></li>
+          <li><a href="#cd">Ciência de Dados</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
-      </li>
-    </div></div>
-  </div>
+      </nav>
+    </div>
+  </header>
 
-  <!-- ICC -->
-  <div class="accordion-item" id="cd">
-    <button class="accordion-header">Ciência de Dados</button>
-    <div class="accordion-content"><div class="accordion-content-inner">
-      <li>Introdução à Ciência da Computação
-        <ul>
-          <li>1. Fundamentos de Computadores
+  <!-- Sobre -->
+  <section id="sobre">
+    <div class="container" style="display:flex;gap:32px;align-items:flex-start;">
+      <div class="sobre-img">
+        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/foto.jpg" alt="Foto de Vladimir">
+      </div>
+
+      <div class="texto-sobre">
+        <h1>Vladimir Costa de Alencar</h1>
+
+        <p>Sou Professor, Pesquisador, Escritor, Engenheiro de Inteligência Artificial e Cientista de Dados.</p>
+
+        <p>Gosto de Café, Ecologia, Gatos, História, Geopolítica, Artes, Música.</p>
+
+        <p>Doutorado em Recursos Naturais com ênfase em Otimização Multicritério/Multiobjetivo (UFCG, 2009).</p>
+
+        <p>Mestrado em Ciência da Computação (UFCG, 1993).</p>
+
+        <p>Graduado em Ciência da Computação (UFCG, 1990) e em Radiologia (UNINASSAU, 2017)</p>
+
+        <p>Trabalha com Big Data Analytics, SQL e NoSQL, Machine Learning, python, C/C++, Linux, Cloud Computing, Epidemiologia, Redes Neurais, Deep Learning e Inteligência Artificial.</p>
+
+        <p>Professor/Pesquisador Associado da Universidade Estadual da Paraíba (UEPB)</p>
+
+        <p>Diretor do Laboratório de Análise de Dados e Inteligência Artificial (LANA)</p>
+
+        <p class="muted">Campina Grande. Paraíba. Brasil</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disciplinas -->
+  <section id="disciplinas" class="container">
+    <h2 class="section-title">Disciplinas</h2>
+
+    <div class="accordion" role="region" aria-labelledby="disciplinas">
+
+      <!-- Banco de Dados -->
+      <article class="accordion-item" id="bd" aria-labelledby="bd-button">
+        <button id="bd-button" class="accordion-header" type="button" aria-expanded="false" aria-controls="bd-panel">
+          <span>Banco De Dados</span>
+          <span class="meta">Construção de Banco de Dados em Estatística</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+
+        <section id="bd-panel" class="accordion-content" role="region" aria-hidden="true" aria-labelledby="bd-button">
+          <div class="content-inner">
+            <h3>Banco De Dados (Construção de Banco de Dados em Estatística)</h3>
+
+            <p><strong>Conteúdo Programático</strong></p>
+
             <ul>
-              <li>Arquitetura básica de um computador (hardware e software)</li>
-              <li>Componentes principais: CPU, memória, dispositivos de entrada/saída</li>
-              <li>Conceito de programa e instrução</li>
-              <li>Evolução histórica dos computadores (gerações e marcos tecnológicos)</li>
-              <li>Principais aplicações atuais da computação</li>
+              <li>0. Ementa</li>
+              <li>1. Breve História de Banco de Dados</li>
+              <li>2. Novas Tecnologias que utilizam Banco de Dados
+                <ul>
+                  <li>Machine Learning</li>
+                  <li>Big Data</li>
+                  <li>Data Science</li>
+                  <li>NoSQL (SGBD não Relacionais)</li>
+                  <li>Hadoop</li>
+                  <li>Spark</li>
+                </ul>
+              </li>
+
+              <li>3. Fundamentos e Conceitos Básicos
+                <ul>
+                  <li>Campos</li>
+                  <li>Registros</li>
+                  <li>Tabelas</li>
+                  <li>Indices e Chaves</li>
+                </ul>
+              </li>
+
+              <li>4. Modelos, Esquemas e Linguagens</li>
+
+              <li>5. Modelagem de Banco de Dados (Exercício sobre Modelagem Para Nota)
+                <ul>
+                  <li>5.1. Modelo Entidade-Relacionamento - MER (Modelo Conceitual)</li>
+                  <li>5.2. Álgebra Relacional</li>
+                  <li>5.3. Modelo Relacional (Modelo Lógico)</li>
+                </ul>
+              </li>
+
+              <li>6. Projeto de Banco de Dados Relacional
+                <ul>
+                  <li>6.1 Transformação do MER para o modeloRelacional</li>
+                  <li>6.2 Normalização</li>
+                </ul>
+              </li>
+
+              <li>7. A linguagem SQL</li>
+              <li>8. Programação com bancos de dados: Abrindo uma conexão com um SGBD.</li>
+              <li>9. O MongoDB (NoSQL)</li>
+              <li>10. Serviços de um gerenciador de Banco de Dados
+                <ul>
+                  <li>10.1 Controle de Concorrência</li>
+                  <li>10.2 Transações</li>
+                  <li>10.3 Sistema de Recuperação</li>
+                  <li>10.4 Otimização de consultas</li>
+                </ul>
+              </li>
             </ul>
-          </li>
-          <li>2. Sistemas de Numeração e Representação de Dados
+
+          </div>
+        </section>
+      </article>
+
+      <!-- Introdução à Ciência da Computação -->
+      <article class="accordion-item" id="icc" aria-labelledby="icc-button">
+        <button id="icc-button" class="accordion-header" type="button" aria-expanded="false" aria-controls="icc-panel">
+          <span>Introdução à Ciência da Computação</span>
+          <span class="meta">Fundamentos, programação em Python e metodologia</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+
+        <section id="icc-panel" class="accordion-content" role="region" aria-hidden="true" aria-labelledby="icc-button">
+          <div class="content-inner">
+            <h3>Conteúdo Programático — Introdução à Ciência da Computação</h3>
+
+            <p><strong>1. Fundamentos de Computadores</strong></p>
             <ul>
-              <li>Sistema decimal, binário, octal e hexadecimal</li>
-              <li>Conversão entre sistemas de numeração</li>
-              <li>Representação de caracteres (ASCII, Unicode)</li>
+              <li>Arquitetura básica de um computador (hardware e software).</li>
+              <li>Componentes principais: CPU, memória, dispositivos de entrada/saída.</li>
+              <li>Conceito de programa e instrução.</li>
+              <li>Evolução histórica dos computadores (gerações e marcos tecnológicos).</li>
+              <li>Principais aplicações atuais da computação.</li>
             </ul>
-          </li>
-          <li>3. Introdução à Lógica de Programação e Python
+
+            <p><strong>2. Sistemas de Numeração e Representação de Dados</strong></p>
             <ul>
-              <li>O que é um algoritmo</li>
-              <li>Estrutura básica de um programa Python</li>
-              <li>Tipos de dados e variáveis</li>
-              <li>Operadores aritméticos, relacionais e lógicos</li>
-              <li>Entrada e saída de dados em Python</li>
+              <li>Sistema decimal, binário, octal e hexadecimal.</li>
+              <li>Conversão entre sistemas de numeração.</li>
+              <li>Representação de caracteres (ASCII, Unicode).</li>
             </ul>
-          </li>
-          <li>4. Estruturas de Controle
+
+            <p><strong>3. Introdução à Lógica de Programação e Python</strong></p>
             <ul>
-              <li>Estrutura de decisão (if, elif, else no Python)</li>
-              <li>Estruturas de repetição (for, while)</li>
-              <li>Uso de range(), enumerate() e break/continue</li>
-              <li>Exercícios práticos em Python</li>
+              <li>O que é um algoritmo.</li>
+              <li>Estrutura básica de um programa Python.</li>
+              <li>Tipos de dados e variáveis.</li>
+              <li>Operadores aritméticos, relacionais e lógicos.</li>
+              <li>Entrada e saída de dados em Python.</li>
             </ul>
-          </li>
-          <li>5. Modularização e Funções em Python
+
+            <p><strong>4. Estruturas de Controle</strong></p>
             <ul>
-              <li>Conceito de modularização</li>
-              <li>Definição de funções (def)</li>
-              <li>Parâmetros, argumentos e retorno</li>
-              <li>Escopo de variáveis</li>
-              <li>Importação de módulos e bibliotecas</li>
+              <li>Estrutura de decisão (if, elif, else no Python).</li>
+              <li>Estruturas de repetição (for, while).</li>
+              <li>Uso de range(), enumerate() e break/continue.</li>
+              <li>Exercícios práticos em Python.</li>
             </ul>
-          </li>
-          <li>6. Metodologia de Desenvolvimento de Algoritmos
+
+            <p><strong>5. Modularização e Funções em Python</strong></p>
             <ul>
-              <li>Etapas: análise, projeto, implementação e teste</li>
-              <li>Boas práticas de programação em Python (legibilidade, comentários, PEP8)</li>
-              <li>Depuração de código (debugging e tratamento de erros)</li>
-              <li>Projetos práticos: resolução de problemas aplicados</li>
+              <li>Conceito de modularização.</li>
+              <li>Definição de funções (def).</li>
+              <li>Parâmetros, argumentos e retorno.</li>
+              <li>Escopo de variáveis.</li>
+              <li>Importação de módulos e bibliotecas.</li>
             </ul>
-          </li>
-          <li>AVALIAÇÕES:
+
+            <p><strong>6. Metodologia de Desenvolvimento de Algoritmos</strong></p>
+            <ul>
+              <li>Etapas: análise, projeto, implementação e teste.</li>
+              <li>Boas práticas de programação em Python (legibilidade, comentários, PEP8).</li>
+              <li>Depuração de código (debugging e tratamento de erros).</li>
+              <li>Projetos práticos: resolução de problemas aplicados.</li>
+            </ul>
+
+            <p><strong>AVALIAÇÕES</strong></p>
             <ul>
               <li>Prova 1</li>
               <li>Prova 2</li>
               <li>Reposição</li>
               <li>Final</li>
             </ul>
-          </li>
-          <li>Bibliografia
+
+            <p><strong>BIBLIOGRAFIA</strong></p>
             <ul>
               <li>ASCENCIO, Ana Fernanda Gomes; CAMPOS, Edilene Aparecida Veneruchi de. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012.</li>
               <li>SWEIGART, Al. Automate the Boring Stuff with Python. 2. ed. No Starch Press, 2019.</li>
               <li>Algoritmos Estruturados. Farrer, Harry et al. Editora LTC. 2011.</li>
               <li>Fluent Python. Ramalho. Editora O´Reilly. 2016.</li>
               <li>Python para Desenvolvedores. Luiz Eduardo Borges. Editora Novatec. 2015.</li>
-              <li>Complementar:
-                <ul>
-                  <li>ZELLE, John. Python Programming: An Introduction to Computer Science. Franklin, Beedle & Associates, 2017.</li>
-                  <li>TANENBAUM, Andrew S. Organização Estruturada de Computadores. Pearson, 2013.</li>
-                  <li>RAMALHO, Luciano. Python Fluente. O’Reilly, 2015.</li>
-                </ul>
-              </li>
             </ul>
-          </li>
-        </ul>
-      </li>
-    </div></div>
-  </div>
 
-  <!-- CD -->
-  <div class="accordion-item" id="cd">
-    <button class="accordion-header">Ciência de Dados</button>
-    <div class="accordion-content"><div class="accordion-content-inner">
-      li>Ciência de Dados - Conteúdo Programático
-        <ul>
-          <li>Ementa: <a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf" target="_blank">Link PDF</a></li>
-          <li>1. Introdução (Motivação): <a href="https://huggingface.co/valencar?sort_spaces=likes#spaces" target="_blank">Link HuggingFace</a></li>
-          <li>2. O que é Ciência de Dados (Data Science)? <a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf" target="_blank">PDF</a>
+            <p><strong>Complementar</strong></p>
             <ul>
-              <li>Conceitos Básicos</li>
+              <li>ZELLE, John. Python Programming: An Introduction to Computer Science. Franklin, Beedle & Associates, 2017.</li>
+              <li>TANENBAUM, Andrew S. Organização Estruturada de Computadores. Pearson, 2013.</li>
+              <li>RAMALHO, Luciano. Python Fluente. O’Reilly, 2015.</li>
             </ul>
-          </li>
-          <li>3. Data Science e Big Data: <a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf" target="_blank">PDF</a>
+
+          </div>
+        </section>
+      </article>
+
+      <!-- Ciência de Dados -->
+      <article class="accordion-item" id="cd" aria-labelledby="cd-button">
+        <button id="cd-button" class="accordion-header" type="button" aria-expanded="false" aria-controls="cd-panel">
+          <span>Ciência de Dados</span>
+          <span class="meta">Ementa, ML, DL, PLN, Visão Computacional</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+
+        <section id="cd-panel" class="accordion-content" role="region" aria-hidden="true" aria-labelledby="cd-button">
+          <div class="content-inner">
+            <h3>Ciência de Dados — Conteúdo Programático</h3>
+
+            <p><strong>Ementa</strong><br>
+            https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf</p>
+
+            <p><strong>1. Introdução (Motivação)</strong><br>
+            https://huggingface.co/valencar?sort_spaces=likes#spaces</p>
+
+            <p><strong>2. O que é Ciência de Dados (Data Science)?</strong><br>
+            https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf — Conceitos Básicos</p>
+
+            <p><strong>3. Data Science e Big Data</strong><br>
+            https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf — Introdução; O que é Big Data; Modelos de Computação Distribuída</p>
+
+            <p><strong>4. Curso Rápido de Python para Análise de Dados</strong><br>
+            https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados</p>
+
+            <p><strong>5. O Processo de Aprendizagem</strong><br>
+            https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf — Tipos de Aprendizagem, Modelo, Correlação, Espaço de Hipóteses, Função de Custo - J(x), Erros, Otimização – O Gradiente Descendente</p>
+
+            <p><strong>6. Machine Learning (Aprendizado de Máquina)</strong><br>
+            (Aprendizado Supervisionado e Aprendizado não-Supervisionado)</p>
             <ul>
-              <li>Introdução</li>
-              <li>O que é Big Data</li>
-              <li>Modelos de Computação Distribuída</li>
+              <li>Regressão Linear — https://www.valencar.com/_files/ugd/c3cbd8_73a00ff8bfec4971a060c8752d1166f0.pdf</li>
+              <li>Regressão Logística — https://www.valencar.com/_files/ugd/c3cbd8_e1d6fdc50c604edbb599c42f3b91ee0d.pdf</li>
+              <li>KNN, Naive Bayes, Árvores de Decisão / Métodos Ensemble / XGBoost</li>
+              <li>SVM, Clusterização, PCA</li>
             </ul>
-          </li>
-          <li>4. Curso Rápido de Python para Análise de Dados: <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados" target="_blank">GitHub</a></li>
-          <li>5. O Processo de Aprendizagem: <a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf" target="_blank">PDF</a>
+
+            <p><strong>7. Redes Neurais</strong><br>
+            https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf</p>
             <ul>
-              <li>Tipos de Aprendizagem</li>
-              <li>Modelo</li>
-              <li>Correlação</li>
-              <li>Espaço de Hipóteses</li>
-              <li>Função de Custo - J(x)</li>
-              <li>Erros</li>
-              <li>Otimização – O Gradiente Descendente</li>
+              <li>7.1. Componentes Básicos das Redes Neurais Artificiais - RNAs</li>
+              <li>7.2. O Sistema Nervoso</li>
+              <li>7.3. O Neurônio</li>
+              <li>7.4. Sinapses</li>
+              <li>7.5. Neurônio x Redes Neurais Artificiais</li>
+              <li>7.6. Arquitetura</li>
+              <li>7.7. O aprendizado</li>
+              <li>7.8. Redes Perceptron</li>
+              <li>7.9. Redes ADALINE – Regra Delta</li>
+              <li>7.10. Perceptron Multicamadas - MLP</li>
+              <li>7.11. Algoritmo BackPropagation – Ajuste de pesos (parâmetros)</li>
+              <li>7.12. Otimizadores</li>
             </ul>
-          </li>
-          <li>6. Machine Learning (Aprendizado de Máquina)
-            <ul>
-              <li>Aprendizado Supervisionado e não-Supervisionado</li>
-              <li>Regressão Linear: <a href="https://www.valencar.com/_files/ugd/c3cbd8_73a00ff8bfec4971a060c8752d1166f0.pdf" target="_blank">PDF</a></li>
-              <li>Regressão Logística: <a href="https://www.valencar.com/_files/ugd/c3cbd8_e1d6fdc50c604edbb599c42f3b91ee0d.pdf" target="_blank">PDF</a></li>
-              <li>KNN, Naive Bayes, Árvores de Decisão / Métodos Ensemble / XGBoost, SVM, Clusterização, PCA</li>
-            </ul>
-          </li>
-          <li>7. Redes Neurais: <a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf" target="_blank">PDF</a>
-            <ul>
-              <li>7.1 Componentes Básicos das Redes Neurais Artificiais - RNAs</li>
-              <li>7.2 O Sistema Nervoso</li>
-              <li>7.3 O Neurônio</li>
-              <li>7.4 Sinapses</li>
-              <li>7.5 Neurônio x Redes Neurais Artificiais</li>
-              <li>7.6 Arquitetura</li>
-              <li>7.7 O aprendizado</li>
-              <li>7.8 Redes Perceptron</li>
-              <li>7.9 Redes ADALINE – Regra Delta</li>
-              <li>7.10 Perceptron Multicamadas - MLP</li>
-              <li>7.11 Algoritmo BackPropagation – Ajuste de pesos (parâmetros)</li>
-              <li>7.12 Otimizadores</li>
-            </ul>
-          </li>
-          <li>8. Deep Learning: <a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf" target="_blank">PDF</a>
+
+            <p><strong>8. Deep Learning</strong><br>
+            https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf</p>
             <ul>
               <li>8.1 Introdução e conceitos básicos</li>
               <li>8.2 A Arquitetura das Redes Neurais Profundas (Deep Learning)</li>
               <li>8.3 Os principais tipos de Redes Neurais Profundas</li>
               <li>8.4 Programação paralela em GPU</li>
-              <li>8.5 Frameworks de Deep Learning (TensorFlow, Keras, PyTorch)</li>
+              <li>8.5 Frameworks de Deep Learning: TensorFlow e Keras, PyTorch</li>
             </ul>
-          </li>
-          <li>9. Processamento de Linguagem Natural - PLN
+
+            <p><strong>9. Processamento de Linguagem Natural - PLN</strong></p>
             <ul>
-              <li>Modelos Generativos - Modelos LLM (GPT-4, BERT, RoBERTa)</li>
+              <li>Modelos Generativos - LLM (GPT-4, BERT, RoBERTa)</li>
               <li>Análise de Sentimentos</li>
               <li>Classificação Zero-Shot</li>
               <li>Geração de Texto com Modelo LLM</li>
@@ -397,90 +532,145 @@
               <li>Sumarização de Texto</li>
               <li>Tradução de Idioma</li>
             </ul>
-          </li>
-          <li>10. Visão Computacional (CNN, ViT)</li>
-          <li>11. Análise de Mídias Sociais (Youtube, Spotify, Twitter, Facebook, Instagram)</li>
-          <li>12. Bancos de Dados NoSQL</li>
-          <li>13. Introdução ao MongoDB</li>
-          <li>14. Hadoop e Engenharia de Dados</li>
-          <li>15. Spark</li>
-          <li>Códigos no GitHub: <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">GitHub</a></li>
-        </ul>
-      </li>
-    </ul>
-    </div></div>
-  </div>
-</section>
 
-  <section id="livros">
-    <h2>Livros publicados</h2>
-    <div class="livros-grid">
-      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/InteligenciaArtificial.png"><p>Inteligência Artificial</p></div>
-      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/DoencasDePele-CNN.webp"><p>Detecção de Doenças de Pele</p></div>
-      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/FebreAmarela-Twitter.jpg"><p>Febre Amarela & Twitter</p></div>
-      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/Tuberculose.webp"><p>Análise de Tuberculose</p></div>
-      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/cggeo.webp"><p>CGGeo</p></div>
-      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/PrevisaoDeEpidemias.png"><p>Previsão de Epidemias</p></div>
-      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/sigtrans.webp"><p>SIGTRANS</p></div>
-      <div class="livro-item"><img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/AnalisesMultiobjetivo.jpg"><p>Análises Multiobjetivo</p></div>
+            <p><strong>10. Visão Computacional</strong><br>
+            Modelos CNN – Convolutional Neural Network; ViT – Visual Transformers</p>
+
+            <p><strong>11. Análise de Mídias Sociais</strong><br>
+            Youtube, Spotify, Twitter, Facebook, Instagram, etc.</p>
+
+            <p><strong>12. Bancos de Dados NoSQL</strong></p>
+            <p><strong>13. Introdução ao MongoDB</strong></p>
+            <p><strong>14. Hadoop e Engenharia de Dados</strong></p>
+            <p><strong>15. Spark</strong></p>
+
+            <p><strong>Códigos no GitHub</strong><br>
+            https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados</p>
+
+          </div>
+        </section>
+      </article>
+
     </div>
   </section>
 
-  <!-- Seção Contato -->
-  <section id="contato" class="container">
-    <h2>Contato</h2>
-    <p>UEPB - Univesidade Estadual da Paraíba</p>
-    <p>351, Rua Baraúnas, Campina Grande, Paraíba, Brazil, 58429-500</p>
-    <p>Telefone: +55 83 3315-3300</p>
-    <p>Email: valencar@servidor.uepb.edu.br</p>
+  <!-- Livros -->
+  <section id="livros">
+    <div class="container">
+      <h2>Livros publicados</h2>
+      <div class="grade-livros">
+        <div class="livro">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/livros/InteligenciaArtificial.png" alt="Inteligência Artificial">
+          <p>Inteligência Artificial</p>
+        </div>
+        <div class="livro">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/livros/DoencasDePele-CNN.webp" alt="Doenças de Pele">
+          <p>Detecção de Doenças de Pele</p>
+        </div>
+        <div class="livro">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/livros/FebreAmarela-Twitter.jpg" alt="Febre Amarela">
+          <p>Febre Amarela & Twitter</p>
+        </div>
+        <div class="livro">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/livros/Tuberculose.webp" alt="Tuberculose">
+          <p>Análise da Tuberculose</p>
+        </div>
+        <div class="livro">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/livros/cggeo.webp" alt="CGGeo">
+          <p>CGGeo — Planejamento Municipal</p>
+        </div>
+        <div class="livro">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/livros/PrevisaoDeEpidemias.png" alt="Previsão de Epidemias">
+          <p>Previsão de Epidemias</p>
+        </div>
+        <div class="livro">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/livros/sigtrans.webp" alt="SIGTRANS">
+          <p>SIGTRANS — Planejamento de Transporte</p>
+        </div>
+        <div class="livro">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/livros/AnalisesMultiobjetivo.jpg" alt="Análises Multiobjetivo">
+          <p>Análises Multicritério e Multiobjetivo</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-<footer>
-  © 2025 Vladimir Costa de Alencar — Todos os direitos reservados.
-</footer>
+  <!-- Contato -->
+  <section id="contato">
+    <div class="container">
+      <h2 class="section-title">Contato</h2>
+      <p>UEPB - Universidade Estadual da Paraíba</p>
+      <p>351, Rua Baraúnas, Campina Grande, Paraíba, Brazil, 58429-500</p>
+      <p>Telefone: +55 83 3315-3300</p>
+      <p>Email: valencar@servidor.uepb.edu.br</p>
+    </div>
+  </section>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const hash = window.location.hash;
+  <footer>
+    © 2025 Vladimir Costa de Alencar — Todos os direitos reservados.
+  </footer>
 
-  if (hash) {
-    const target = document.querySelector(hash);
-    if (target) {
-      const content = target.querySelector(".accordion-content");
+  <!-- Scripts: accordion + hash anchors -->
+  <script>
+    (function(){
+      const ITEMS = document.querySelectorAll('.accordion-item');
 
-      document.querySelectorAll(".accordion-content").forEach(c => {
-        c.style.maxHeight = null;
-        c.parentElement.classList.remove("open");
-      });
-
-      content.style.maxHeight = content.scrollHeight + "px";
-      target.classList.add("open");
-
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 150);
-    }
-  }
-
-  document.querySelectorAll(".accordion-header").forEach(header => {
-    header.addEventListener("click", function () {
-      const item = this.parentElement;
-      const content = item.querySelector(".accordion-content");
-      const isOpen = item.classList.contains("open");
-
-      document.querySelectorAll(".accordion-item").forEach(i => {
-        i.classList.remove("open");
-        i.querySelector(".accordion-content").style.maxHeight = null;
-      });
-
-      if (!isOpen) {
-        item.classList.add("open");
-        content.style.maxHeight = content.scrollHeight + "px";
+      function closeAll(){
+        ITEMS.forEach(item=>{
+          item.classList.remove('open');
+          const hdr = item.querySelector('.accordion-header');
+          const panel = item.querySelector('.accordion-content');
+          if(panel){
+            panel.style.maxHeight = null;
+            panel.setAttribute('aria-hidden','true');
+          }
+          if(hdr) hdr.setAttribute('aria-expanded','false');
+        });
       }
-    });
-  });
-});
-</script>
+
+      function openItem(item, updateHash = true){
+        const panel = item.querySelector('.accordion-content');
+        const hdr = item.querySelector('.accordion-header');
+        if(!panel) return;
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        panel.setAttribute('aria-hidden','false');
+        if(hdr) hdr.setAttribute('aria-expanded','true');
+        if(updateHash){
+          history.replaceState(null, '', '#' + item.id);
+        }
+      }
+
+      // Click handlers
+      document.querySelectorAll('.accordion-header').forEach(h=>{
+        h.addEventListener('click', ()=> {
+          const item = h.closest('.accordion-item');
+          const isOpen = item.classList.contains('open');
+          closeAll();
+          if(!isOpen) openItem(item);
+          else history.replaceState(null, '', ' ');
+        });
+      });
+
+      // Open by hash on load
+      function openByHash(){
+        const hash = window.location.hash;
+        if(!hash) return;
+        const el = document.querySelector(hash);
+        if(el && el.classList.contains('accordion-item')){
+          closeAll();
+          openItem(el, false);
+          setTimeout(()=> el.scrollIntoView({behavior:'smooth', block:'start'}), 120);
+        }
+      }
+
+      // Listen to back/forward
+      window.addEventListener('hashchange', openByHash);
+
+      // init
+      openByHash();
+    })();
+  </script>
 
 </body>
 </html>
