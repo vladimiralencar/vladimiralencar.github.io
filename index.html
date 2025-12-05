@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vladimir Costa de Alencar</title>
-<link rel="stylesheet" href="style.css">
-<script defer src="script.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vladimir Costa de Alencar</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
 <header>
   <div class="menu-inner">
-    <button id="menuToggle">&#9776;</button>
-    <nav>
+    <nav class="menu">
+      <button id="menuToggle">&#9776;</button>
       <ul class="menu-list">
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#disciplinas">Disciplinas Ministradas</a></li>
@@ -25,18 +25,21 @@
 </header>
 
 <main class="conteudo-central">
-  <!-- SOBRE -->
+
+  <!-- Sobre -->
   <section id="sobre" class="sobre">
     <div class="sobre-container">
-      <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/sobre/ensaio0010.JPG" alt="Foto de Vladimir Costa de Alencar" class="sobre-foto">
+      <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/sobre/ensaio0010.JPG" 
+           alt="Foto de Vladimir Costa de Alencar" class="sobre-foto" />
       <div class="sobre-texto">
-        <h1 class="sobre-nome">Vladimir Costa de Alencar</h1>
+        <div class="sobre-nome">Vladimir Costa de Alencar</div>
         <p>Doutorado em Recursos Naturais — UFCG (2009).<br>
         Mestrado em Ciência da Computação — UFCG.<br>
         Graduação em Ciência da Computação — UEPB.</p>
+
         <p class="endereco">
           UEPB - State University of Paraíba<br>
-          351, Rua Baraúnas<br>
+          351, Rua Baraúnas.<br>
           Campina Grande, Paraíba, Brazil — 58429-500<br>
           Phone: +55 83 3310-9700
         </p>
@@ -44,7 +47,7 @@
     </div>
   </section>
 
-  <!-- DISCIPLINAS -->
+  <!-- Disciplinas Ministradas -->
   <section id="disciplinas" class="disciplinas">
     <h2>Disciplinas Ministradas</h2>
     <article class="disciplina">
@@ -54,15 +57,27 @@
         <ul>
           <li><strong>Ementa</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1e531577c1a34a0ea565e2866d8b0f08.pdf">PDF</a></li>
           <li><strong>Introdução (Motivação)</strong> — <a href="https://huggingface.co/valencar?sort_spaces=likes#spaces">Link</a></li>
-          <li><strong>O que é Ciência de Dados (Data Science)?</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf">PDF</a>
+          <li><strong>O que é Ciência de Dados?</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c6d6f2dd03464d91b482f0e9b634b469.pdf">PDF</a>
             <ul><li>Conceitos Básicos</li></ul>
           </li>
           <li><strong>Data Science e Big Data</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_c49b47c4373a40e1bf46d5e4a2965540.pdf">PDF</a>
-            <ul><li>Introdução</li><li>O que é Big Data</li><li>Modelos de Computação Distribuída</li></ul>
+            <ul>
+              <li>Introdução</li>
+              <li>O que é Big Data</li>
+              <li>Modelos de Computação Distribuída</li>
+            </ul>
           </li>
           <li><strong>Curso Rápido de Python para Análise de Dados</strong> — <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados/tree/master/Python-Para-Analise-de-Dados">GitHub</a></li>
           <li><strong>O Processo de Aprendizagem</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_bc2b420c69354c2690bc6936f6dd534b.pdf">PDF</a>
-            <ul><li>Tipos de Aprendizagem</li><li>Modelo</li><li>Correlação</li><li>Espaço de Hipóteses</li><li>Função de Custo - J(x)</li><li>Erros</li><li>Otimização – Gradiente Descendente</li></ul>
+            <ul>
+              <li>Tipos de Aprendizagem</li>
+              <li>Modelo</li>
+              <li>Correlação</li>
+              <li>Espaço de Hipóteses</li>
+              <li>Função de Custo - J(x)</li>
+              <li>Erros</li>
+              <li>Otimização – O Gradiente Descendente</li>
+            </ul>
           </li>
           <li><strong>Machine Learning</strong>
             <ul>
@@ -78,25 +93,26 @@
           </li>
           <li><strong>Redes Neurais</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_18744bca52b74a6389a393f726c08cee.pdf">PDF</a>
             <ul>
-              <li>Componentes Básicos</li>
-              <li>Sistema Nervoso</li>
+              <li>Componentes Básicos das Redes Neurais Artificiais</li>
+              <li>O Sistema Nervoso</li>
               <li>O Neurônio</li>
               <li>Sinapses</li>
+              <li>Neurônio x Redes Neurais Artificiais</li>
               <li>Arquitetura</li>
-              <li>Aprendizado</li>
-              <li>Perceptron</li>
-              <li>ADALINE – Regra Delta</li>
-              <li>MLP</li>
-              <li>BackPropagation</li>
+              <li>O aprendizado</li>
+              <li>Redes Perceptron</li>
+              <li>Redes ADALINE – Regra Delta</li>
+              <li>Perceptron Multicamadas - MLP</li>
+              <li>Algoritmo BackPropagation – Ajuste de pesos</li>
               <li>Otimizadores</li>
             </ul>
           </li>
           <li><strong>Deep Learning</strong> — <a href="https://www.valencar.com/_files/ugd/c3cbd8_1c5542fd36ba49fcac7889f01aec5878.pdf">PDF</a>
             <ul>
               <li>Introdução e conceitos básicos</li>
-              <li>Arquitetura de Redes Neurais Profundas</li>
-              <li>Principais tipos de Redes Neurais Profundas</li>
-              <li>Programação em GPU</li>
+              <li>Arquitetura das Redes Neurais Profundas</li>
+              <li>Tipos de Redes Neurais Profundas</li>
+              <li>Programação paralela em GPU</li>
               <li>Frameworks: TensorFlow, Keras, PyTorch</li>
             </ul>
           </li>
@@ -119,7 +135,7 @@
               <li>ViT – Visual Transformers</li>
             </ul>
           </li>
-          <li><strong>Análise de Mídias Sociais</strong></li>
+          <li><strong>Análise de Mídias Sociais</strong> — YouTube, Spotify, Twitter, Facebook, Instagram</li>
           <li><strong>Bancos de Dados NoSQL</strong></li>
           <li><strong>Introdução ao MongoDB</strong></li>
           <li><strong>Hadoop e Engenharia de Dados</strong></li>
@@ -130,26 +146,27 @@
     </article>
   </section>
 
-  <!-- PROJETOS -->
+  <!-- Projetos -->
   <section id="projetos" class="projetos">
     <h2>Projetos</h2>
     <p>(Conteúdo futuro)</p>
   </section>
 
-  <!-- LIVROS -->
+  <!-- Livros Publicados -->
   <section id="livros" class="livros">
     <h2>Livros Publicados</h2>
     <div class="livros-grid">
       <img src="https://github.com/vladimiralencar/vladimiralencar.github.io/blob/main/livros/InteligenciaArtificial.png?raw=true" alt="Inteligência Artificial">
       <img src="https://github.com/vladimiralencar/vladimiralencar.github.io/blob/main/livros/DoencasDePele-CNN.webp?raw=true" alt="Detecção de Doenças de Pele">
-      <img src="https://github.com/vladimiralencar/vladimiralencar.github.io/blob/main/livros/FebreAmarela-Twitter.jpg?raw=true" alt="Febre amarela e Twitter">
+      <img src="https://github.com/vladimiralencar/vladimiralencar.github.io/blob/main/livros/FebreAmarela-Twitter.jpg?raw=true" alt="Febre Amarela e Twitter">
       <img src="https://github.com/vladimiralencar/vladimiralencar.github.io/blob/main/livros/Tuberculose.webp?raw=true" alt="Análise da Tuberculose">
       <img src="https://github.com/vladimiralencar/vladimiralencar.github.io/blob/main/livros/cggeo.webp?raw=true" alt="CGGeo - Planejamento Municipal">
       <img src="https://github.com/vladimiralencar/vladimiralencar.github.io/blob/main/livros/PrevisaoDeEpidemias.png?raw=true" alt="Previsão de Epidemias">
-      <img src="https://github.com/vladimiralencar/vladimiralencar.github.io/blob/main/livros/sigtrans.webp?raw=true" alt="SIGTRANS - Planejamento de transporte público">
-      <img src="https://github.com/vladimiralencar/vladimiralencar.github.io/blob/main/livros/AnalisesMultiobjetivo.jpg?raw=true" alt="Análises Multiojetivo e Multicritério">
+      <img src="https://github.com/vladimiralencar/vladimiralencar.github.io/blob/main/livros/sigtrans.webp?raw=true" alt="SIGTRANS - Planejamento de Transporte Público">
+      <img src="https://github.com/vladimiralencar/vladimiralencar.github.io/blob/main/livros/AnalisesMultiobjetivo.jpg?raw=true" alt="Análises Multiobjetivo e Multicritério">
     </div>
   </section>
+
 </main>
 
 <footer class="rodape">
