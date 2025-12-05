@@ -153,45 +153,80 @@
     </div>
   </section>
 
-  <style>
+  <!-- Seção Sobre -->
+<section id="sobre" class="container">
+  <img id="foto-sobre" src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/livros/foto_vladimir.jpg" alt="Foto de Vladimir">
+  <div class="texto-sobre">
+    <h2>Vladimir Costa de Alencar</h2>
+    <p>Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial. Gosto de Café, Ecologia, História, Geopolítica, Artes, Gatos, Big Data, IA.</p>
+    <p>Doutorado em Recursos Naturais com ênfase em Otimização Multicritério/Multiobjetivo — UFCG (2009). Mestrado em Ciência da Computação — UFCG (2005).</p>
+  </div>
+</section>
+
+<style>
+  #sobre {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  #sobre img {
+    width: auto;
+    height: auto;
+    max-width: 40%;
+    border-radius: 1rem;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  .texto-sobre {
+    flex: 1 1 auto;
+    font-size: clamp(1rem, 2vw, 2rem);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
     #sobre {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 2rem;
-      align-items: flex-start;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
     #sobre img {
-      width: auto;
-      height: auto;
-      max-width: 40%;
-      border-radius: 1rem;
-      display: block;
-      transition: all 0.3s ease;
+      max-width: 70%;
+      margin-bottom: 1rem;
     }
+  }
+</style>
 
-    .texto-sobre {
-      flex: 1 1 auto;
-      font-size: clamp(1rem, 2vw, 2rem);
-      line-height: 1.5;
-    }
+<!-- <script>
+  function ajustarImagem() {
+    const container = document.querySelector('#sobre');
+    const texto = document.querySelector('.texto-sobre');
+    const imagem = document.getElementById('foto-sobre');
 
-    @media (max-width: 768px) {
-      #sobre {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+    if (!imagem.complete) return; // aguarda a imagem carregar
 
-      #sobre img {
-        max-width: 70%;
-        margin-bottom: 1rem;
-      }
-    }
-  </style>
+    const alturaTexto = texto.offsetHeight;
+    const alturaMaxima = container.offsetHeight;
+
+    // Define a altura proporcional ao texto, sem ultrapassar container
+    imagem.style.height = Math.min(alturaTexto, alturaMaxima) + 'px';
+  }
+
+  const imagemSobre = document.getElementById('foto-sobre');
+  imagemSobre.addEventListener('load', ajustarImagem);
+  window.addEventListener('resize', ajustarImagem);
+
+  if (imagemSobre.complete) ajustarImagem();
+</script> -->
+
+
+
 
   <script>
     function ajustarImagem() {
