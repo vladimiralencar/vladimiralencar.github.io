@@ -66,6 +66,7 @@
       max-width: 40%;
       border-radius: 1rem;
       transition: all 0.3s ease;
+      display: block;
     }
 
     .texto-sobre {
@@ -74,7 +75,7 @@
       line-height: 1.5;
     }
 
-    /* Outras seções */
+    /* Seções gerais */
     section h2 {
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 700;
@@ -82,7 +83,7 @@
       font-size: clamp(1.5rem, 2.5vw, 2.5rem);
     }
 
-    /* Seção Disciplinas */
+    /* Disciplinas */
     .disciplinas-list {
       list-style-type: decimal;
       padding-left: 1.5rem;
@@ -98,7 +99,6 @@
       margin-top: 0.3rem;
     }
 
-    /* Links em disciplinas */
     .disciplinas-list a {
       color: #007acc;
       text-decoration: none;
@@ -108,7 +108,7 @@
       text-decoration: underline;
     }
 
-    /* Responsivo para telas pequenas */
+    /* Responsivo */
     @media (max-width: 768px) {
       #sobre {
         flex-direction: column;
@@ -145,11 +145,14 @@
 
   <!-- Seção Sobre -->
   <section id="sobre" class="container">
-    <img id="foto-sobre" src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/sobre/ensaio0010.JPG" alt="Foto de Vladimir">
+    <img id="foto-sobre" src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/livros/foto_vladimir.jpg" alt="Foto de Vladimir">
     <div class="texto-sobre">
       <h2>Vladimir Costa de Alencar</h2>
       <p>Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial. Gosto de Café, Ecologia, História, Geopolítica, Artes, Gatos, Big Data, IA.</p>
       <p>Doutorado em Recursos Naturais com ênfase em Otimização Multicritério/Multiobjetivo — UFCG (2009). Mestrado em Ciência da Computação — UFCG (2005).</p>
+      <p>Trabalha com Big Data Analytics, SQL e NoSQL, Machine Learning, Python, C/C++, Linux, Cloud Computing,  CUDA, Epidemiologia,  Redes Neural, Deep Learning, and Inteligência Artificial, Visão Computaciona e PLN (LLM, Agentes). </p>
+      <p>Diretor do Laboratorio de Análise de Dados e Inteligência Artificial (LANA). UEPB.  </p>
+      <p>Campina Grande, Paraíba. Brasil</p>
     </div>
   </section>
 
@@ -368,7 +371,7 @@
           <li>13. Introdução ao MongoDB</li>
           <li>14. Hadoop e Engenharia de Dados</li>
           <li>15. Spark</li>
-          <li>Códigos no GitHub: <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">Link</a></li>
+          <li>Códigos no GitHub: <a href="https://github.com/vladimiralencar/Alunos-UEPB-TopicosEspeciaisEmBancoDeDados" target="_blank">GitHub</a></li>
         </ul>
       </li>
     </ul>
@@ -377,9 +380,7 @@
   <!-- Seção Livros -->
   <section id="livros" class="container">
     <h2>Livros</h2>
-    <div class="livros-grid">
-      <p>Aqui você pode colocar as capas dos livros e descrições.</p>
-    </div>
+    <p>Aqui você pode colocar as capas dos livros e descrições.</p>
   </section>
 
   <!-- Seção Contato -->
@@ -391,12 +392,14 @@
     <p>Email: exemplo@uepb.edu.br</p>
   </section>
 
+  <!-- Script para ajustar altura da imagem Sobre -->
   <script>
-    // Ajuste proporcional da imagem de Sobre em relação ao texto
     function ajustarImagem() {
       const container = document.querySelector('#sobre');
       const texto = document.querySelector('.texto-sobre');
       const imagem = document.getElementById('foto-sobre');
+
+      if (!imagem.complete) return; // espera a imagem carregar
 
       const alturaMaxima = container.offsetHeight;
       const alturaTexto = texto.offsetHeight;
@@ -404,8 +407,10 @@
       imagem.style.height = Math.min(alturaTexto, alturaMaxima) + 'px';
     }
 
-    window.addEventListener('load', ajustarImagem);
+    const imagemSobre = document.getElementById('foto-sobre');
+    imagemSobre.addEventListener('load', ajustarImagem);
     window.addEventListener('resize', ajustarImagem);
+    if (imagemSobre.complete) ajustarImagem();
   </script>
 
 </body>
