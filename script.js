@@ -1,7 +1,6 @@
 // Menu mobile toggle
 const btn = document.getElementById('menuToggle');
 const menuList = document.querySelector('.menu-list');
-
 btn && btn.addEventListener('click', () => {
   const isOpen = menuList.style.display === 'flex';
   menuList.style.display = isOpen ? 'none' : 'flex';
@@ -9,13 +8,12 @@ btn && btn.addEventListener('click', () => {
 
 // Smooth scroll para links internos
 document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e){
+  a.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
-    if(href.length > 1){
+    if(href.length > 1) {
       e.preventDefault();
       const el = document.querySelector(href);
-      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-      // fecha menu em telas pequenas
+      if(el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
       if(window.innerWidth <= 900 && menuList) menuList.style.display = 'none';
     }
   });
