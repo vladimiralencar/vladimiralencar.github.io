@@ -93,7 +93,7 @@
 
     /* ------- Nome grande ------- */
     .sobre-nome {
-      font-size: 3rem; /* ou 3.2rem, 3.4rem */
+      font-size: 3rem !important; /* ou 3.2rem, 3.4rem */
       font-weight: 400;
       margin: 0;
       color: #111;
@@ -237,13 +237,30 @@
     border-radius:10px;
   }
 
+/*  .contato-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;  /* antes era center */
+      /*padding-left: 20px;  /* igual ao padding do container do menu */*/
+      /*padding-right: 20px;*/
+
+
   /* Contato */
-  .contato-section{
-    padding:60px 20px;
-    background:#fafafa;
-    margin-top:40px;
-    border-top:1px solid #ddd;
+  .contato-section {
+    padding: 60px 20px;
+    background: #fafafa;
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
   }
+
+  .contato-section .contato-container {
+      max-width: var(--max-width);  /* igual às outras seções */
+      margin: 0 auto;
+      text-align: left;
+      padding-left: 0;  /* já tem o padding da section */
+      padding-right: 0;
+    }
+
 
   .logos-container{
     display:flex;
