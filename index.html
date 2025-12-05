@@ -294,6 +294,29 @@
       direction: rtl;
     }
 
+
+    /* Logomarcas no Rodapé */
+    .logos-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;              /* espaço entre as logos */
+      margin-top: 20px;
+      flex-wrap: wrap;        /* evita quebra feia em telas menores */
+    }
+
+    .logo-img {
+      max-width: 180px;       /* limite máximo */
+      height: auto;           /* mantém proporção */
+      object-fit: contain;    /* garante proporção perfeita */
+    }
+
+    @media (max-width: 600px) {
+      .logo-img {
+        max-width: 130px;     /* reduz nas telas menores */
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -681,7 +704,7 @@
         Laboratório de Análise de Dados e Inteligência Artificial — LANA.<br>
         Universidade Estadual da Paraíba — UEPB.  
         Campina Grande — Paraíba — Brasil.<br>
-        <span class="email-protegido">br.ude.bpeu@rodivres</span>
+        <span class="email-protegido">rb.ude.bpeu@rodivres</span>
       </p>
     </div>
   </section>
