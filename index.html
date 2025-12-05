@@ -64,15 +64,23 @@
       align-items: flex-start;
     }
 
-    #sobre img {
+/*    #sobre img {
       height: auto;
       width: auto;
       /*max-width: 40%;*/
-      max-width: 30%;
+/*      max-width: 30%;
       border-radius: 1rem;
       transition: all 0.3s ease;
       display: block;
     }
+*/
+    #sobre img {
+      flex-shrink: 0;
+      width: clamp(180px, 30%, 320px);
+      height: auto;
+      border-radius: 1rem;
+      display: block;
+      }
 
 
     body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
