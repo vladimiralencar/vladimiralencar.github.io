@@ -91,22 +91,26 @@
       color: #111;
     }
 
+
     /* ------- Nome grande ------- */
     .sobre-nome {
-      font-size: 3.2rem !important; /* ou 3.2rem, 3.4rem */
+      font-size: clamp(3rem, 6vw, 5rem); /* cresce com a tela, mínimo 3rem, máximo 5rem */
       font-weight: 400;
       margin: 0;
       color: #111;
       line-height: 1.15;
+      text-align: left; /* mantém alinhamento com o menu/Disciplinas */
     }
 
     /* ------- Atuação profissional ------- */
     .sobre-atuacoes {
-      font-size: 1.25rem;
+      font-size: 1.5rem; /* um pouco maior */
       color: #444;
-      margin-top: 6px;
+      margin-top: 8px;   /* um espaçamento menor em relação ao nome */
       margin-bottom: 30px;
+      text-align: left;  /* mantém alinhamento com o nome */
     }
+
 
     /* ------- Layout foto + texto ------- */
     .sobre-container {
