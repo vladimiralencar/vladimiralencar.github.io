@@ -6,19 +6,19 @@
 }
 
 :root {
-  --bg: #ffffff;
-  --text: #1a1a1a;
-  --muted: #555;
-  --accent: #0b5fff;
-  --header-bg: #f5f5f5;
-  --footer-bg: #f5f5f5;
+  --bg: #fafafa;          /* fundo suave */
+  --text: #222222;        /* texto principal */
+  --muted: #555555;       /* texto secundário */
+  --accent: #3a7bd5;      /* azul pastel */
+  --header-bg: #ffffff;    /* header branco */
+  --footer-bg: #ffffff;    /* footer branco */
 }
 
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* Links */
@@ -34,13 +34,13 @@ a:hover {
 /* Header e Menu */
 header {
   background-color: var(--header-bg);
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .menu-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -57,7 +57,7 @@ header {
 .menu-list {
   list-style: none;
   display: flex;
-  gap: 18px;
+  gap: 22px;
 }
 
 .menu-list li a {
@@ -69,109 +69,117 @@ header {
 .conteudo-central {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 60px 40px; /* mais espaçamento lateral */
 }
 
 /* Sobre */
 .sobre-container {
   display: grid;
-  grid-template-columns: 250px 1fr;
-  gap: 30px;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
   align-items: start;
 }
 
 .sobre-foto {
-  width: 250px;
-  height: 250px;
+  width: 280px;
+  height: 280px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
 .sobre-nome {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 32px;
-  margin-bottom: 12px;
+  font-size: 36px;
+  margin-bottom: 16px;
   color: var(--text);
 }
 
 .sobre-texto p {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  font-size: 16px;
 }
 
 .endereco {
   color: var(--muted);
   font-size: 14px;
+  margin-top: 12px;
 }
 
-/* Disciplinas */
-.disciplinas h2,
-.projetos h2,
-.livros h2 {
+/* Seções */
+h2 {
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 28px;
-  margin-bottom: 16px;
+  font-size: 32px;
+  margin-bottom: 20px;
   color: var(--text);
 }
 
 .disciplina h3 {
-  font-size: 22px;
-  margin-bottom: 8px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .conteudo ul {
-  margin-left: 20px;
-  margin-top: 10px;
+  margin-left: 22px;
+  margin-top: 12px;
 }
 
 .conteudo ul li {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .conteudo ul ul {
   margin-left: 18px;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 /* Projetos */
 .projetos p {
   margin-top: 12px;
+  font-size: 16px;
 }
 
 /* Livros */
 .livros-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-  margin-top: 20px;
+  gap: 20px;
+  margin-top: 24px;
 }
 
 .livros-grid img {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.livros-grid img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
 }
 
 /* Rodapé */
 .rodape {
   background-color: var(--footer-bg);
   text-align: center;
-  padding: 20px;
-  border-top: 1px solid #ddd;
+  padding: 24px;
+  border-top: 1px solid #e0e0e0;
   font-size: 14px;
+  margin-top: 40px;
 }
 
 /* Responsividade */
 @media (max-width: 900px) {
   .sobre-container {
-    grid-template-columns: 180px 1fr;
-    gap: 20px;
+    grid-template-columns: 200px 1fr;
+    gap: 30px;
   }
   .sobre-foto {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
   }
   #menuToggle {
     display: block;
@@ -179,7 +187,7 @@ header {
   .menu-list {
     display: none;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     margin-top: 10px;
   }
 }
@@ -194,6 +202,9 @@ header {
     height: auto;
   }
   .sobre-nome {
-    font-size: 26px;
+    font-size: 28px;
+  }
+  .conteudo-central {
+    padding: 40px 20px;
   }
 }
