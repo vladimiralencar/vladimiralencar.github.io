@@ -235,6 +235,65 @@
     @media(prefers-reduced-motion:reduce){
       *{ transition:none!important }
     }
+
+    /* Seção Contato */
+    .contato-section {
+      padding: 60px 20px;
+      background: #fafafa;
+      border-top: 1px solid #e5e5e5;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .contato-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contato-section h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .contato-nome {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .logos-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 35px;
+    }
+
+    .logo-img {
+      max-width: 150px;
+      height: auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .logo-img:hover {
+      transform: scale(1.05);
+    }
+
+    .contato-info {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* Proteção simples para email */
+    .email-protegido {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+    }
+
   </style>
 </head>
 <body>
@@ -271,7 +330,7 @@
 
         <p>Gosto de Café, Ecologia, Gatos, História, Geopolítica, Artes, Música.</p>
 
-        <p>Doutorado em Recursos Naturais com ênfase em Otimização Multicritério/Multiobjetivo (UFCG, 2009).</p>
+        <p>Doutorado em Recursos Naturais com ênfase em Otimização (UFCG, 2009).</p>
 
         <p>Mestrado em Ciência da Computação (UFCG, 1993).</p>
 
@@ -279,7 +338,7 @@
 
         <p>Trabalha com Big Data Analytics, SQL e NoSQL, Machine Learning, python, C/C++, Linux, Cloud Computing, Epidemiologia, Redes Neurais, Deep Learning e Inteligência Artificial.</p>
 
-        <p>Professor/Pesquisador Associado da Universidade Estadual da Paraíba (UEPB)</p>
+        <p>Professor Associado da Universidade Estadual da Paraíba (UEPB)</p>
 
         <p>Diretor do Laboratório de Análise de Dados e Inteligência Artificial (LANA)</p>
 
@@ -593,6 +652,37 @@
           <p>Análises Multicritério e Multiobjetivo</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  !-- ===========================
+        CONTATO
+  =========================== -->
+  <section id="contato">
+    <div class="contato-container">
+      <h2>Contato</h2>
+
+      <p>
+        <strong>Vladimir Costa de Alencar</strong><br>
+        Professor — Pesquisador — Cientista de Dados — Engenheiro de Inteligência Artificial
+      </p>
+
+      <div class="logos-container">
+        <img class="logo-img" 
+             src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/contato/Marca-da-UEPB-Aplicacao-Colorida-em-PNG-01.png"
+             alt="UEPB">
+
+        <img class="logo-img"
+             src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/contato/LANA-Logo-2025.png"
+             alt="LANA">
+      </div>
+
+      <p>
+        Laboratório de Análise de Dados e Inteligência Artificial — LANA.<br>
+        Universidade Estadual da Paraíba — UEPB.  
+        Campina Grande — Paraíba — Brasil.<br>
+        <span class="email-protegido">br.ude.bpeu@rodivres</span>
+      </p>
     </div>
   </section>
 
