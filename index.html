@@ -296,25 +296,48 @@
 
 
     /* Logomarcas no Rodapé */
-    .logos-container {
+/*    .logos-container {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 20px;              /* espaço entre as logos */
-      margin-top: 20px;
+/*      margin-top: 20px;
       flex-wrap: wrap;        /* evita quebra feia em telas menores */
+    }
+/**/
+      .logo-img2222 {
+        max-width: 180px;       /* limite máximo */
+        height: auto;           /* mantém proporção */
+        object-fit: contain;    /* garante proporção perfeita */
+      }
+
+      @media (max-width: 600px) {
+        .logo-img {
+          max-width: 130px;     /* reduz nas telas menores */
+        }
+      }*/
+
+    .logos-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;   /* alinha pela base */
+      gap: 20px;
+      margin-top: 20px;
     }
 
     .logo-img {
-      max-width: 180px;       /* limite máximo */
-      height: auto;           /* mantém proporção */
-      object-fit: contain;    /* garante proporção perfeita */
+      height: auto;
+      object-fit: contain;
     }
 
-    @media (max-width: 600px) {
-      .logo-img {
-        max-width: 130px;     /* reduz nas telas menores */
-      }
+    /* Primeira logo (UEPB): tamanho normal */
+    .logo-img:first-child {
+      max-height: 80px;        /* ajustável */
+    }
+
+    /* Segunda logo (LANA): maior */
+    .logo-img:last-child {
+      max-height: 110px;       /* aumente aqui se quiser mais */
     }
 
   </style>
