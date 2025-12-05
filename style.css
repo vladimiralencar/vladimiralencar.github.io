@@ -25,10 +25,39 @@ header{background:#004080;color:#fff;padding:10px 0}
 #menuToggle{display:none;background:none;border:none;color:#fff;font-size:1.8rem}
 
 /* Sobre */
-.sobre-container{display:flex;align-items:flex-start;gap:30px;margin-bottom:50px}
+/*.sobre-container{display:flex;align-items:flex-start;gap:30px;margin-bottom:50px}
 .sobre-foto{width:250px;height:250px;object-fit:cover;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.1)}
 .sobre-nome{font-size:32px;font-weight:600;margin-bottom:10px}
 .endereco{color:#666;font-size:14px;margin-top:12px}
+*/
+
+#sobre {
+  padding: 2rem;
+}
+
+.sobre-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px; /* limita área útil */
+  margin: 0 auto;
+}
+
+#sobre img {
+  height: auto;
+  width: auto;
+  max-width: 40%; /* largura máxima */
+  transition: all 0.3s ease;
+  border-radius: 1rem;
+}
+
+.texto-sobre {
+  flex: 1 1 auto;
+  font-size: clamp(1rem, 2vw, 2rem); /* cresce proporcional à tela */
+  line-height: 1.5;
+}
+
 
 /* Disciplinas */
 .disciplinas h2{font-size:28px;margin-bottom:20px}

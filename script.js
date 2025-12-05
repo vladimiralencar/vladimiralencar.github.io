@@ -19,4 +19,25 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
+function ajustarImagem() {
+  const container = document.querySelector('.sobre-container');
+  const texto = document.querySelector('.texto-sobre');
+  const imagem = document.getElementById('foto-sobre');
+
+  // Altura máxima que a imagem pode ter (para não ultrapassar a área útil)
+  const alturaMaxima = container.offsetHeight;
+
+  // Altura desejada baseada no texto
+  const alturaTexto = texto.offsetHeight;
+
+  // Ajusta a altura da imagem proporcional, mas respeitando altura máxima
+  imagem.style.height = Math.min(alturaTexto, alturaMaxima) + 'px';
+}
+
+// Ajusta no carregamento e redimensionamento
+window.addEventListener('load', ajustarImagem);
+window.addEventListener('resize', ajustarImagem);
+
+
+
 console.log('Script carregado.');
