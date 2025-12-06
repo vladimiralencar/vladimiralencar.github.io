@@ -1,87 +1,229 @@
-/* Reset e tipografia */
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Inter',sans-serif;
-  color:#333;
-  background:#fff;
-  line-height:1.6;
-}
-h1,h2,h3,h4,h5{font-family:'IBM Plex Sans',sans-serif}
-
-/* Área central do conteúdo */
-.conteudo-central{
-  width:70%;
-  margin-left:15%;
-  margin-right:15%;
-  padding:40px 0;
-}
-
-/* Header e menu */
-header{background:#004080;color:#fff;padding:10px 0}
-.menu-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
-.menu-list{list-style:none;display:flex;gap:20px}
-.menu-list li a{color:#fff;text-decoration:none;font-weight:500;padding:6px 10px;border-radius:5px}
-.menu-list li a:hover{background:#0055b3}
-#menuToggle{display:none;background:none;border:none;color:#fff;font-size:1.8rem}
-
-/* Sobre */
-/*.sobre-container{display:flex;align-items:flex-start;gap:30px;margin-bottom:50px}
-.sobre-foto{width:250px;height:250px;object-fit:cover;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.1)}
-.sobre-nome{font-size:32px;font-weight:600;margin-bottom:10px}
-.endereco{color:#666;font-size:14px;margin-top:12px}
-*/
-
-#sobre {
-  padding: 2rem;
+/* ===========================
+   VARIÁVEIS E PADRÕES
+   =========================== */
+:root {
+  --max-width: 1200px;
+  --padding-lr: 20px;
+  --border: #ddd;
+} 
+   
+/* ===========================
+   PADRÃO DE MARGEM INTERNA
+   =========================== */
+section, .container {
+  padding-left: var(--padding-lr);
+  padding-right: var(--padding-lr);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
+/* Títulos internos já alinhados */
+section h2, section h3 {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* ===========================
+   SEÇÃO SOBRE — FOTO + TEXTO
+   =========================== */
 .sobre-container {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 2rem;
-  max-width: 1200px; /* limita área útil */
+  align-items: stretch;
+  gap: 40px;
+  margin-top: 0;
+}
+
+.sobre-foto {
+  width: 340px;
+  height: auto;
+  max-height: 620px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  display: block;
+}
+
+.sobre-texto {
+  max-width: 750px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #222;
+  text-align: left;
+  margin: 0;
+  padding-top: 0;
+}
+
+/* Remove margens superiores dos elementos internos */
+.sobre-titulo,
+.sobre-nome,
+.sobre-atuacoes,
+.sobre-texto h1,
+.sobre-texto h2,
+.sobre-texto h3,
+.sobre-texto h4,
+.sobre-texto p {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Responsividade Sobre */
+@media (max-width: 850px) {
+  .sobre-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sobre-foto {
+    width: 70%;
+    height: auto;
+    max-height: none;
+  }
+  .sobre-nome,
+  .sobre-atuacoes {
+    text-align: center;
+  }
+}
+
+/* ===========================
+   SEÇÃO LIVROS — MINIMALISTA
+   =========================== */
+/* ===========================
+   SEÇÃO LIVROS — PROPORÇÃO FIXA
+   =========================== */
+
+#livros {
+  padding: 40px 20px;
+  border-top: 1px solid var(--border);
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
-#sobre img {
-  height: auto;
-  width: auto;
-  max-width: 40%; /* largura máxima */
-  transition: all 0.3s ease;
-  border-radius: 1rem;
+#livros h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #222;
 }
 
-.texto-sobre {
-  flex: 1 1 auto;
-  font-size: clamp(1rem, 2vw, 2rem); /* cresce proporcional à tela */
-  line-height: 1.5;
+/* Grid de livros */
+.grade-livros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  justify-items: start;
 }
 
+/* Cada livro */
+.livro {
+  display: block;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: left;
+  border: 1px solid #eee;
+  transition: transform .25s ease, box-shadow .25s ease;
+  text-decoration: none;
+  color: inherit;
+}
 
-/* Disciplinas */
-.disciplinas h2{font-size:28px;margin-bottom:20px}
-.disciplina h3{font-size:24px;margin-bottom:10px}
-.conteudo ul{margin-left:20px;margin-top:10px}
-.conteudo ul li{margin-bottom:8px}
-.conteudo ul ul{margin-left:18px;margin-top:4px}
+/* Hover elegante */
+.livro:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.08);
+}
 
-/* Projetos */
-.projetos{margin-bottom:50px}
+/* Container da imagem — mantém proporção */
+.img-container {
+  width: 100%;
+  padding-top: 145%; /* altura proporcional à largura */
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+}
 
-/* Livros */
-.livros h2{font-size:28px;margin-bottom:20px}
-.livros-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px}
-.livros-grid img{width:100%;height:220px;object-fit:cover;border-radius:8px;box-shadow:0 6px 12px rgba(0,0,0,0.06)}
+/* Imagem da capa */
+.img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* mantém proporção original */
+  display: block;
+  transition: transform .35s ease;
+}
 
-/* Rodapé */
-.rodape{padding:20px 0;background:#f0f0f0;text-align:center;font-size:14px;transform:translateY(-6px)}
+/* Zoom suave no hover */
+.livro:hover .img-container img {
+  transform: scale(1.05);
+}
+
+/* Legendas minimalistas */
+.livro p {
+  margin: 12px 14px 16px;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.45;
+  font-weight: 500;
+  position: relative;
+}
+
+.livro p::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: #ddd;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
 
 /* Responsividade */
-@media(max-width:900px){
-  .sobre-container{flex-direction:column;align-items:center;text-align:center}
-  .sobre-foto{width:180px;height:180px}
-  .conteudo-central{width:90%;margin:0 auto}
-  .menu-list{display:none;flex-direction:column;background:#004080;position:absolute;top:50px;right:20px;padding:10px;border-radius:5px}
-  #menuToggle{display:block}
+@media (max-width: 850px) {
+  .grade-livros {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  .img-container {
+    padding-top: 145%; /* mantém proporção */
+  }
+  .livro p {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+
+
+ 
+
+/* ===========================
+   SEÇÃO CONTATO — LOGOS
+   =========================== */
+.logos-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  display: block;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* ===========================
+   RODAPÉ
+   =========================== */
+footer {
+  text-align: left;
+  padding: 20px;
+  color: #666;
+  margin-top: 20px;
+  font-size: 0.95rem;
 }
