@@ -242,30 +242,34 @@
   ============================
    */
 
-  /* ===========================
+ /* ===========================
    SEÇÃO LIVROS — MINIMALISTA
    =========================== */
 
+  /* Container da seção */
   #livros {
-    padding: 50px 20px;
+    text-align: left;
+    padding: 40px 20px;
     border-top: 1px solid var(--border);
     max-width: var(--max-width);
     margin: 0 auto;
   }
 
+  /* Título */
   #livros h2 {
-    text-align: center;
-    margin-bottom: 32px;
+    text-align: left;
+    margin-bottom: 20px;
     font-weight: 600;
     letter-spacing: 0.5px;
     color: #222;
   }
 
-  /* Grade clean e minimalista */
+  /* Grid clean e minimalista */
   .grade-livros {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 32px;
+    justify-items: start;   /* Alinha tudo à esquerda */
   }
 
   /* Cartão minimalista */
@@ -278,21 +282,23 @@
     transition: transform .25s ease, box-shadow .25s ease;
   }
 
-  /* Efeito hover elegante */
+  /* Hover elegante */
   .livro:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 26px rgba(0,0,0,0.08);
   }
 
-  /* Capa do livro — destaque minimalista */
+  /* Capa — AGORA COMPLETA, SEM CORTE */
   .livro img {
     width: 100%;
-    height: 260px;
-    object-fit: cover;
+    height: auto;            /* ← garante proporção real */
+    object-fit: contain;     /* ← NÃO corta nada */
     display: block;
+    background: #fafafa;     /* fundo neutro para capas menores */
+    padding: 10px;           /* respiro visual */
   }
 
-  /* Legendas minimalistas mais bonitas */
+  /* Legenda */
   .livro p {
     margin: 12px 14px 16px;
     font-size: 0.95rem;
@@ -301,7 +307,7 @@
     font-weight: 500;
   }
 
-  /* Sutil linha separadora entre imagem e legenda */
+  /* Linha separadora */
   .livro p::before {
     content: "";
     display: block;
@@ -311,7 +317,6 @@
     margin-bottom: 10px;
     border-radius: 2px;
   }
-
 
 
   /* Menu Contato */
