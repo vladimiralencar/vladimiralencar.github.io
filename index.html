@@ -112,148 +112,76 @@
     }
 
 
-    /*============================================================
-       SEÇÃO SOBRE — LAYOUT FOTO + TEXTO
-       SEÇÃO SOBRE — FOTO E TEXTO ALINHADOS POR CIMA E POR BAIXO
-      ============================================================ */
+  /*============================================================
+    SEÇÃO SOBRE — FOTO E TEXTO ALINHADOS POR CIMA E POR BAIXO
+  ============================================================*/
 
-    /* Container principal: mantém foto e texto lado a lado,
-       alinhados tanto no topo quanto na base */
+  /* Container: foto + texto lado a lado, mesma altura */
+  .sobre-container {
+    display: flex;
+    align-items: stretch;       /* força mesma altura */
+    gap: 40px;
+    margin-top: 0;
+  }
+
+  /* FOTO — cresce para igualar o bloco de texto */
+  .sobre-foto {
+    width: 340px;               /* largura maior (ajustável) */
+    height: 100%;               /* cresce para igualar o texto */
+    max-height: 680px;          /* limite para evitar exagero */
+    object-fit: cover;          /* mantém estética */
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    display: block;
+  }
+
+  /* TEXTO — permanece exatamente como no seu design */
+  .sobre-texto {
+    max-width: 750px;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #222;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Remoção de margens superiores dos elementos internos */
+  .sobre-texto h1,
+  .sobre-texto h2,
+  .sobre-texto h3,
+  .sobre-texto h4,
+  .sobre-texto p,
+  .sobre-titulo,
+  .sobre-nome,
+  .sobre-atuacoes {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /*============================================================
+    RESPONSIVIDADE
+  ============================================================*/
+  @media (max-width: 850px) {
     .sobre-container {
-      display: flex;
-      align-items: stretch;   /* força igual altura entre foto e texto */
-      gap: 40px;
-      margin-top: 0;
-    }
-
-    /* Foto maior, agora proporcional ao bloco de texto */
-    .sobre-foto {
-      width: 330px;           /* aumentei (antes era 270px) */
-      height: 100%;           /* ocupa a altura do texto */
-      max-height: 620px;      /* evita exagero caso o texto seja curto */
-      object-fit: cover;      /* mantém proporção e corte elegante */
-      border-radius: 16px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-    }
-
-    /* Texto — tudo preservado conforme seu design */
-    .sobre-texto {
-      max-width: 750px;
-      font-size: 1.05rem;
-      line-height: 1.65;
-      color: #222;
-      text-align: left;
-      margin: 0;
-    }
-
-    /* Remove margens superiores padrão dos elementos internos,
-       garantindo alinhamento perfeito com o topo da imagem */
-    .sobre-texto h1,
-    .sobre-texto h2,
-    .sobre-texto h3,
-    .sobre-texto h4,
-    .sobre-texto p {
-      margin-top: 0;
-    }
-
-    /* ============================================================
-       RESPONSIVIDADE
-       ============================================================ */
-    @media (max-width: 850px) {
-      .sobre-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .sobre-foto {
-        width: 70%;
-        height: auto;
-        max-height: none;
-      }
-
-      .sobre-nome,
-      .sobre-atuacoes {
-        text-align: center;
-      }
-    }
-
-    /* Menu SOBRE */
-    /* Container principal: organiza a foto e o texto lado a lado
-       e garante que fiquem alinhados pelo topo */
-    .sobre-container {
-      display: flex;
-      align-items: flex-start; /* alinha foto e texto no topo */
-      gap: 40px;               /* espaço entre foto e texto */
-      margin-top: 0px;   
-    }
-
-    /* Foto: tamanho fixo elegante, com bordas suaves e sombra leve */
-    /* Foto — agora realmente maior */
-    .sobre-foto {
-      width: 340px !important;     /* 🔥 aumenta e impede sobrescrições */
-      height: auto !important;     /* mantém proporção natural */
-      border-radius: 16px;
-      object-fit: cover;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-      display: block;              /* evita ajustes automáticos do flex */
-    }
-
-    /* Texto principal da seção (parágrafos) */
-    .sobre-texto {
-      max-width: 750px;
-      font-size: 1.05rem;
-      line-height: 1.65;
-      color: #222;
-      text-align: left;
-
-      /* impede que qualquer espaçamento interno empurre para baixo */
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    /* Remoção de margens que empurram o bloco de texto para baixo.
-       Importante para alinhar perfeitamente com o topo da foto. */
-    .sobre-titulo,
-    .sobre-nome,
-    .sobre-atuacoes {
-      margin-top: 0 !important;
-      padding-top: 0 !important;
-    }
-
-    /* Remove TODA margem superior dos elementos internos do texto */
-    .sobre-texto h1,
-    .sobre-texto h2,
-    .sobre-texto h3,
-    .sobre-texto h4,
-    .sobre-texto p {
-      margin-top: 0 !important;
-    }
-
-    /* ============================================================
-       RESPONSIVIDADE
-       ============================================================ */
-
-    @media (max-width: 850px) {
-
-    /* Foto e texto passam a ficar um embaixo do outro */
-    .sobre-container {
-      flex-direction: column; 
+      flex-direction: column;
       align-items: center;
     }
 
-    /* Foto ocupa mais da largura da tela no celular */
     .sobre-foto {
-      width: 60%;
+      width: 70%;
+      height: auto;
+      max-height: none;
     }
 
-    /* Centraliza títulos e textos em telas pequenas */
-    .sobre-atuacoes,
-    .sobre-nome {
+    .sobre-nome,
+    .sobre-atuacoes {
       text-align: center;
     }
   }
 
-  /* Disciplinas */
+    
+  /* MENU Disciplinas */
   #disciplinas{
       padding:32px 20px;
       max-width:var(--max-width);
