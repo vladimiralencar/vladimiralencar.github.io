@@ -112,51 +112,81 @@
     }
 
 
-    /* ------- Layout foto + texto ------- */
+    /* ============================================================
+       SEÇÃO SOBRE — LAYOUT FOTO + TEXTO
+       ============================================================ */
+
+    /* Container principal: organiza a foto e o texto lado a lado
+       e garante que fiquem alinhados pelo topo */
     .sobre-container {
       display: flex;
-      align-items: flex-start;
-      gap: 40px;  
+      align-items: flex-start; /* alinha foto e texto no topo */
+      gap: 40px;               /* espaço entre foto e texto */
       margin-top: 1px;
     }
 
-    /* ------- Foto ------- */
+    /* Foto: tamanho fixo elegante, com bordas suaves e sombra leve */
     .sobre-foto {
       width: 270px;
       border-radius: 16px;
-      object-fit: cover;
+      object-fit: cover;       /* evita distorção */
       box-shadow: 0 4px 18px rgba(0,0,0,0.08);
     }
 
-    /* ------- Texto ------- */
+    /* Texto principal da seção (parágrafos) */
     .sobre-texto {
       max-width: 750px;
       font-size: 1.05rem;
       line-height: 1.65;
       color: #222;
       text-align: left;
+
+      /* impede que qualquer espaçamento interno empurre para baixo */
+      margin-top: 0;
+      padding-top: 0;
     }
 
-   /* ------- Responsividade ------- */
-   @media (max-width: 850px) {
+    /* Remoção de margens que empurram o bloco de texto para baixo.
+       Importante para alinhar perfeitamente com o topo da foto. */
+    .sobre-titulo,
+    .sobre-nome,
+    .sobre-atuacoes {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    /* ============================================================
+       RESPONSIVIDADE
+       ============================================================ */
+
+    @media (max-width: 850px) {
+
+    /* Foto e texto passam a ficar um embaixo do outro */
     .sobre-container {
       flex-direction: column;
       align-items: center;
     }
+
+    /* Foto ocupa mais da largura da tela no celular */
     .sobre-foto {
       width: 60%;
     }
-    .sobre-atuacoes, .sobre-nome {
+
+    /* Centraliza títulos e textos em telas pequenas */
+    .sobre-atuacoes,
+    .sobre-nome {
       text-align: center;
     }
-   }
+  }
+
+
 
   /* Disciplinas */
   #disciplinas{
-    padding:32px 20px;
-    max-width:var(--max-width);
-    margin:0 auto;
-  }
+      padding:32px 20px;
+      max-width:var(--max-width);
+      margin:0 auto;
+    }
 
   .section-title{
     font-size:1.6rem;
@@ -241,14 +271,6 @@
     border-radius:10px;
   }
 
-/*  .contato-container {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: left;  /* antes era center */
-      /*padding-left: 20px;  /* igual ao padding do container do menu */*/
-      /*padding-right: 20px;*/
-
-
   /* Contato */
   .contato-section {
     padding: 60px 20px;
@@ -265,7 +287,7 @@
       padding-right: 0;
     }
 
-
+  /* logomarcas */  
   .logos-container{
     display:flex;
     justify-content:center;
@@ -277,6 +299,7 @@
   .logo-img:first-child{ height:90px; }
   .logo-img:last-child{ height:300px; }
 
+  /* Rodapé */
   footer{
     text-align:center;
     padding:20px;
@@ -315,32 +338,16 @@
 
     <div class="sobre-texto">
       <h2 class="sobre-titulo">Sobre</h2>
-          Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial, sempre motivado por pensar, criar e aplicar tecnologia de forma prática e criativa. Exploro IA, ciência de dados e programação,integrando esses campos em projetos acadêmicos e soluções reais.
+          Sou Professor, Pesquisador e Escritor, sempre motivado por pensar, criar e aplicar tecnologia de forma prática e criativa. Exploro Inteligência Artificial, ciência de dados e programação,integrando esses campos em projetos acadêmicos e soluções reais.
           <br>
           Fora da área técnica, tenho interesse por café, gatos, ecologia, história, antropologis, cosmologia, geopolítica,  música e  artes, — temas que me inspiram e ampliam minha visão de mundo. Gosto de ler, estudar e descobrir novas ideias, mantendo a curiosidade sempre ativa.
           <br><p>
-          Doutorado em Recursos Naturais — UFCG (2009).  
-          Mestrado em Ciência da Computação — UFCG (2006).  
-          Bacharelado em Ciência da Computação — UEPB (2004). Radiologia - UNINASSAU (2017)</p>
+          Doutorado em Recursos Naturais com ênfase em Otimização Multiobjetivo — UFCG (2009).  
+          Mestrado em Ciência da Computação — UFCG (1993).  
+          Bacharelado em Ciência da Computação — UFCG (1990). Radiologia - UNINASSAU (2017)</p>
           <p>Diretor • Laboratório de Análise de Dados e IA (LANA) • UEPB</p>
           <p>Campina Grande - Paraíba - Brasil</p>
         </div>
-
-
-<!--     <div class="sobre-texto">
-      <h2 class="sobre-titulo">Sobre</h2>
-      Sou Professor, Pesquisador, Escritor e Engenheiro de Inteligência Artificial. 
-      Gosto de de explorar tecnologia, ciência de dados, IA de forma prática e criativa, combinando programação, IA, web e projetos acadêmicos. <br>
-       IA & Data Science | Saúde digital | Insights que contam histórias| Aprendizado constante.<br> -->
-      <!-- Gosto de Café, Ecologia, História, Geopolítica, Artes, Gatos, Ler, Estudar.  -->
-      <!-- <br><p> -->
-      <!-- Doutorado em Recursos Naturais — UFCG (2009).   -->
-      <!-- Mestrado em Ciência da Computação — UFCG (2006).   -->
-      <!-- Bacharelado em Ciência da Computação — UEPB (2004). Radiologia - UNINASSAU (2017)</p> -->
-      <!-- <p>Atuação em Big Data Analytics, SQL/NoSQL, Machine Learning, Python, C/C++, Linux, Cloud, Deep Learning e Inteligência Artificial.</p> -->
-      <!-- <p>Diretor — Laboratório de Análise de Dados e IA (LANA) - UEPB</p> -->
-      <!-- <p>Campina Grande - Paraíba - Brasil</p> -->
-    <!-- </div> --> -->
 
   </div>
 
@@ -481,10 +488,10 @@
 
       <div class="logos-container">
         <img class="logo-img"
-          src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/uepb.png">
+          src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/Logomarca-da-UEPB.png">
 
         <img class="logo-img"
-          src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/lana.png">
+          src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/LANA-Logo-2025.png">
       </div>
 
     </div>
