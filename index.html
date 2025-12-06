@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR"> 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,645 +7,225 @@
 
   <!-- Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Link para CSS externo -->
+  <link rel="stylesheet" href="style.css">
 
-  <style>
-    :root{
-      --bg: #ffffff;
-      --muted: #6b7280;
-      --text: #111827;
-      --card: #f8fafc;
-      --border: #e6e9ee;
-      --accent: #0b66ff;
-      --max-width: 1100px;
-    }
-
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:var(--text);
-      background: #fbfdff;
-      line-height:1.6;
-      font-size:16px;
-    }
-
-    .container{
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    #sobre.container {
-      padding-top: 32px;
-    }
-
-
-    /* Header */
-    header{
-      position:sticky;
-      top:0;
-      z-index:80;
-      backdrop-filter: blur(6px);
-      background: rgba(255,255,255,0.86);
-      border-bottom:1px solid var(--border);
-    }
-
-    .menu{
-      max-width:var(--max-width);
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px; 
-      padding:12px 20px;
-    }
-
-    .brand{
-      font-weight:600;
-      color:var(--text);
-    }
-
-    nav ul{
-      display:flex;
-      gap:18px;
-      list-style:none;
-      margin:0;
-      padding:0;
-    }
-
-    nav a{
-      color:var(--text);
-      text-decoration:none;
-      font-weight:500;
-      padding:6px 8px;
-      border-radius:8px;
-    }
-    nav a:hover{background:#f3f6fb}
-
-
-    /* ------- Título interno "Sobre" ------- */
-    .sobre-titulo {
-      font-size: 1.8rem;
-      font-weight: 500;
-      margin-bottom: 18px;
-      color: #111;
-    }
-
-
-    /* ------- Nome grande ------- */
-    .sobre-nome {
-      font-size: clamp(3rem, 6vw, 5rem); /* cresce com a tela, mínimo 3rem, máximo 5rem */
-      font-weight: 400;
-      margin: 0;
-      color: #111;
-      line-height: 1.15;
-      text-align: left; /* mantém alinhamento com o menu/Disciplinas */
-    }
-
-    /* ------- Atuação profissional ------- */
-    .sobre-atuacoes {
-      font-size: 1.5rem; /* um pouco maior */
-      color: #444;
-      margin-top: 8px;   /* um espaçamento menor em relação ao nome */
-      margin-bottom: 30px;
-      text-align: left;  /* mantém alinhamento com o nome */
-    }
-
-
-  /*============================================================
-    SEÇÃO SOBRE — FOTO E TEXTO ALINHADOS POR CIMA E POR BAIXO
-  ============================================================*/
-
-  /* Container: foto + texto lado a lado, mesma altura */
-  .sobre-container {
-    display: flex;
-    align-items: stretch;       /* força mesma altura */
-    gap: 40px;
-    margin-top: 0;
-  }
-
-  /* FOTO — cresce para igualar o bloco de texto */
-  .sobre-foto {
-    width: 340px;               /* largura maior (ajustável) */
-    height: 100%;               /* cresce para igualar o texto */
-    max-height: 680px;          /* limite para evitar exagero */
-    object-fit: cover;          /* mantém estética */
-    border-radius: 16px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-    display: block;
-  }
-
-  /* TEXTO — permanece exatamente como no seu design */
-  .sobre-texto {
-    max-width: 750px;
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: #222;
-    text-align: left;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Remoção de margens superiores dos elementos internos */
-  .sobre-texto h1,
-  .sobre-texto h2,
-  .sobre-texto h3,
-  .sobre-texto h4,
-  .sobre-texto p,
-  .sobre-titulo,
-  .sobre-nome,
-  .sobre-atuacoes {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  /*============================================================
-    RESPONSIVIDADE
-  ============================================================*/
-  @media (max-width: 850px) {
-    .sobre-container {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .sobre-foto {
-      width: 70%;
-      height: auto;
-      max-height: none;
-    }
-
-    .sobre-nome,
-    .sobre-atuacoes {
-      text-align: center;
-    }
-  }
-
-    
-  /* MENU Disciplinas */
-  #disciplinas{
-      padding:32px 20px;
-      max-width:var(--max-width);
-      margin:0 auto;
-    }
-
-  .section-title{
-    font-size:1.6rem;
-    font-weight:600;
-    margin-bottom:18px;
-  }
-
-  .accordion-item{
-    border:1px solid var(--border);
-    border-radius:10px;
-    margin-bottom:14px;
-    background:#fff;
-    box-shadow:0 4px 18px rgba(0,0,0,0.05);
-  }
-
-  .accordion-header{
-    width:100%;
-    padding:16px 18px;
-    font-size:1.05rem;
-    font-weight:600;
-    background:#fff;
-    border:none;
-    cursor:pointer;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-  }
-
-  .accordion-content{
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .35s ease;
-  }
-
-  .accordion-item.open .accordion-content{
-    padding:14px 18px 20px;
-  }
-
-  .chev{
-    transition:transform .3s;
-  }
-  .accordion-item.open .chev{
-    transform: rotate(180deg);
-  }
-
-  .content-inner ul{
-    margin-left:20px;
-  }
-
-
-  /* 
-  ============================
-   SEÇÃO LIVROS — MINIMALISTA
-  ============================
-   */
-
-  /* Container da seção */
-  #livros.container {
-    text-align: left;      /* Alinhamento à esquerda */
-    padding-left: 20px;    /* Mantém padrão do site */
-    padding-right: 20px;
-  }
-
-  /* Título da seção */
-  #livros h2 {
-    text-align: left;
-    margin-bottom: 20px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: #222;
-  }
-
-/* Grid dos livros */
-  .grade-livros {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 32px;
-    justify-items: start; /* tudo alinhado à esquerda */
-  }
-
-  /* Cada livro é um card clicável */
-  .livro {
-    display: block;
-    background: #fff;
-    border-radius: 14px;
-    overflow: hidden;
-    text-align: left;
-    border: 1px solid #eee;
-    transition: transform .25s ease, box-shadow .25s ease;
-    text-decoration: none; /* remove sublinhado do link */
-    color: inherit;
-  }
-
-  /* Hover no card */
-  .livro:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 26px rgba(0,0,0,0.08);
-  }
-
-  /* Container da imagem da capa */
-  .img-container {
-    overflow: hidden;       /* evita ultrapassar bordas */
-    border-radius: 14px;
-  }
-
-  /* Imagem da capa */
-  .img-container img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;      /* mantém proporção da capa */
-    display: block;
-    transition: transform .35s ease; /* suavidade do zoom */
-  }
-
-  /* Efeito hover: zoom suave na capa */
-  .livro:hover .img-container img {
-    transform: scale(1.06);
-  }
-
-  /* Legenda minimalista */
-  .livro p {
-    margin: 12px 14px 16px;
-    font-size: 0.95rem;
-    color: #444;
-    line-height: 1.45;
-    font-weight: 500;
-    position: relative;
-  }
-
-  /* Linha sutil acima da legenda */
-  .livro p::before {
-    content: "";
-    display: block;
-    width: 28px;
-    height: 2px;
-    background: #ddd;
-    margin-bottom: 10px;
-    border-radius: 2px;
-  }
-
-  /* Responsividade */
-  @media (max-width: 850px) {
-    .grade-livros {
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 20px;
-    }
-
-    .img-container img {
-      height: 200px;
-    }
-
-    .livro p {
-      font-size: 0.9rem;
-    }
-  }
-
-  
- /* ===========================
-   Secao Contato 
-  =========================== */
-
-  /* Espaçamento padrão entre logomarcas e rodapé */
-  .contato-section {  /* Espaçamento padrão entre logomarcas e rodapé */
-    padding-bottom: 28px !important;  /* espaçamento elegante e consistente */
-    margin-bottom: 0 !important;
-    /*padding: 60px 20px;*/
-    background: #fafafa;
-    margin-top: 40px;
-    border-top: 1px solid #ddd;
-  }
-
-  /* Zerar excesso interno */
-  .contato-container {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  .contato-section .contato-container {
-      max-width: var(--max-width);  /* igual às outras seções */
-      margin: 0 auto;
-      text-align: left;
-      padding-left: 0;  /* já tem o padding da section */
-      padding-right: 0;
-    }
-
-    /* ============================================================
-       LOGOMARCAS — ALINHADAS PELA BASE, MAIS PRÓXIMAS DO TEXTO
-      ============================================================ */
-
-    /* Logomarcas */
-    .logos-container {
-      display: flex;
-      justify-content: flex-start; /* alinhadas à esquerda */
-      gap: 28px;                   /* aproxima uma da outra e do texto */
-      align-items: flex-end;       /* alinhadas pela base */
-      argin-bottom: 0 !important;   /* 🔥 antes era 35px — agora bem menor */
-    }
-
-    /* LANA — proporcional à UEPB */
-    .logo-lana:first-child {
-      height: auto;
-      max-height: 120px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    /* UEPB — aumentada em 30% */
-    .logo-uepb:last-child {
-      height: 120px;
-      width: auto;
-      object-fit: contain;
-    }
-
-
-    /* Rodapé — alinhado à esquerda dentro da área útil */
-    footer {
-      max-width: 1100px;     /* mesma largura usada no restante do layout */
-      margin: 20px auto 0;   /* centraliza o bloco mas alinha o conteúdo à esquerda */
-      padding: 20px;
-      color: #666;
-      text-align: left;
-    }
-
-
-</style>
 </head>
-
-<body>
-<header>
-  <div class="menu">
-    <div class="brand">valencar.com</div>
-    <nav>
-      <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#disciplinas">Disciplinas</a></li>
-        <li><a href="#livros">Livros</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<!-- ======== SOBRE ======== -->
-<section id="sobre" class="container">
-
-  <h1 class="sobre-nome">Vladimir C. Alencar</h1>
-  <p class="sobre-atuacoes">Professor • Pesquisador • Engenheiro de IA • Code Lover •  Insights que contam histórias</p>
-
-  <div class="sobre-container">
-    <img class="sobre-foto"
-      src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/sobre/ensaio0010.JPG">
  
-
-    <div class="sobre-texto">
-      <h2 class="sobre-titulo">Sobre mim</h2>
-          <p>Sou Professor, Pesquisador e Escritor, sempre motivado por pensar, criar e aplicar tecnologia de forma prática e criativa. Exploro Inteligência Artificial, ciência de dados e programação, integrando esses campos em projetos acadêmicos e soluções reais.<br>
-          Gosto de café, gatos, ecologia, história, antropologia, cosmologia, geopolítica, música e artes — temas que me inspiram e ampliam minha visão de mundo. Adoro ler, estudar e descobrir novas ideias, mantendo a curiosidade sempre ativa.<br>
-          <p>Doutorado em Recursos Naturais com ênfase em Otimização — UFCG (2009)<br>
-          Mestrado em Ciência da Computação — UFCG (1993)<br>
-          Bacharelado em Ciência da Computação — UFCG (1990)<br>
-          Graduado em Radiologia - UNINASSAU (2017)</p>
-          <p>Diretor do Laboratório de Análise de Dados e IA (LANA) • UEPB<br><br>
-          Campina Grande - Paraíba - Brasil</p>
+<body>
+  <header>
+    <div class="menu">
+      <div class="brand">valencar.com</div>
+      <nav>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#disciplinas">Disciplinas</a></li>
+          <li><a href="#livros">Livros</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
+  </header>
 
-</section>
+    <!-- ======== SOBRE ======== -->
+    <section id="sobre" class="container">
+      <h1 class="sobre-nome">Vladimir C. Alencar</h1>
+      <p class="sobre-atuacoes">Professor • Pesquisador • Engenheiro de IA • Code Lover •  Insights que contam histórias</p>
 
-<!-- ======== DISCIPLINAS ======== -->
-<section id="disciplinas">
+      <div class="sobre-container">
+        <img class="sobre-foto"
+          src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/sobre/ensaio0010.JPG">
+     
 
-  <h2 class="section-title">Disciplinas</h2>
-
-  <!-- Banco de Dados -->
-  <article class="accordion-item">
-    <button class="accordion-header">
-      <span>Banco de Dados</span>
-      <span class="chev">▾</span>
-    </button>
-    <section class="accordion-content">
-      <div class="content-inner">
-        <ul>
-          <li>1. História e fundamentos</li>
-          <li>2. MER, Modelo Relacional</li>
-          <li>3. SQL</li>
-          <li>4. NoSQL</li>
-          <li>5. Big Data</li>
-        </ul>
+        <div class="sobre-texto">
+          <h2 class="sobre-titulo">Sobre mim</h2>
+              <p>Sou Professor, Pesquisador e Escritor, sempre motivado por pensar, criar e aplicar tecnologia de forma prática e criativa. Exploro Inteligência Artificial, ciência de dados e programação, integrando esses campos em projetos acadêmicos e soluções reais.<br>
+              Gosto de café, gatos, ecologia, história, antropologia, cosmologia, geopolítica, música e artes — temas que me inspiram e ampliam minha visão de mundo. Adoro ler, estudar e descobrir novas ideias, mantendo a curiosidade sempre ativa.<br>
+              <p>Doutorado em Recursos Naturais com ênfase em Otimização — UFCG (2009)<br>
+              Mestrado em Ciência da Computação — UFCG (1993)<br>
+              Bacharelado em Ciência da Computação — UFCG (1990)<br>
+              Graduado em Radiologia - UNINASSAU (2017)</p>
+              <p>Diretor do Laboratório de Análise de Dados e IA (LANA) • UEPB<br><br>
+              Campina Grande - Paraíba - Brasil</p>
+        </div>
       </div>
     </section>
-  </article>
 
-  <!-- ICC -->
-  <article class="accordion-item">
-    <button class="accordion-header">
-      <span>Introdução à Ciência da Computação</span>
-      <span class="chev">▾</span>
-    </button>
-    <section class="accordion-content">
-      <div class="content-inner">
-        <ul>
-          <li>Fundamentos da computação</li>
-          <li>Lógica</li>
-          <li>Algoritmos</li>
-          <li>Python básico</li>
-        </ul>
+    <!-- ======== DISCIPLINAS ======== -->
+    <section id="disciplinas">
+
+      <h2 class="section-title">Disciplinas</h2>
+
+      <!-- Banco de Dados -->
+      <article class="accordion-item">
+        <button class="accordion-header">
+          <span>Banco de Dados</span>
+          <span class="chev">▾</span>
+        </button>
+        <section class="accordion-content">
+          <div class="content-inner">
+            <ul>
+              <li>1. História e fundamentos</li>
+              <li>2. MER, Modelo Relacional</li>
+              <li>3. SQL</li>
+              <li>4. NoSQL</li>
+              <li>5. Big Data</li>
+            </ul>
+          </div>
+        </section>
+      </article>
+
+      <!-- ICC -->
+      <article class="accordion-item">
+        <button class="accordion-header">
+          <span>Introdução à Ciência da Computação</span>
+          <span class="chev">▾</span>
+        </button>
+        <section class="accordion-content">
+          <div class="content-inner">
+            <ul>
+              <li>Fundamentos da computação</li>
+              <li>Lógica</li>
+              <li>Algoritmos</li>
+              <li>Python básico</li>
+            </ul>
+          </div>
+        </section>
+      </article>
+
+      <!-- Ciência de Dados -->
+      <article class="accordion-item">
+        <button class="accordion-header">
+          <span>Ciência de Dados</span>
+          <span class="chev">▾</span>
+        </button>
+        <section class="accordion-content">
+          <div class="content-inner">
+            <ul>
+              <li>Python para análise</li>
+              <li>Pandas</li>
+              <li>Machine Learning</li>
+              <li>Deep Learning</li>
+            </ul>
+          </div>
+        </section>
+      </article>
+
+    </section>
+    <!-- 
+    ============================= 
+    ======== SEÇÃO LIVROS ======= 
+    ============================= 
+     -->
+    <section id="livros" class="container">
+      <h2>Livros publicados</h2>
+
+      <div class="grade-livros">
+
+        <a class="livro" href="#" target="_blank">
+          <div class="img-container">
+            <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/1.InteligenciaArtificial.png" 
+                 alt="Capa do livro Inteligência Artificial">
+          </div>
+          <p>Inteligência Artificial</p>
+        </a>
+
+        <a class="livro" href="#" target="_blank">
+          <div class="img-container">
+            <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/2.DoencasDePele-CNN.webp" 
+                 alt="Capa do livro Detecção de Doenças de Pele">
+          </div>
+          <p>Detecção de Doenças de Pele</p>
+        </a>
+
+        <a class="livro" href="#" target="_blank">
+          <div class="img-container">
+            <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/3.FebreAmarela-Twitter.jpg" 
+                 alt="Capa do livro Febre Amarela & Twitter">
+          </div>
+          <p>Febre Amarela & Twitter</p>
+        </a>
+
+        <a class="livro" href="#" target="_blank">
+          <div class="img-container">
+            <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/4.Tuberculose.webp" 
+                 alt="Capa do livro Análise da Tuberculose">
+          </div>
+          <p>Análise da Tuberculose</p>
+        </a>
+
+        <a class="livro" href="#" target="_blank">
+          <div class="img-container">
+            <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/5.cggeo.webp" 
+                 alt="Capa do livro CGGeo — Planejamento Municipal">
+          </div>
+          <p>CGGeo — Planejamento Municipal</p>
+        </a>
+
+        <a class="livro" href="#" target="_blank">
+          <div class="img-container">
+            <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/6.PrevisaoDeEpidemias.png" 
+                 alt="Capa do livro Previsão de Epidemias">
+          </div>
+          <p>Previsão de Epidemias</p>
+        </a>
+
+        <a class="livro" href="#" target="_blank">
+          <div class="img-container">
+            <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/7.sigtrans.webp" 
+                 alt="Capa do livro SIGTRANS — Planejamento de Transporte">
+          </div>
+          <p>SIGTRANS — Planejamento de Transporte</p>
+        </a>
+
+        <a class="livro" href="#" target="_blank">
+          <div class="img-container">
+            <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/8.AnalisesMultiobjetivo.jpg" 
+                 alt="Capa do livro Análises Multicritério e Multiobjetivo">
+          </div>
+          <p>Análises Multicritério e Multiobjetivo</p>
+        </a>
+
       </div>
     </section>
-  </article>
 
-  <!-- Ciência de Dados -->
-  <article class="accordion-item">
-    <button class="accordion-header">
-      <span>Ciência de Dados</span>
-      <span class="chev">▾</span>
-    </button>
-    <section class="accordion-content">
-      <div class="content-inner">
-        <ul>
-          <li>Python para análise</li>
-          <li>Pandas</li>
-          <li>Machine Learning</li>
-          <li>Deep Learning</li>
-        </ul>
+
+    <!-- 
+    ============================== 
+    ======== SEÇÃO CONTATO ======= 
+    ============================== 
+     -->
+    <section id="contato" class="contato-section">
+
+      <div class="contato-container">
+        <h2>Contato</h2>
+
+        <p class="contato-nome">
+          Vladimir Costa de Alencar<br>
+          Laboratório de Análise de Dados e Inteligência Artificial — LANA<br>
+          Universidade Estadual da Paraíba — UEPB<br>
+          Rua Baraúnas, 351. Bodocongó<br>
+          Campina Grande, Paraíba. Brasil<br>
+          Telefone: +55 83 3315-3300<br>
+          Email: valencar@servidor.uepb.edu.br<br>
+        </p>
+
+        <div class="logos-container">
+
+          <img class="logo-img logo-lana"
+            src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/LANA-Logo-web.png"> 
+
+          <img class="logo-img logo-uepb"
+            src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/Logomarca-da-UEPB.png">
+
+        </div>
+
       </div>
     </section>
-  </article>
 
-</section>
-<!-- 
-============================= 
-======== SEÇÃO LIVROS ======= 
-============================= 
- -->
-<section id="livros" class="container">
-  <h2>Livros publicados</h2>
-
-  <div class="grade-livros">
-
-    <a class="livro" href="#" target="_blank">
-      <div class="img-container">
-        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/1.InteligenciaArtificial.png" 
-             alt="Capa do livro Inteligência Artificial">
-      </div>
-      <p>Inteligência Artificial</p>
-    </a>
-
-    <a class="livro" href="#" target="_blank">
-      <div class="img-container">
-        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/2.DoencasDePele-CNN.webp" 
-             alt="Capa do livro Detecção de Doenças de Pele">
-      </div>
-      <p>Detecção de Doenças de Pele</p>
-    </a>
-
-    <a class="livro" href="#" target="_blank">
-      <div class="img-container">
-        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/3.FebreAmarela-Twitter.jpg" 
-             alt="Capa do livro Febre Amarela & Twitter">
-      </div>
-      <p>Febre Amarela & Twitter</p>
-    </a>
-
-    <a class="livro" href="#" target="_blank">
-      <div class="img-container">
-        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/4.Tuberculose.webp" 
-             alt="Capa do livro Análise da Tuberculose">
-      </div>
-      <p>Análise da Tuberculose</p>
-    </a>
-
-    <a class="livro" href="#" target="_blank">
-      <div class="img-container">
-        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/5.cggeo.webp" 
-             alt="Capa do livro CGGeo — Planejamento Municipal">
-      </div>
-      <p>CGGeo — Planejamento Municipal</p>
-    </a>
-
-    <a class="livro" href="#" target="_blank">
-      <div class="img-container">
-        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/6.PrevisaoDeEpidemias.png" 
-             alt="Capa do livro Previsão de Epidemias">
-      </div>
-      <p>Previsão de Epidemias</p>
-    </a>
-
-    <a class="livro" href="#" target="_blank">
-      <div class="img-container">
-        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/7.sigtrans.webp" 
-             alt="Capa do livro SIGTRANS — Planejamento de Transporte">
-      </div>
-      <p>SIGTRANS — Planejamento de Transporte</p>
-    </a>
-
-    <a class="livro" href="#" target="_blank">
-      <div class="img-container">
-        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/8.AnalisesMultiobjetivo.jpg" 
-             alt="Capa do livro Análises Multicritério e Multiobjetivo">
-      </div>
-      <p>Análises Multicritério e Multiobjetivo</p>
-    </a>
-
-  </div>
-</section>
-
-
-  <!-- 
-  ============================== 
-  ======== SEÇÃO CONTATO ======= 
-  ============================== 
-   -->
-  <section id="contato" class="contato-section">
-
-    <div class="contato-container">
-      <h2>Contato</h2>
-
-      <p class="contato-nome">
-        Vladimir Costa de Alencar<br>
-        Laboratório de Análise de Dados e Inteligência Artificial — LANA<br>
-        Universidade Estadual da Paraíba — UEPB<br>
-        Rua Baraúnas, 351. Bodocongó<br>
-        Campina Grande, Paraíba. Brasil<br>
-        Telefone: +55 83 3315-3300<br>
-        Email: valencar@servidor.uepb.edu.br<br>
-      </p>
-
-      <div class="logos-container">
-
-        <img class="logo-img logo-lana"
-          src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/LANA-Logo-web.png"> 
-
-        <img class="logo-img logo-uepb"
-          src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/Logomarca-da-UEPB.png">
-
-      </div>
-
-    </div>
-  </section>
-
- <footer>
-    © 2025 Vladimir Costa de Alencar - Todos os direitos reservados.
- </footer>
-
-
-<script>
-document.querySelectorAll('.accordion-item').forEach(item => {
-  const header = item.querySelector('.accordion-header');
-  header.addEventListener('click', () => {
-    item.classList.toggle('open');
-    const content = item.querySelector('.accordion-content');
-    if(item.classList.contains('open')){
-      content.style.maxHeight = content.scrollHeight + "px";
-    } else {
-      content.style.maxHeight = "0px";
-    }
-  });
-});
-</script>
-
+     <footer>
+        © 2025 Vladimir Costa de Alencar - Todos os direitos reservados.
+     </footer>
+     
 </body>
 </html>
