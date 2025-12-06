@@ -1,25 +1,39 @@
-// ===========================
-// MENU MOBILE
-// ===========================
+// ===================== MENU MOBILE =====================
 const menuToggle = document.getElementById('menuToggle');
-const menuList = document.querySelector('.menu nav ul');
+const navMenu = document.querySelector('header nav ul');
 
-menuToggle.addEventListener('click', () => {
-  const isOpen = menuList.style.display === 'flex';
-  menuList.style.display = isOpen ? 'none' : 'flex';
+menuToggle && menuToggle.addEventListener('click', () => {
+  const isOpen = navMenu.style.display === 'flex';
+  navMenu.style.display = isOpen ? 'none' : 'flex';
 });
 
-// ===========================
-// ACCORDION
-// ===========================
+// ===================== ACCORDIONS =====================
 const accordions = document.querySelectorAll('.accordion-item');
 
 accordions.forEach(item => {
   const header = item.querySelector('.accordion-header');
   const content = item.querySelector('.accordion-content');
+  const chev = header.querySelector('.chev');
 
   header.addEventListener('click', () => {
-    const isOpen = content.style.display === 'block';
-    content.style.display = isOpen ? 'none' : 'block';
+    const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+    // Fecha todos os outros accordions
+    accordions.forEach(other => {
+      const otherContent = other.querySelector('.accordion-content');
+      const otherChev = other.querySelector('.chev');
+      if (otherContent !== content) {
+        otherContent.style.maxHeight = null;
+        otherChev.style.transform = 'rotate(0deg)';
+      }
+    });
+
+    if (isOpen) {
+      content.style.maxHeight = null;
+      chev.style.transform = 'rotate(0deg)';
+    } else {
+      content.style.maxHeight = content.scrollHeight + 'px';
+      chev.style.transform = 'rotate(180deg)';
+    }
   });
 });

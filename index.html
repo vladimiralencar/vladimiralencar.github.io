@@ -5,20 +5,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Vladimir Costa de Alencar</title>
 
-  <!-- Montserrat -->
+  <!-- Fonte Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <!-- CSS externo -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- ======== MENU ======== -->
+  <!-- ======== HEADER / MENU ======== -->
   <header>
-    <div class="menu">
+    <div class="menu container">
       <div class="brand">valencar.com</div>
-      <button id="menuToggle" class="menu-toggle">☰</button>
+      <div id="menuToggle" class="menu-toggle">☰</div>
       <nav>
         <ul>
           <li><a href="#sobre">Sobre</a></li>
@@ -36,27 +34,27 @@
     <p class="sobre-atuacoes">Professor • Pesquisador • Engenheiro de IA • Code Lover • Insights que contam histórias</p>
 
     <div class="sobre-container">
-      <img class="sobre-foto"
-           src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/sobre/ensaio0010.JPG"
-           alt="Foto de Vladimir C. Alencar">
+      <img class="sobre-foto" src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/sobre/ensaio0010.JPG">
 
       <div class="sobre-texto">
         <h2 class="sobre-titulo">Sobre mim</h2>
-        <p>Sou Professor, Pesquisador e Escritor, sempre motivado por pensar, criar e aplicar tecnologia de forma prática e criativa. Exploro Inteligência Artificial, ciência de dados e programação, integrando esses campos em projetos acadêmicos e soluções reais.</p>
-        <p>Gosto de café, gatos, ecologia, história, antropologia, cosmologia, geopolítica, música e artes — temas que me inspiram e ampliam minha visão de mundo. Adoro ler, estudar e descobrir novas ideias, mantendo a curiosidade sempre ativa.</p>
+        <p>Sou Professor, Pesquisador e Escritor, sempre motivado por pensar, criar e aplicar tecnologia de forma prática e criativa. Exploro Inteligência Artificial, ciência de dados e programação, integrando esses campos em projetos acadêmicos e soluções reais.<br>
+        Gosto de café, gatos, ecologia, história, antropologia, cosmologia, geopolítica, música e artes — temas que me inspiram e ampliam minha visão de mundo. Adoro ler, estudar e descobrir novas ideias, mantendo a curiosidade sempre ativa.</p>
+
         <p>Doutorado em Recursos Naturais com ênfase em Otimização — UFCG (2009)<br>
-           Mestrado em Ciência da Computação — UFCG (1993)<br>
-           Bacharelado em Ciência da Computação — UFCG (1990)<br>
-           Graduado em Radiologia - UNINASSAU (2017)</p>
+        Mestrado em Ciência da Computação — UFCG (1993)<br>
+        Bacharelado em Ciência da Computação — UFCG (1990)<br>
+        Graduado em Radiologia — UNINASSAU (2017)</p>
+
         <p>Diretor do Laboratório de Análise de Dados e IA (LANA) • UEPB<br>
-           Campina Grande - Paraíba - Brasil</p>
+        Campina Grande - Paraíba - Brasil</p>
       </div>
     </div>
   </section>
 
   <!-- ======== DISCIPLINAS ======== -->
   <section id="disciplinas" class="container">
-    <h2 class="section-title">Disciplinas</h2>
+    <h2>Disciplinas</h2>
 
     <article class="accordion-item">
       <button class="accordion-header">
@@ -64,13 +62,15 @@
         <span class="chev">▾</span>
       </button>
       <section class="accordion-content">
-        <ul>
-          <li>1. História e fundamentos</li>
-          <li>2. MER, Modelo Relacional</li>
-          <li>3. SQL</li>
-          <li>4. NoSQL</li>
-          <li>5. Big Data</li>
-        </ul>
+        <div class="content-inner">
+          <ul>
+            <li>História e fundamentos</li>
+            <li>MER, Modelo Relacional</li>
+            <li>SQL</li>
+            <li>NoSQL</li>
+            <li>Big Data</li>
+          </ul>
+        </div>
       </section>
     </article>
 
@@ -80,12 +80,14 @@
         <span class="chev">▾</span>
       </button>
       <section class="accordion-content">
-        <ul>
-          <li>Fundamentos da computação</li>
-          <li>Lógica</li>
-          <li>Algoritmos</li>
-          <li>Python básico</li>
-        </ul>
+        <div class="content-inner">
+          <ul>
+            <li>Fundamentos da computação</li>
+            <li>Lógica</li>
+            <li>Algoritmos</li>
+            <li>Python básico</li>
+          </ul>
+        </div>
       </section>
     </article>
 
@@ -95,72 +97,76 @@
         <span class="chev">▾</span>
       </button>
       <section class="accordion-content">
-        <ul>
-          <li>Python para análise</li>
-          <li>Pandas</li>
-          <li>Machine Learning</li>
-          <li>Deep Learning</li>
-        </ul>
+        <div class="content-inner">
+          <ul>
+            <li>Python para análise</li>
+            <li>Pandas</li>
+            <li>Machine Learning</li>
+            <li>Deep Learning</li>
+          </ul>
+        </div>
       </section>
     </article>
+
   </section>
 
   <!-- ======== LIVROS ======== -->
   <section id="livros" class="container">
     <h2>Livros publicados</h2>
+
     <div class="grade-livros">
       <a class="livro" href="#" target="_blank">
         <div class="img-container">
-          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/1.InteligenciaArtificial.png" alt="Inteligência Artificial">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/1.InteligenciaArtificial.png">
         </div>
         <p>Inteligência Artificial</p>
       </a>
 
       <a class="livro" href="#" target="_blank">
         <div class="img-container">
-          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/2.DoencasDePele-CNN.webp" alt="Detecção de Doenças de Pele">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/2.DoencasDePele-CNN.webp">
         </div>
         <p>Detecção de Doenças de Pele</p>
       </a>
 
       <a class="livro" href="#" target="_blank">
         <div class="img-container">
-          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/3.FebreAmarela-Twitter.jpg" alt="Febre Amarela & Twitter">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/3.FebreAmarela-Twitter.jpg">
         </div>
         <p>Febre Amarela & Twitter</p>
       </a>
 
       <a class="livro" href="#" target="_blank">
         <div class="img-container">
-          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/4.Tuberculose.webp" alt="Análise da Tuberculose">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/4.Tuberculose.webp">
         </div>
         <p>Análise da Tuberculose</p>
       </a>
 
       <a class="livro" href="#" target="_blank">
         <div class="img-container">
-          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/5.cggeo.webp" alt="CGGeo — Planejamento Municipal">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/5.cggeo.webp">
         </div>
         <p>CGGeo — Planejamento Municipal</p>
       </a>
 
       <a class="livro" href="#" target="_blank">
         <div class="img-container">
-          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/6.PrevisaoDeEpidemias.png" alt="Previsão de Epidemias">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/6.PrevisaoDeEpidemias.png">
         </div>
         <p>Previsão de Epidemias</p>
       </a>
 
       <a class="livro" href="#" target="_blank">
         <div class="img-container">
-          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/7.sigtrans.webp" alt="SIGTRANS — Planejamento de Transporte">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/7.sigtrans.webp">
         </div>
         <p>SIGTRANS — Planejamento de Transporte</p>
       </a>
 
       <a class="livro" href="#" target="_blank">
         <div class="img-container">
-          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/8.AnalisesMultiobjetivo.jpg" alt="Análises Multicritério e Multiobjetivo">
+          <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/8.AnalisesMultiobjetivo.jpg">
         </div>
         <p>Análises Multicritério e Multiobjetivo</p>
       </a>
@@ -168,30 +174,31 @@
   </section>
 
   <!-- ======== CONTATO ======== -->
-  <section id="contato" class="contato-section">
-    <div class="contato-container">
-      <h2>Contato</h2>
-      <p class="contato-nome">
-        Vladimir Costa de Alencar<br>
-        Laboratório de Análise de Dados e Inteligência Artificial — LANA<br>
-        Universidade Estadual da Paraíba — UEPB<br>
-        Rua Baraúnas, 351. Bodocongó<br>
-        Campina Grande, Paraíba. Brasil<br>
-        Telefone: +55 83 3315-3300<br>
-        Email: valencar@servidor.uepb.edu.br
-      </p>
+  <section id="contato" class="contato-section container">
+    <h2>Contato</h2>
 
-      <div class="logos-container">
-        <img class="logo-img logo-lana" src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/LANA-Logo-web.png" alt="Logo LANA">
-        <img class="logo-img logo-uepb" src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/Logomarca-da-UEPB.png" alt="Logo UEPB">
-      </div>
+    <p class="contato-nome">
+      Vladimir Costa de Alencar<br>
+      Laboratório de Análise de Dados e Inteligência Artificial — LANA<br>
+      Universidade Estadual da Paraíba — UEPB<br>
+      Rua Baraúnas, 351. Bodocongó<br>
+      Campina Grande, Paraíba. Brasil<br>
+      Telefone: +55 83 3315-3300<br>
+      Email: valencar@servidor.uepb.edu.br<br>
+    </p>
+
+    <div class="logos-container">
+      <img class="logo-img" src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/LANA-Logo-web.png"> 
+      <img class="logo-img" src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/Logomarca-da-UEPB.png">
     </div>
   </section>
 
-  <footer>
-    © 2025 Vladimir Costa de Alencar — Todos os direitos reservados.
+  <!-- ======== RODAPÉ ======== -->
+  <footer class="container">
+    © 2025 Vladimir Costa de Alencar - Todos os direitos reservados.
   </footer>
 
+  <!-- JS externo -->
   <script src="script.js"></script>
 </body>
 </html>
