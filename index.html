@@ -236,17 +236,12 @@
     margin-left:20px;
   }
 
-  /* 
-  ============================
-      Livros 
-  ============================
-   */
 
  /* ===========================
-   SEÇÃO LIVROS — MINIMALISTA
-   =========================== */
+   SEÇÃO Livros
+  =========================== */
 
-  /* Container da seção */
+  /* Área da seção */
   #livros {
     text-align: left;
     padding: 40px 20px;
@@ -264,15 +259,15 @@
     color: #222;
   }
 
-  /* Grid clean e minimalista */
+  /* Grid */
   .grade-livros {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 32px;
-    justify-items: start;   /* Alinha tudo à esquerda */
+    justify-items: start;
   }
 
-  /* Cartão minimalista */
+  /* Cartão */
   .livro {
     background: #fff;
     border-radius: 14px;
@@ -280,22 +275,32 @@
     text-align: left;
     border: 1px solid #eee;
     transition: transform .25s ease, box-shadow .25s ease;
+    width: 220px; /* largura fixa para alinhamento perfeito */
   }
 
-  /* Hover elegante */
+  /* Hover */
   .livro:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 26px rgba(0,0,0,0.08);
   }
 
-  /* Capa — AGORA COMPLETA, SEM CORTE */
+  /* CONTAINER da imagem — altura fixa */
+  .livro .img-container {
+    width: 100%;
+    height: 300px;       /* 👈 ajuste aqui para aumentar/diminuir */
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  /* IMAGEM — capa completa sem corte */
   .livro img {
     width: 100%;
-    height: auto;            /* ← garante proporção real */
-    object-fit: contain;     /* ← NÃO corta nada */
+    height: 100%;
+    object-fit: contain; /* mantém proporção SEM cortar */
     display: block;
-    background: #fafafa;     /* fundo neutro para capas menores */
-    padding: 10px;           /* respiro visual */
   }
 
   /* Legenda */
@@ -307,7 +312,7 @@
     font-weight: 500;
   }
 
-  /* Linha separadora */
+  /* Linha decorativa */
   .livro p::before {
     content: "";
     display: block;
@@ -318,8 +323,11 @@
     border-radius: 2px;
   }
 
+  
+ /* ===========================
+   Secao Contato 
+  =========================== */
 
-  /* Menu Contato */
   /* Espaçamento padrão entre logomarcas e rodapé */
   .contato-section {  /* Espaçamento padrão entre logomarcas e rodapé */
     padding-bottom: 28px !important;  /* espaçamento elegante e consistente */
