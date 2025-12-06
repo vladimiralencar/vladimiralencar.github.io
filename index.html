@@ -313,12 +313,22 @@
   }
 
 
-  /* Contato */
-  .contato-section {
-    padding: 60px 20px;
+
+  /* Menu Contato */
+  /* Espaçamento padrão entre logomarcas e rodapé */
+  .contato-section {  /* Espaçamento padrão entre logomarcas e rodapé */
+    padding-bottom: 28px !important;  /* espaçamento elegante e consistente */
+    margin-bottom: 0 !important;
+    /*padding: 60px 20px;*/
     background: #fafafa;
     margin-top: 40px;
     border-top: 1px solid #ddd;
+  }
+
+  /* Zerar excesso interno */
+  .contato-container {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .contato-section .contato-container {
@@ -339,7 +349,7 @@
       justify-content: flex-start; /* alinhadas à esquerda */
       gap: 28px;                   /* aproxima uma da outra e do texto */
       align-items: flex-end;       /* alinhadas pela base */
-      margin-bottom: 10px;         /* 🔥 antes era 35px — agora bem menor */
+      argin-bottom: 0 !important;   /* 🔥 antes era 35px — agora bem menor */
     }
 
     /* LANA — proporcional à UEPB */
