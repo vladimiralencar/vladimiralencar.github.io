@@ -155,6 +155,16 @@
       padding-top: 0 !important;
     }
 
+    /* Remove TODA margem superior dos elementos internos do texto */
+    .sobre-texto h1,
+    .sobre-texto h2,
+    .sobre-texto h3,
+    .sobre-texto h4,
+    .sobre-texto p {
+      margin-top: 0 !important;
+    }
+
+
     /* ============================================================
        RESPONSIVIDADE
        ============================================================ */
@@ -298,13 +308,13 @@
   /* 🔹 Tamanho-base reduzido da UEPB (aumentado em 30% depois) */
   .logo-uepb{
     height: 65px;             /* tamanho final menor */
-    transform: scale(1.30);   /* aumento de 30% */
+    transform: scale(1.40);   /* aumento de 30% */
     transform-origin: bottom; /* crescimento a partir da base */
   }
 
   /* 🔹 LANA proporcional à UEPB */
   .logo-lana{
-    height: calc(65px * 1.30); /* acompanha o aumento proporcional */
+    height: calc(65px * 1.40); /* acompanha o aumento proporcional */
     transform-origin: bottom;
   }
 
@@ -325,7 +335,7 @@
 <body>
 <header>
   <div class="menu">
-    <div class="brand">valencar.com.br</div>
+    <div class="brand">valencar.com</div>
     <nav>
       <ul>
         <li><a href="#sobre">Sobre</a></li>
@@ -348,8 +358,9 @@
     <img class="sobre-foto"
       src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/refs/heads/main/sobre/ensaio0010.JPG">
 
+
     <div class="sobre-texto">
-      <h2 class="sobre-titulo">Sobre</h2>
+      <h2 class="sobre-titulo">Sobre mim</h2>
           <p>Sou Professor, Pesquisador e Escritor, sempre motivado por pensar, criar e aplicar tecnologia de forma prática e criativa. Exploro Inteligência Artificial, ciência de dados e programação,integrando esses campos em projetos acadêmicos e soluções reais.<p>
           <p>
           Fora da área técnica, tenho interesse por café, gatos, ecologia, história, antropologis, cosmologia, geopolítica,  música e  artes, — temas que me inspiram e ampliam minha visão de mundo. Gosto de ler, estudar e descobrir novas ideias, mantendo a curiosidade sempre ativa.<br><p>
