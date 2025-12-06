@@ -287,17 +287,27 @@
       padding-right: 0;
     }
 
-  /* logomarcas */  
-  .logos-container{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    align-items:flex-end;
-    margin-bottom:35px;
+  /* logomarcas */
+  .logos-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;   /* garante alinhamento pelo topo e base */
+    gap: 40px;
+    margin-bottom: 35px;
   }
 
-  .logo-img:first-child{ height:90px; }
-  .logo-img:last-child{ height:300px; }
+  /* Aumentar UEPB em 30% */
+  .logo-uepb {
+    height: calc(90px * 1.3); /* 30% maior */
+    object-fit: contain;
+  }
+
+  /* Mantém a logo do LANA proporcional à nova altura da UEPB */
+  .logo-lana {
+    height: calc(300px * 1.3); /* proporcional ao aumento aplicado */
+    object-fit: contain;
+  }
+
 
   /* Rodapé */
   footer{
@@ -338,8 +348,8 @@
 
     <div class="sobre-texto">
       <h2 class="sobre-titulo">Sobre</h2>
-          Sou Professor, Pesquisador e Escritor, sempre motivado por pensar, criar e aplicar tecnologia de forma prática e criativa. Exploro Inteligência Artificial, ciência de dados e programação,integrando esses campos em projetos acadêmicos e soluções reais.
-          <br>
+          <p>Sou Professor, Pesquisador e Escritor, sempre motivado por pensar, criar e aplicar tecnologia de forma prática e criativa. Exploro Inteligência Artificial, ciência de dados e programação,integrando esses campos em projetos acadêmicos e soluções reais.<p>
+          <p>
           Fora da área técnica, tenho interesse por café, gatos, ecologia, história, antropologis, cosmologia, geopolítica,  música e  artes, — temas que me inspiram e ampliam minha visão de mundo. Gosto de ler, estudar e descobrir novas ideias, mantendo a curiosidade sempre ativa.
           <br><p>
           Doutorado em Recursos Naturais com ênfase em Otimização Multiobjetivo — UFCG (2009). <br> 
