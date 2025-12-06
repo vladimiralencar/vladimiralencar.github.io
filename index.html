@@ -289,22 +289,23 @@
   .logos-container {
     display: flex;
     justify-content: center;
-    align-items: stretch;   /* garante alinhamento pelo topo e base */
+    align-items: flex-end; /* alinha pela base */
     gap: 40px;
     margin-bottom: 35px;
   }
 
-  /* Aumentar UEPB em 30% */
+  /* UEPB (aumento leve) */
   .logo-uepb {
-    height: calc(90px * 1.3); /* 30% maior */
+    height: 110px;
     object-fit: contain;
   }
 
-  /* Mantém a logo do LANA proporcional à nova altura da UEPB */
+  /* LANA proporcional, porém reduzida para um visual elegante */
   .logo-lana {
-    height: calc(300px * 1.3); /* proporcional ao aumento aplicado */
+    height: 220px;
     object-fit: contain;
   }
+
 
 
   /* Rodapé */
