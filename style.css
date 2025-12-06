@@ -1,28 +1,21 @@
-/* ===========================================================
+/* ===========================
    VARIÁVEIS E PADRÕES
-   =========================================================== */
+   =========================== */
 :root {
   --max-width: 1200px;
   --padding-lr: 20px;
   --border: #ddd;
-  --primary-color: #007acc; /* destaque hover */
-  --text-color: #222;
-  --subtext-color: #444;
+  --font-family: 'Montserrat', sans-serif;
 }
 
-/* ===========================================================
-   PADRÃO DE MARGEM INTERNA E BOX-SIZING
-   =========================================================== */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
+/* ===========================
+   PADRÃO DE MARGEM INTERNA
+   =========================== */
 body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text-color);
-  line-height: 1.6;
+  font-family: var(--font-family);
   margin: 0;
   padding: 0;
+  color: #222;
 }
 
 section, .container {
@@ -30,6 +23,7 @@ section, .container {
   padding-right: var(--padding-lr);
   max-width: var(--max-width);
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 section h2, section h3 {
@@ -37,57 +31,67 @@ section h2, section h3 {
   margin-left: 0;
 }
 
-/* ===========================================================
-   MENU PRINCIPAL
-   =========================================================== */
+/* ===========================
+   MENU
+   =========================== */
 header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: #fff;
-  z-index: 1000;
-  border-bottom: 1px solid #eee;
-  padding: 12px 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-  font-weight: 500;
+  z-index: 999;
 }
 
-.menu-list {
+.menu {
   display: flex;
-  gap: 32px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 12px var(--padding-lr);
+  box-sizing: border-box;
+}
+
+.menu .brand {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.menu nav ul {
+  display: flex;
   list-style: none;
+  gap: 24px;
   margin: 0;
   padding: 0;
 }
 
-.menu-list li a {
+.menu nav ul li a {
   text-decoration: none;
-  color: var(--text-color);
-  transition: color 0.2s ease, border-bottom 0.2s ease;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-.menu-list li a:hover {
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
+.menu nav ul li a:hover {
+  color: #0077cc;
 }
 
-/* Responsivo - menu mobile */
-@media (max-width: 850px) {
-  .menu-list {
-    flex-direction: column;
-    gap: 16px;
-  }
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-/* ===========================================================
-   SEÇÃO SOBRE — FOTO + TEXTO
-   =========================================================== */
+/* ===========================
+   SEÇÃO SOBRE
+   =========================== */
 .sobre-container {
   display: flex;
-  align-items: stretch; /* alinha topo e base */
+  align-items: stretch;
   gap: 40px;
-  margin-top: 0;
+  margin-top: 20px;
 }
 
 .sobre-foto {
@@ -97,20 +101,19 @@ header {
   object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-  display: block;
 }
 
 .sobre-texto {
   max-width: 750px;
   font-size: 1.05rem;
   line-height: 1.65;
-  color: var(--text-color);
+  color: #222;
   text-align: left;
   margin: 0;
   padding-top: 0;
 }
 
-/* Remove margens superiores dos elementos internos */
+/* Remove margens superiores */
 .sobre-titulo,
 .sobre-nome,
 .sobre-atuacoes,
@@ -123,42 +126,59 @@ header {
   padding-top: 0 !important;
 }
 
-/* Responsividade Sobre */
-@media (max-width: 850px) {
-  .sobre-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .sobre-foto {
-    width: 70%;
-    height: auto;
-    max-height: none;
-  }
-  .sobre-nome,
-  .sobre-atuacoes {
-    text-align: center;
-  }
+/* ===========================
+   SEÇÃO DISCIPLINAS — ACCORDION
+   =========================== */
+.accordion-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
 }
 
-/* ===========================================================
-   SEÇÃO LIVROS — ESTILO UNIFORME
-   =========================================================== */
-#livros {
-  padding: 40px 20px;
-  border-top: 1px solid var(--border);
-  max-width: var(--max-width);
-  margin: 0 auto;
+.accordion-header {
+  background: #f9f9f9;
+  cursor: pointer;
+  padding: 12px 16px;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.accordion-header:hover {
+  background: #eee;
+}
+
+.accordion-content {
+  display: none;
+  padding: 12px 16px;
+  background: #fff;
+}
+
+.accordion-content ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.chev {
+  font-weight: 600;
+}
+
+/* ===========================
+   SEÇÃO LIVROS
+   =========================== */
 #livros h2 {
   text-align: left;
   margin-bottom: 20px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  color: var(--text-color);
+  color: #222;
 }
 
-/* Grid de livros */
 .grade-livros {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -166,7 +186,6 @@ header {
   justify-items: start;
 }
 
-/* Cada livro como link clicável */
 .livro {
   display: block;
   background: #fff;
@@ -179,13 +198,11 @@ header {
   color: inherit;
 }
 
-/* Hover elegante */
 .livro:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
-/* Container da imagem da capa */
 .img-container {
   width: 100%;
   max-height: 220px;
@@ -193,7 +210,6 @@ header {
   border-radius: 14px;
 }
 
-/* Imagem da capa */
 .img-container img {
   width: 100%;
   height: 100%;
@@ -202,22 +218,19 @@ header {
   transition: transform 0.35s ease;
 }
 
-/* Hover suave na imagem */
 .livro:hover .img-container img {
   transform: scale(1.05);
 }
 
-/* Legendas minimalistas */
 .livro p {
   margin: 10px 12px 16px;
   font-size: 0.95rem;
-  color: var(--subtext-color);
+  color: #444;
   line-height: 1.45;
   font-weight: 500;
   position: relative;
 }
 
-/* Linha decorativa sutil antes da legenda */
 .livro p::before {
   content: "";
   display: block;
@@ -228,26 +241,12 @@ header {
   border-radius: 2px;
 }
 
-/* Responsividade Livros */
-@media (max-width: 850px) {
-  .grade-livros {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 16px;
-  }
-  .img-container {
-    max-height: 180px;
-  }
-  .livro p {
-    font-size: 0.9rem;
-  }
-}
-
-/* ===========================================================
-   SEÇÃO CONTATO — LOGOS
-   =========================================================== */
+/* ===========================
+   CONTATO
+   =========================== */
 .logos-container {
   display: flex;
-  justify-content: flex-start; /* alinhamento à esquerda */
+  justify-content: flex-start;
   gap: 40px;
   align-items: flex-end;
   margin-bottom: 20px;
@@ -259,13 +258,62 @@ header {
   object-fit: contain;
 }
 
-/* ===========================================================
+/* ===========================
    RODAPÉ
-   =========================================================== */
+   =========================== */
 footer {
   text-align: left;
-  padding: 20px;
+  padding: 20px var(--padding-lr);
   color: #666;
-  margin-top: 20px;
+  margin-top: 40px;
   font-size: 0.95rem;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+   =========================== */
+@media (max-width: 850px) {
+  .menu nav ul {
+    flex-direction: column;
+    display: none;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid var(--border);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .sobre-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sobre-foto {
+    width: 70%;
+    height: auto;
+    max-height: none;
+  }
+
+  .sobre-nome,
+  .sobre-atuacoes {
+    text-align: center;
+  }
+
+  .grade-livros {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .img-container {
+    max-height: 180px;
+  }
+
+  .livro p {
+    font-size: 0.9rem;
+  }
 }
