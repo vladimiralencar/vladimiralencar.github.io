@@ -1,33 +1,91 @@
-/* ===========================
+/* ===========================================================
    VARIÁVEIS E PADRÕES
-   =========================== */
+   =========================================================== */
 :root {
   --max-width: 1200px;
   --padding-lr: 20px;
   --border: #ddd;
+  --primary-color: #007acc; /* destaque hover */
+  --text-color: #222;
+  --subtext-color: #444;
 }
 
-/* Padding padrão e box-sizing */
+/* ===========================================================
+   PADRÃO DE MARGEM INTERNA E BOX-SIZING
+   =========================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
 section, .container {
   padding-left: var(--padding-lr);
   padding-right: var(--padding-lr);
   max-width: var(--max-width);
   margin: 0 auto;
-  box-sizing: border-box;
 }
 
-/* Títulos internos já alinhados à esquerda */
 section h2, section h3 {
   padding-left: 0;
   margin-left: 0;
 }
 
-/* ===========================
+/* ===========================================================
+   MENU PRINCIPAL
+   =========================================================== */
+header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+  padding: 12px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  font-weight: 500;
+}
+
+.menu-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-list li a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.menu-list li a:hover {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* Responsivo - menu mobile */
+@media (max-width: 850px) {
+  .menu-list {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* ===========================================================
    SEÇÃO SOBRE — FOTO + TEXTO
-   =========================== */
+   =========================================================== */
 .sobre-container {
   display: flex;
-  align-items: stretch;  /* alinha topo e base */
+  align-items: stretch; /* alinha topo e base */
   gap: 40px;
   margin-top: 0;
 }
@@ -46,7 +104,7 @@ section h2, section h3 {
   max-width: 750px;
   font-size: 1.05rem;
   line-height: 1.65;
-  color: #222;
+  color: var(--text-color);
   text-align: left;
   margin: 0;
   padding-top: 0;
@@ -82,9 +140,9 @@ section h2, section h3 {
   }
 }
 
-/* ===========================
+/* ===========================================================
    SEÇÃO LIVROS — ESTILO UNIFORME
-   =========================== */
+   =========================================================== */
 #livros {
   padding: 40px 20px;
   border-top: 1px solid var(--border);
@@ -97,9 +155,10 @@ section h2, section h3 {
   margin-bottom: 20px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  color: #222;
+  color: var(--text-color);
 }
 
+/* Grid de livros */
 .grade-livros {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -107,6 +166,7 @@ section h2, section h3 {
   justify-items: start;
 }
 
+/* Cada livro como link clicável */
 .livro {
   display: block;
   background: #fff;
@@ -119,11 +179,13 @@ section h2, section h3 {
   color: inherit;
 }
 
+/* Hover elegante */
 .livro:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
+/* Container da imagem da capa */
 .img-container {
   width: 100%;
   max-height: 220px;
@@ -131,6 +193,7 @@ section h2, section h3 {
   border-radius: 14px;
 }
 
+/* Imagem da capa */
 .img-container img {
   width: 100%;
   height: 100%;
@@ -139,19 +202,22 @@ section h2, section h3 {
   transition: transform 0.35s ease;
 }
 
+/* Hover suave na imagem */
 .livro:hover .img-container img {
   transform: scale(1.05);
 }
 
+/* Legendas minimalistas */
 .livro p {
   margin: 10px 12px 16px;
   font-size: 0.95rem;
-  color: #444;
+  color: var(--subtext-color);
   line-height: 1.45;
   font-weight: 500;
   position: relative;
 }
 
+/* Linha decorativa sutil antes da legenda */
 .livro p::before {
   content: "";
   display: block;
@@ -162,28 +228,26 @@ section h2, section h3 {
   border-radius: 2px;
 }
 
-/* Responsividade livros */
+/* Responsividade Livros */
 @media (max-width: 850px) {
   .grade-livros {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 16px;
   }
-
   .img-container {
     max-height: 180px;
   }
-
   .livro p {
     font-size: 0.9rem;
   }
 }
 
-/* ===========================
+/* ===========================================================
    SEÇÃO CONTATO — LOGOS
-   =========================== */
+   =========================================================== */
 .logos-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-start; /* alinhamento à esquerda */
   gap: 40px;
   align-items: flex-end;
   margin-bottom: 20px;
@@ -195,9 +259,9 @@ section h2, section h3 {
   object-fit: contain;
 }
 
-/* ===========================
+/* ===========================================================
    RODAPÉ
-   =========================== */
+   =========================================================== */
 footer {
   text-align: left;
   padding: 20px;
