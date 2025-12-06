@@ -112,9 +112,75 @@
     }
 
 
-    /* ============================================================
+    /*============================================================
        SEÇÃO SOBRE — LAYOUT FOTO + TEXTO
+      ============================================================
+       SEÇÃO SOBRE — FOTO E TEXTO ALINHADOS POR CIMA E POR BAIXO
+      ============================================================ */
+
+    /* Container principal: mantém foto e texto lado a lado,
+       alinhados tanto no topo quanto na base */
+    .sobre-container {
+      display: flex;
+      align-items: stretch;   /* força igual altura entre foto e texto */
+      gap: 40px;
+      margin-top: 0;
+    }
+
+    /* Foto maior, agora proporcional ao bloco de texto */
+    .sobre-foto {
+      width: 330px;           /* aumentei (antes era 270px) */
+      height: 100%;           /* ocupa a altura do texto */
+      max-height: 620px;      /* evita exagero caso o texto seja curto */
+      object-fit: cover;      /* mantém proporção e corte elegante */
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    }
+
+    /* Texto — tudo preservado conforme seu design */
+    .sobre-texto {
+      max-width: 750px;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #222;
+      text-align: left;
+      margin: 0;
+    }
+
+    /* Remove margens superiores padrão dos elementos internos,
+       garantindo alinhamento perfeito com o topo da imagem */
+    .sobre-texto h1,
+    .sobre-texto h2,
+    .sobre-texto h3,
+    .sobre-texto h4,
+    .sobre-texto p {
+      margin-top: 0;
+    }
+
+    /* ============================================================
+       RESPONSIVIDADE
        ============================================================ */
+    @media (max-width: 850px) {
+      .sobre-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .sobre-foto {
+        width: 70%;
+        height: auto;
+        max-height: none;
+      }
+
+      .sobre-nome,
+      .sobre-atuacoes {
+        text-align: center;
+      }
+    }
+
+
+
+
 
     /* Container principal: organiza a foto e o texto lado a lado
        e garante que fiquem alinhados pelo topo */
@@ -295,28 +361,33 @@
       padding-right: 0;
     }
 
-  /* logomarcas */
-  /* Contêiner das logomarcas */
-  .logos-container{
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;    /* alinha pela base */
-    gap: 40px;
-    margin-bottom: 35px;
-  }
+    /* ============================================================
+       LOGOMARCAS — ALINHADAS PELA BASE, MAIS PRÓXIMAS DO TEXTO
+       ============================================================ */
 
-  /* 🔹 Tamanho-base reduzido da UEPB (aumentado em 30% depois) */
-  .logo-uepb{
-    height: 65px;             /* tamanho final menor */
-    transform: scale(1.50);   /* aumento de 30% */
-    transform-origin: bottom; /* crescimento a partir da base */
-  }
+    .logos-container {
+      display: flex;
+      justify-content: flex-start;   /* alinhadas à esquerda */
+      align-items: flex-end;         /* 🔥 alinhamento perfeito pela base */
+      gap: 20px;                     /* aproxima uma da outra e do texto */
+      margin: 20px 0 35px 0;         /* menos espaço acima, mantém abaixo */
+    }
 
-  /* 🔹 LANA proporcional à UEPB */
-  .logo-lana{
-    height: calc(65px * 1.50); /* acompanha o aumento proporcional */
-    transform-origin: bottom;
-  }
+    /* UEPB — aumentada em 30% */
+    .logo-uepb:first-child {
+      height: 120px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* LANA — proporcional à UEPB */
+    .logo-lana:last-child {
+      height: auto;
+      max-height: 120px;
+      width: auto;
+      object-fit: contain;
+    }
+
 
   /* Rodapé */
   footer{
