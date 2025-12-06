@@ -181,7 +181,7 @@
 
 
 
-
+    /* Menu SOBRE */
     /* Container principal: organiza a foto e o texto lado a lado
        e garante que fiquem alinhados pelo topo */
     .sobre-container {
@@ -192,12 +192,16 @@
     }
 
     /* Foto: tamanho fixo elegante, com bordas suaves e sombra leve */
+    /* Foto — agora realmente maior */
     .sobre-foto {
-      width: 270px;
+      width: 340px !important;     /* 🔥 aumenta e impede sobrescrições */
+      height: auto !important;     /* mantém proporção natural */
       border-radius: 16px;
-      object-fit: cover;       /* evita distorção */
+      object-fit: cover;
       box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      display: block;              /* evita ajustes automáticos do flex */
     }
+
 
     /* Texto principal da seção (parágrafos) */
     .sobre-texto {
