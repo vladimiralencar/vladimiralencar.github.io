@@ -286,25 +286,28 @@
     }
 
   /* logomarcas */
-  .logos-container {
+  /* Contêiner das logomarcas */
+  .logos-container{
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* alinha pela base */
+    align-items: flex-end;    /* alinha pela base */
     gap: 40px;
     margin-bottom: 35px;
   }
 
-  /* UEPB (aumento leve) */
-  .logo-uepb {
-    height: 110px;
-    object-fit: contain;
+  /* 🔹 Tamanho-base reduzido da UEPB (aumentado em 30% depois) */
+  .logo-uepb{
+    height: 65px;             /* tamanho final menor */
+    transform: scale(1.30);   /* aumento de 30% */
+    transform-origin: bottom; /* crescimento a partir da base */
   }
 
-  /* LANA proporcional, porém reduzida para um visual elegante */
-  .logo-lana {
-    height: 220px;
-    object-fit: contain;
+  /* 🔹 LANA proporcional à UEPB */
+  .logo-lana{
+    height: calc(65px * 1.30); /* acompanha o aumento proporcional */
+    transform-origin: bottom;
   }
+
 
 
 
@@ -322,7 +325,7 @@
 <body>
 <header>
   <div class="menu">
-    <div class="brand">valencar.com</div>
+    <div class="brand">valencar.com.br</div>
     <nav>
       <ul>
         <li><a href="#sobre">Sobre</a></li>
@@ -495,10 +498,10 @@
       </p>
 
       <div class="logos-container">
-        <img class="logo-img"
+        <img class="logo-img logo-uepb"
           src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/Logomarca-da-UEPB.png">
 
-        <img class="logo-img"
+        <img class="logo-img logo-lana"
           src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/contato/LANA-Logo-web.png"> 
       </div>
 
