@@ -304,29 +304,33 @@
       margin: 20px 0 35px 0;         /* menos espaço acima, mantém abaixo */
     }
 
-    /* UEPB — aumentada em 30% */
-    .logo-uepb:first-child {
-      height: 120px;
-      width: auto;
-      object-fit: contain;
-    }
 
     /* LANA — proporcional à UEPB */
-    .logo-lana:last-child {
+    .logo-lana:first-child {
       height: auto;
       max-height: 120px;
       width: auto;
       object-fit: contain;
     }
 
+    /* UEPB — aumentada em 30% */
+    .logo-uepb:last-child {
+      height: 120px;
+      width: auto;
+      object-fit: contain;
+    }
 
-  /* Rodapé */
-  footer{
-    text-align:left;
-    padding:10px;
-    color:#666;
-    margin-top:10px;
-  }
+
+
+    /* Rodapé — alinhado à esquerda dentro da área útil */
+    footer {
+      max-width: 1100px;     /* mesma largura usada no restante do layout */
+      margin: 20px auto 0;   /* centraliza o bloco mas alinha o conteúdo à esquerda */
+      padding: 20px;
+      color: #666;
+      text-align: left;
+    }
+
 
 </style>
 </head>
