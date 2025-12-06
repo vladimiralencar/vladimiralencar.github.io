@@ -237,20 +237,20 @@
   }
 
 
- /* ===========================
-   SEÇÃO Livros
-  =========================== */
+  /* 
+  ============================
+   SEÇÃO LIVROS — MINIMALISTA
+  ============================
+   */
 
-  /* Área da seção */
-  #livros {
-    text-align: left;
-    padding: 40px 20px;
-    border-top: 1px solid var(--border);
-    max-width: var(--max-width);
-    margin: 0 auto;
+  /* Container da seção */
+  #livros.container {
+    text-align: left;      /* Alinhamento à esquerda */
+    padding-left: 20px;    /* Mantém padrão do site */
+    padding-right: 20px;
   }
 
-  /* Título */
+  /* Título da seção */
   #livros h2 {
     text-align: left;
     margin-bottom: 20px;
@@ -259,60 +259,64 @@
     color: #222;
   }
 
-  /* Grid */
+/* Grid dos livros */
   .grade-livros {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 32px;
-    justify-items: start;
+    justify-items: start; /* tudo alinhado à esquerda */
   }
 
-  /* Cartão */
+  /* Cada livro é um card clicável */
   .livro {
+    display: block;
     background: #fff;
     border-radius: 14px;
     overflow: hidden;
     text-align: left;
     border: 1px solid #eee;
     transition: transform .25s ease, box-shadow .25s ease;
-    width: 220px; /* largura fixa para alinhamento perfeito */
+    text-decoration: none; /* remove sublinhado do link */
+    color: inherit;
   }
 
-  /* Hover */
+  /* Hover no card */
   .livro:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 26px rgba(0,0,0,0.08);
   }
 
-  /* CONTAINER da imagem — altura fixa */
-  .livro .img-container {
-    width: 100%;
-    height: 300px;       /* 👈 ajuste aqui para aumentar/diminuir */
-    background: #fafafa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
+  /* Container da imagem da capa */
+  .img-container {
+    overflow: hidden;       /* evita ultrapassar bordas */
+    border-radius: 14px;
   }
 
-  /* IMAGEM — capa completa sem corte */
-  .livro img {
+  /* Imagem da capa */
+  .img-container img {
     width: 100%;
-    height: 100%;
-    object-fit: contain; /* mantém proporção SEM cortar */
+    height: 260px;
+    object-fit: cover;      /* mantém proporção da capa */
     display: block;
+    transition: transform .35s ease; /* suavidade do zoom */
   }
 
-  /* Legenda */
+  /* Efeito hover: zoom suave na capa */
+  .livro:hover .img-container img {
+    transform: scale(1.06);
+  }
+
+  /* Legenda minimalista */
   .livro p {
     margin: 12px 14px 16px;
     font-size: 0.95rem;
     color: #444;
     line-height: 1.45;
     font-weight: 500;
+    position: relative;
   }
 
-  /* Linha decorativa */
+  /* Linha sutil acima da legenda */
   .livro p::before {
     content: "";
     display: block;
@@ -321,6 +325,22 @@
     background: #ddd;
     margin-bottom: 10px;
     border-radius: 2px;
+  }
+
+  /* Responsividade */
+  @media (max-width: 850px) {
+    .grade-livros {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .img-container img {
+      height: 200px;
+    }
+
+    .livro p {
+      font-size: 0.9rem;
+    }
   }
 
   
@@ -496,63 +516,89 @@
   </article>
 
 </section>
-
-<!-- ======== LIVROS ======== -->
+<!-- 
+============================= 
+======== SEÇÃO LIVROS ======= 
+============================= 
+ -->
 <section id="livros" class="container">
   <h2>Livros publicados</h2>
+
   <div class="grade-livros">
-    <div class="livro">
-      <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/1.InteligenciaArtificial.png" 
-           alt="Capa do livro Inteligência Artificial">
+
+    <a class="livro" href="#" target="_blank">
+      <div class="img-container">
+        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/1.InteligenciaArtificial.png" 
+             alt="Capa do livro Inteligência Artificial">
+      </div>
       <p>Inteligência Artificial</p>
-    </div>
+    </a>
 
-    <div class="livro">
-      <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/2.DoencasDePele-CNN.webp" 
-           alt="Capa do livro Detecção de Doenças de Pele">
+    <a class="livro" href="#" target="_blank">
+      <div class="img-container">
+        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/2.DoencasDePele-CNN.webp" 
+             alt="Capa do livro Detecção de Doenças de Pele">
+      </div>
       <p>Detecção de Doenças de Pele</p>
-    </div>
+    </a>
 
-    <div class="livro">
-      <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/3.FebreAmarela-Twitter.jpg" 
-           alt="Capa do livro Febre Amarela & Twitter">
+    <a class="livro" href="#" target="_blank">
+      <div class="img-container">
+        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/3.FebreAmarela-Twitter.jpg" 
+             alt="Capa do livro Febre Amarela & Twitter">
+      </div>
       <p>Febre Amarela & Twitter</p>
-    </div>
+    </a>
 
-    <div class="livro">
-      <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/4.Tuberculose.webp" 
-           alt="Capa do livro Análise da Tuberculose">
+    <a class="livro" href="#" target="_blank">
+      <div class="img-container">
+        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/4.Tuberculose.webp" 
+             alt="Capa do livro Análise da Tuberculose">
+      </div>
       <p>Análise da Tuberculose</p>
-    </div>
+    </a>
 
-    <div class="livro">
-      <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/5.cggeo.webp" 
-           alt="Capa do livro CGGeo — Planejamento Municipal">
+    <a class="livro" href="#" target="_blank">
+      <div class="img-container">
+        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/5.cggeo.webp" 
+             alt="Capa do livro CGGeo — Planejamento Municipal">
+      </div>
       <p>CGGeo — Planejamento Municipal</p>
-    </div>
+    </a>
 
-    <div class="livro">
-      <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/6.PrevisaoDeEpidemias.png" 
-           alt="Capa do livro Previsão de Epidemias">
+    <a class="livro" href="#" target="_blank">
+      <div class="img-container">
+        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/6.PrevisaoDeEpidemias.png" 
+             alt="Capa do livro Previsão de Epidemias">
+      </div>
       <p>Previsão de Epidemias</p>
-    </div>
+    </a>
 
-    <div class="livro">
-      <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/7.sigtrans.webp" 
-           alt="Capa do livro SIGTRANS — Planejamento de Transporte">
+    <a class="livro" href="#" target="_blank">
+      <div class="img-container">
+        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/7.sigtrans.webp" 
+             alt="Capa do livro SIGTRANS — Planejamento de Transporte">
+      </div>
       <p>SIGTRANS — Planejamento de Transporte</p>
-    </div>
+    </a>
 
-    <div class="livro">
-      <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/8.AnalisesMultiobjetivo.jpg" 
-           alt="Capa do livro Análises Multicritério e Multiobjetivo">
+    <a class="livro" href="#" target="_blank">
+      <div class="img-container">
+        <img src="https://raw.githubusercontent.com/vladimiralencar/vladimiralencar.github.io/main/livros/8.AnalisesMultiobjetivo.jpg" 
+             alt="Capa do livro Análises Multicritério e Multiobjetivo">
+      </div>
       <p>Análises Multicritério e Multiobjetivo</p>
-    </div>
+    </a>
+
   </div>
 </section>
 
 
-<!-- ======== CONTATO ======== -->
+  <!-- 
+  ============================== 
+  ======== SEÇÃO CONTATO ======= 
+  ============================== 
+   -->
   <section id="contato" class="contato-section">
 
     <div class="contato-container">
