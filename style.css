@@ -1,6 +1,3 @@
-/* ===========================
-   VARIÁVEIS E PADRÕES
-   =========================== */
 :root {
   --max-width: 1200px;
   --padding-lr: 20px;
@@ -23,7 +20,7 @@ section, .container {
   padding-left: var(--padding-lr);
   padding-right: var(--padding-lr);
   max-width: var(--max-width);
-  margin: 0 auto 60px auto; /* espaçamento padrão entre seções */
+  margin: 0 auto 80px auto; /* espaço padrão entre seções */
   box-sizing: border-box;
 }
 
@@ -74,7 +71,6 @@ header {
   color: #0073e6;
 }
 
-/* Menu mobile */
 .menu-toggle {
   display: none;
   font-size: 1.5rem;
@@ -185,12 +181,8 @@ header {
 }
 
 /* ===========================
-   LIVROS
+   LIVROS — CAPAS PROPORCIONAIS
    =========================== */
-#livros h2 {
-  margin-bottom: 32px;
-}
-
 .grade-livros {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -217,7 +209,7 @@ header {
 
 .img-container {
   width: 100%;
-  aspect-ratio: 2/3; /* mantém proporção das capas */
+  aspect-ratio: 2/3; /* Mantém proporção vertical das capas */
   overflow: hidden;
   border-radius: 14px;
 }
@@ -225,7 +217,7 @@ header {
 .img-container img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* Não corta imagem */
   display: block;
   transition: transform 0.35s ease;
 }
@@ -278,7 +270,7 @@ footer.container {
   padding: 20px 0;
   color: #666;
   font-size: 0.95rem;
-  margin-bottom: 40px; /* dentro da área útil */
+  margin-bottom: 40px;
 }
 
 /* ===========================
